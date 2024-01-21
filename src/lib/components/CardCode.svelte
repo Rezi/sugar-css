@@ -17,6 +17,7 @@
 	export let showExample = true;
 	export let iframe = false;
 	export let examplePosition: PositionType = showExample ? 'bottom' : '';
+	export let simple = false;
 
 	let exampleEl: HTMLElement;
 
@@ -61,32 +62,41 @@
 	}
 </script>
 
-<section class="card-code {examplePosition}">
-	{#if language === 'xml' && showExample && examplePosition === 'top'}
-		<div class="example-top" bind:this={exampleEl}>
-			{@html codeInCard}
-		</div>
-	{/if}
+{#if simple}
+	<pre dir="ltr" class="hljs simple">{@html highlightedCode}</pre>
+{:else}
+	<section class="card-code {examplePosition}">
+		{#if language === 'xml' && showExample && examplePosition === 'top'}
+			<div class="example-top" bind:this={exampleEl}>
+				{@html codeInCard}
+			</div>
+		{/if}
 
-	<pre
-		class="hljs"
-		dir="ltr"
-		style={language === 'xml' && showExample
-			? `padding-${examplePosition}: calc(var(--sugar-spacing-block) * 1.5);`
-			: ''}>{@html highlightedCode}</pre>
+		<pre
+			class="hljs"
+			dir="ltr"
+			style={language === 'xml' && showExample
+				? `padding-${examplePosition}: calc(var(--sugar-spacing-block) * 1.5);`
+				: ''}>{@html highlightedCode}</pre>
 
-	{#if language === 'xml' && showExample && examplePosition === 'bottom'}
-		<div class="example-bottom" bind:this={exampleEl}>
-			{@html codeInCard}
-		</div>
-	{/if}
-</section>
+		{#if language === 'xml' && showExample && examplePosition === 'bottom'}
+			<div class="example-bottom" bind:this={exampleEl}>
+				{@html codeInCard}
+			</div>
+		{/if}
+	</section>
+{/if}
 
 <style type="scss">
 	.hljs {
 		margin: 0 calc(-1 * var(--sugar-spacing-inline)) calc(-1 * var(--sugar-spacing-block));
 		padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 		overflow-x: auto;
+	}
+
+	.simple {
+		margin: 0;
+		padding: 1rem;
 	}
 
 	::-webkit-scrollbar {

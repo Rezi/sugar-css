@@ -13,7 +13,7 @@ You can easily adjust the look and feel of your very own build of Sugar.css
 [Customize your Sugar.css](https://sugar-css.com/customize)
 
 **Lightweight**
-The whole framework is less than 10KB g-zipped. Including advanced grid system and custom properties to customize.
+The whole framework is less than 8.4 kB g-zipped. Including advanced grid system and custom properties to customize.
 
 ## Install
 
@@ -35,7 +35,7 @@ These are the most recent CSS features used by Sugar.css:
 
 Sugar.css can be, with exceptions of following classes `.s-dark, .s-light, .s-outline, .s-secondary, .s-grid .s-fixed, .s-container`, considered as CSS reset. All styles applied by Sugar.css use :where() pseudo-selector, which does not add any specificity to its selector. This way user can overwrite any Sugar.css style without dealing with specificity issues. Also, there is no need to keep Sugar.css in a separate layer and write custom code in another.
 
-Sugar.css tries to be as simple as possible and keep its size down (below 10KB minified).
+Sugar.css tries to be as simple as possible and keep its size down (8.4 kB minified).
 
 ### Use cases
 
