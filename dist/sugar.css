@@ -564,7 +564,7 @@ SOFTWARE.
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
  */
-:where(.s-grid.fixed > *) {
+:where(.s-grid.s-fixed > *) {
   grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
 }
 
@@ -1140,18 +1140,18 @@ select) {
 }
 
 /* input button combo */
-:where(:has(> input:not([type=radio], [type=checkbox], :last-child)):has(> :where(button, [type=button i], [type=reset i], [type=submit i]):last-child)) {
+:where(:has(> input:not([type=radio], [type=checkbox], :last-child):first-child):has(> :where(button, [type=button i], [type=reset i], [type=submit i]):last-child)) {
   display: flex;
 }
 
-:where(:has(> input:not([type=button i], [type=reset i], [type=submit i])):has(> :where(button, [type=button i], [type=reset i], [type=submit i])) input:not([type=radio], [type=checkbox])) {
+:where(:has(> input:not([type=button i], [type=reset i], [type=submit i])):has(> :where(button, [type=button i], [type=reset i], [type=submit i])) input:not([type=radio], [type=checkbox]):first-child) {
   border-radius: 0;
   border-start-start-radius: var(--s-input-border-radius);
   border-end-start-radius: var(--s-input-border-radius);
   border-inline-end: 0;
 }
 
-:where(input:not([type=radio], [type=checkbox]) + :where(button, [type=button i], [type=reset i], [type=submit i])) {
+:where(input:not([type=radio], [type=checkbox]):first-child + :where(button, [type=button i], [type=reset i], [type=submit i]):last-child) {
   max-width: min-content;
   text-wrap: nowrap;
   border-radius: 0;

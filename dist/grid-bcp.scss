@@ -32,7 +32,7 @@ _::-webkit-full-page-media,
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
 
-:where(.s-grid.fixed) {
+:where(.s-grid.s-fixed) {
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
 
