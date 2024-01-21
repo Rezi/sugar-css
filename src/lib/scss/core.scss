@@ -1,0 +1,148 @@
+/* MIT License
+
+Copyright (c) 2024 Tomáš Řezáč
+
+https://github.com/Rezi/sugar-css
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ */
+
+:where(html) {
+	font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+	:where(html) {
+		font-size: calc(16px + 2 * ((100vw - 320px) / 960));
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	:where(html) {
+		font-size: calc(18px + 54 * ((100vw - 1280px) / 10000));
+	}
+}
+
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Backgrounds do not repeat by default (opinionated).
+ */
+
+*,
+::before,
+::after {
+	box-sizing: border-box; /* 1 */
+	background-repeat: no-repeat; /* 2 */
+}
+
+/**
+  * 1. Add text decoration inheritance in all browsers (opinionated).
+  * 2. Add vertical alignment inheritance in all browsers (opinionated).
+  */
+
+::before,
+::after {
+	text-decoration: inherit; /* 1 */
+	vertical-align: inherit; /* 2 */
+}
+
+/**
+   * 1. Use the default cursor in all browsers (opinionated).
+   * 2. Change the line height in all browsers (opinionated).
+   * 3. Breaks words to prevent overflow in all browsers (opinionated).
+   * 4. Use a 4-space tab width in all browsers (opinionated).
+   * 5. Remove the grey highlight on links in iOS (opinionated).
+   * 6. Prevent adjustments of font size after orientation changes in iOS.
+   */
+
+:where(:root) {
+	cursor: default; /* 1 */
+	line-height: var(--s-line-height); /* 2 */
+	overflow-wrap: break-word; /* 3 */
+	-moz-tab-size: 4; /* 4 */
+	tab-size: 4; /* 4 */
+	-webkit-tap-highlight-color: transparent; /* 5 */
+	-webkit-text-size-adjust: 100%; /* 6 */
+	text-size-adjust: 100%; /* 6 */
+}
+
+/**
+  * Remove the margin in all browsers (opinionated).
+  */
+
+:where(body) {
+	margin: 0;
+	color: var(--s-color-text);
+	background-color: var(--s-color-bg);
+}
+
+:where(p) {
+	text-wrap: pretty;
+}
+
+/**
+ * Restrict sizing to the page width in all browsers (opinionated).
+ */
+
+:where(iframe, img, input, video, select, textarea) {
+	height: auto;
+	max-width: 100%;
+}
+
+/*
+  * Change the display on visually hidden accessible elements
+  * in all browsers (opinionated).
+  */
+
+:where([aria-hidden='false' i][hidden]) {
+	display: initial;
+}
+
+:where([aria-hidden='false' i][hidden]:not(:focus)) {
+	clip: rect(0, 0, 0, 0);
+	position: absolute;
+}
+
+/* Embedded content
+  * ========================================================================== */
+
+/*
+  * Change the alignment on media elements in all browsers (opinionated).
+  */
+
+:where(audio, canvas, iframe, img, svg, video) {
+	vertical-align: middle;
+}
+
+/**
+  * Remove the border on iframes in all browsers (opinionated).
+  */
+
+:where(iframe) {
+	border-style: none;
+}
+
+/**
+  * Change the fill color to match the text color in all browsers (opinionated).
+  */
+
+:where(svg:not([fill])) {
+	fill: currentColor;
+}

@@ -1,0 +1,70 @@
+/* setup tooltips */
+:where(*:has(> [aria-describedby]):has(> [role='tooltip' i])) {
+	position: relative;
+}
+
+:where([role='tooltip' i]) {
+	--arrow-size: 0.5rem;
+	--tooltip-gap: 0.1rem;
+
+	visibility: hidden;
+	background: var(--s-color-fg);
+	border-radius: var(--s-input-border-radius);
+	color: var(--s-color-bg);
+	padding: var(--s-tooltip-padding-block) var(--s-tooltip-padding-inline);
+	font-size: 1rem;
+	font-weight: normal;
+	bottom: calc(-1 * (var(--arrow-size)) - var(--tooltip-gap));
+	translate: 0 100%;
+	transform: scale3d(0.2, 0.2, 1);
+	transition: all 0.2s ease-in-out;
+	transform-origin: 0 0;
+	opacity: 0;
+	inset-inline-end: 0;
+	max-width: 20rem;
+}
+
+// by default tooltip is shown
+:where(a[aria-describedby] + [role='tooltip' i]) {
+	inset-inline-start: 0;
+	inset-inline-end: initial;
+}
+:where([role='tooltip' i]),
+:where([role='tooltip' i]):after,
+:where([role='tooltip' i]):before {
+	display: block;
+	position: absolute;
+}
+
+/* 
+the before element just create an invisible bridge for the hover effect, 
+when moving from the 'aria-describedby' element to tooltip element 
+*/
+:where([role='tooltip' i]):before {
+	content: '';
+	height: calc(var(--arrow-size) + var(--tooltip-gap));
+	width: 100%;
+	top: calc(-1 * var(--arrow-size) - var(--tooltip-gap));
+	inset-inline-start: 0;
+}
+
+:where([role='tooltip' i]):after {
+	content: '';
+	height: 0;
+	width: 0;
+	border: var(--arrow-size) solid transparent;
+	border-bottom-color: var(--s-color-fg);
+	top: calc(-1.9 * var(--arrow-size));
+	inset-inline-start: calc(((1rem * var(--s-multiplier-rounded)) / 4) + 1rem);
+}
+
+:where(
+		[aria-describedby]:hover + [role='tooltip' i],
+		[aria-describedby]:focus + [role='tooltip' i],
+		[aria-describedby] + [role='tooltip' i]:hover
+	) {
+	opacity: 1;
+	transform: scale3d(1, 1, 1);
+	visibility: visible;
+	z-index: 2;
+}

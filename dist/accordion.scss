@@ -1,0 +1,74 @@
+/* Accordion - Summary / details */
+
+:where(details summary) {
+	list-style: none;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: space-between;
+	// padding-bottom: var(--sugar-spacing-list);
+	cursor: pointer;
+}
+
+:where(details:not(:last-of-type)) {
+	margin-bottom: var(--sugar-spacing-list);
+}
+:where(details[open] summary) {
+	margin-bottom: var(--sugar-spacing-list);
+}
+
+:where(details:not([open]):not(:last-of-type) summary:not([role='button' i])) {
+	padding-bottom: var(--sugar-spacing-list);
+}
+
+:where(details[open]:not(:last-of-type):has(summary:not([role='button' i]))) {
+	padding-bottom: var(--sugar-spacing-list);
+}
+:where(details:not(:last-of-type):has(summary:not([role='button' i]))) {
+	border-bottom: var(--sugar-border-width) solid var(--s-color-separator);
+}
+
+:where(details summary):after {
+	--chevron-size: 0.8rem;
+	content: '';
+	margin-inline: 0.8rem 0.3rem;
+	width: var(--chevron-size);
+	height: var(--chevron-size);
+	border: solid currentColor;
+	border-width: 0 0 var(--sugar-border-width-plus) var(--sugar-border-width-plus);
+	transform: rotate(-45deg) translateY(-30%);
+	transition: transform 0.3s;
+	flex-shrink: 0;
+}
+
+:where(details[open] summary):after {
+	transform: rotate(45deg);
+}
+
+summary::marker,
+summary::-webkit-details-marker {
+	display: none;
+	content: none; /* remove triangle (my case, it is button-like) */
+}
+
+/* Card Accordion */
+
+article:has(> details:only-child) {
+	padding: 0;
+	margin-bottom: var(--sugar-spacing-list);
+}
+article > details:only-child {
+	margin: calc(var(--sugar-border-width) * -1);
+}
+article:has(> details:only-child) > details[open] > summary {
+	margin: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+article > details:only-child > :not(summary) {
+	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
+}
+
+article > details:only-child > summary {
+	padding: var(--s-input-block-padding) var(--s-input-padding-inline);
+}

@@ -1,0 +1,30 @@
+/**
+  * Remove the margin on nested lists in Chrome, Edge, and Safari.
+  */
+
+:where(dl, ol, ul) :where(dl, ol, ul) {
+	margin: 0;
+}
+
+:where(dl) {
+	--dl-width: 9rem;
+	--dd-min-width: 70%;
+	--dl-gap: 1rem;
+
+	display: flex;
+	gap: var(--dl-gap);
+	flex-wrap: wrap;
+}
+
+:where(dt) {
+	width: var(--dl-width);
+}
+
+:where(dd) {
+	flex: 1 0 var(--dd-min-width);
+	margin: 0 0 1rem;
+	min-width: calc(100% - var(--dl-width) - var(--dl-gap) - 1px);
+}
+:where(dd:last-child) {
+	margin: 0;
+}

@@ -1,0 +1,41 @@
+/**
+  * Correct the font size and margin on `h1` elements within `section` and
+  * `article` contexts in Chrome, Edge, Firefox, and Safari.
+  */
+
+:where(h1, h2, h3, h4, h5, h6) {
+	font-weight: 700;
+	margin: 0 0 calc(1em * var(--s-multiplier-sparsity));
+	text-wrap: balance;
+}
+
+:where(h1) {
+	font-size: 2rem;
+}
+:where(h2) {
+	font-size: 1.75rem;
+}
+:where(h3) {
+	font-size: 1.375rem;
+}
+:where(h4) {
+	font-size: 1.125rem;
+}
+:where(h5) {
+	font-size: 1rem;
+}
+:where(h6) {
+	font-size: 1rem;
+}
+
+:where(hgroup) {
+	margin-bottom: calc(var(--sugar-spacing-block) * var(--s-multiplier-sparsity));
+}
+
+:where(hgroup > *) {
+	margin-bottom: 0;
+}
+:where(hgroup > :not(:first-child)) {
+	color: var(--s-color-fg-65-bg);
+	font-weight: normal;
+}

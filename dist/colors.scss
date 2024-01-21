@@ -1,0 +1,82 @@
+:where(:root) {
+	--s-color-dark-theme-bg: #1a1a1a;
+	--s-color-dark-theme-fg: #fff;
+	--s-color-dark-theme-primary: #ff75b1;
+	--s-color-dark-theme-primary-contrast: #000;
+
+	--s-color-light-theme-bg: #fff;
+	--s-color-light-theme-fg: #000;
+	--s-color-light-theme-primary: #b1024e;
+	--s-color-light-theme-primary-contrast: #fff;
+}
+
+:where(:root, .s-dark, .s-light) {
+	--s-color-bg-95-fg: color-mix(in srgb, var(--s-color-bg) 95%, var(--s-color-fg));
+	--s-color-bg-85-fg: color-mix(in srgb, var(--s-color-bg) 85%, var(--s-color-fg));
+	--s-color-fg-65-bg: color-mix(in srgb, var(--s-color-fg) 60%, var(--s-color-bg));
+	--s-color-text: var(--s-color-fg);
+
+	--s-color-input-border: var(--s-color-fg-65-bg);
+	--s-color-separator: var(--s-color-bg-85-fg);
+
+	--s-color-primary-80-fg: color-mix(in srgb, var(--s-color-primary) 80%, var(--s-color-fg));
+	--s-color-primary-40-bg: color-mix(in srgb, var(--s-color-primary) 40%, var(--s-color-bg));
+
+	--s-color-shadow: color-mix(in srgb, var(--s-color-fg) 16%, transparent);
+	--s-color-shadow-half: color-mix(in srgb, var(--s-color-fg) 8%, transparent);
+
+	--s-box-shadow: 0 0 calc(2rem * var(--s-multiplier-shadow)) var(--s-color-shadow);
+	--s-box-shadow-half: 0 0 calc(1rem * var(--s-multiplier-shadow)) var(--s-color-shadow-half);
+
+	--s-color-bg-85-fg-primary: color-mix(
+		in srgb,
+		var(--s-color-bg-85-fg) 95%,
+		var(--s-color-primary)
+	);
+
+	--s-color-link: var(--s-color-primary);
+	--s-color-mark: var(--s-color-primary-40-bg);
+
+	--s-color-positive: rgb(30, 130, 0);
+	--s-color-bg-positive: color-mix(in srgb, var(--s-color-positive) 10%, var(--s-color-bg));
+	--s-color-negative: rgb(180, 40, 40);
+	--s-color-bg-negative: color-mix(in srgb, var(--s-color-negative) 10%, var(--s-color-bg));
+
+	/* Table */
+	--s-color-bg-header-footer: var(--s-color-bg-95-fg);
+
+	/* Article */
+	/* 	--s-color-bg-article-footer: var(--s-color-bg-95-fg);
+	--s-color-bg-article: linear-gradient(
+		180deg,
+		var(--s-color-bg-article-footer),
+		var(--s-color-bg)
+	); */
+	--s-color-bg-article-footer: var(--s-color-bg-95-fg);
+	--s-color-bg-article: var(--s-color-bg);
+}
+
+:where(.s-dark) {
+	--s-color-bg: var(--s-color-dark-theme-bg);
+	--s-color-fg: var(--s-color-dark-theme-fg);
+	--s-color-primary: var(--s-color-dark-theme-primary);
+	--s-color-primary-contrast: var(--s-color-dark-theme-primary-contrast);
+	color: var(--s-color-text);
+}
+
+:where(:root, .s-light) {
+	--s-color-bg: var(--s-color-light-theme-bg);
+	--s-color-fg: var(--s-color-light-theme-fg);
+	--s-color-primary: var(--s-color-light-theme-primary);
+	--s-color-primary-contrast: var(--s-color-light-theme-primary-contrast);
+	color: var(--s-color-text);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:where(:root) {
+		--s-color-bg: var(--s-color-dark-theme-bg);
+		--s-color-fg: var(--s-color-dark-theme-fg);
+		--s-color-primary: var(--s-color-dark-theme-primary);
+		--s-color-primary-contrast: var(--s-color-dark-theme-primary-contrast);
+	}
+}

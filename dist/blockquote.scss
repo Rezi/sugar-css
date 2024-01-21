@@ -1,0 +1,11 @@
+:where(blockquote) {
+	border-inline-start: var(--s-border-width-max) var(--s-color-primary) solid;
+	padding-inline: 1rem 0;
+	padding-block: 1rem;
+	margin-inline: 0;
+}
+
+:where(blockquote > footer) {
+	padding-top: calc(var(--sugar-spacing-block) / 3);
+	color: var(--s-color-fg-65-bg);
+}

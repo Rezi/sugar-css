@@ -1,0 +1,41 @@
+:where(.s-container) {
+	padding-inline: var(--sugar-spacing-inline);
+	margin-inline: calc((100dvw - min(100dvw, var(--container-width))) / 2);
+	/* this way  the container is still the same width,
+	no matter whether there is a scrollbar or not */
+}
+
+:where(body > header) {
+	background-color: var(--s-color-bg);
+}
+
+:where(body > footer) {
+	padding: var(--sugar-spacing-block) 0;
+	box-shadow: var(--s-box-shadow-half);
+	margin-top: auto;
+}
+
+:where(body > header) {
+	position: sticky;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+	/* padding-top added in order to avoid margin collapsing, 
+    In case of child with margin would define height of the header */
+	padding-top: 0.02px;
+	box-shadow: var(--s-box-shadow-half);
+}
+
+:where(body > header + *) {
+	padding-top: var(--sugar-spacing-block);
+}
+
+:where(body > :has(+ footer)) {
+	padding-bottom: var(--sugar-spacing-block);
+}
+
+:where(body:has(> footer)) {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}

@@ -1,0 +1,41 @@
+/* Accessibility
+  * ========================================================================== */
+
+/**
+  * Change the cursor on busy elements in all browsers (opinionated).
+  */
+
+:where([aria-busy='true' i]) {
+	// cursor: progress;
+	pointer-events: none;
+}
+
+:where([aria-busy='true' i]:empty) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1px; // so user can set min-height as well and the loader percent height still works
+}
+
+:where([aria-busy='true' i]):not(:has(progress)):before {
+	display: inline-block;
+	margin-right: 0.5rem;
+	content: '';
+	height: clamp(1em, 80%, 3rem);
+	min-width: 1em;
+	aspect-ratio: 1/1;
+	border: var(--sugar-border-width-plus) solid currentColor;
+	opacity: 0.6;
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,73 @@
+/* Text-level semantics
+  * ========================================================================== */
+
+/**
+  * Add the correct font size in all browsers.
+  */
+
+:where(small) {
+	font-size: 80%;
+}
+
+:where(abbr[title]) {
+	text-decoration: none;
+	border-bottom: var(--sugar-border-width-min) dotted;
+	cursor: help;
+}
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+
+:where(b, strong, var) {
+	font-weight: bolder;
+}
+
+:where(u, ins, a) {
+	text-decoration: none;
+	border-bottom: var(--sugar-border-width-min) solid;
+}
+
+:where(a) {
+	color: var(--s-color-link);
+	outline-offset: var(--s-focus-offset);
+}
+
+:where(mark, del, code, kbd, samp, ins) {
+	padding: var(--text-inline-padding-block) var(--text-inline-padding-inline);
+}
+
+:where(kbd) {
+	--shadow-offset: 0.075rem;
+	padding-bottom: calc(var(--text-inline-padding-block) + var(--shadow-offset));
+	box-shadow: inset calc(var(--shadow-offset) * -1) calc(var(--shadow-offset) * -1) 0 0.125rem
+		var(--s-color-fg-65-bg);
+}
+
+:where(mark) {
+	background-color: var(--s-color-mark);
+	color: var(--s-color-fg);
+}
+
+:where(del) {
+	background-color: var(--s-color-bg-negative);
+	color: var(--s-color-negative);
+}
+
+:where(ins) {
+	background-color: var(--s-color-bg-positive);
+	color: var(--s-color-positive);
+}
+
+/**
+  * 1. Correct the inheritance and scaling of font size in all browsers.
+  * 2. Correct the odd `em` font sizing in all browsers.
+  */
+
+:where(code, kbd, samp) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1rem; /* 2 */
+	background-color: var(--s-color-bg-85-fg-primary);
+	color: var(--s-color-fg-65-bg);
+	border-radius: 0.25rem;
+}

@@ -1,0 +1,52 @@
+:where(menu) {
+	list-style-type: none;
+	padding: 0;
+}
+
+/**
+  * Prevent VoiceOver from ignoring list semantics in Safari (opinionated).
+  */
+
+:where(nav li)::before {
+	content: '\200B';
+	float: left;
+}
+
+:where(nav:has(> menu), nav menu) {
+	display: flex;
+	align-items: center;
+	gap: var(--sugar-nav-gap);
+}
+
+:where(nav:has(> menu) a) {
+	border-bottom: none;
+}
+
+:where(aside nav:has(> menu), aside nav menu) {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+:where(nav:has(> menu)) {
+	justify-content: space-between;
+}
+
+/* Breadcrumb */
+
+:where(nav[aria-label='breadcrumb'] > ol) {
+	display: flex;
+	justify-content: start;
+	list-style: none;
+	padding-left: 0;
+}
+
+:where(nav[aria-label='breadcrumb'] > ol > li:not(:last-child)):after {
+	content: '/';
+	display: inline;
+	padding-inline: var(--text-inline-padding-inline);
+}
+
+:where(nav[aria-label='breadcrumb'] > ol > li a[aria-current='page']) {
+	border-bottom: none;
+	color: var(--s-color-text);
+}

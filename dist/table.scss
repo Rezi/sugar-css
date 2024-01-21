@@ -1,0 +1,51 @@
+/* Tabular data
+  * ========================================================================== */
+
+/**
+  * 1. Collapse border spacing in all browsers (opinionated).
+  * 2. Correct table border color in Chrome, Edge, and Safari.
+  * 3. Remove text indentation from table contents in Chrome, Edge, and Safari.
+  */
+
+:where(table) {
+	--table-padding: 0.75rem 1rem;
+	border-collapse: collapse; /* 1 */
+	border-color: currentColor; /* 2 */
+	text-indent: 0; /* 3 */
+	width: 100%;
+	margin-bottom: var(--sugar-spacing-block);
+}
+
+:where(*:has(> table)) {
+	overflow-x: auto;
+}
+
+:where(td, th) {
+	padding: var(--table-padding);
+	vertical-align: top;
+	text-align: left;
+}
+
+:where(thead, tfoot) :where(th, td) {
+	background-color: var(--s-color-bg-header-footer);
+}
+
+:where(thead, tr:not(:last-child)) :where(th, td) {
+	border-bottom: var(--sugar-border-width) solid var(--s-color-separator);
+}
+
+:where(tfoot tr:first-child) :where(th, td) {
+	border-top: var(--sugar-border-width) solid var(--s-color-separator);
+}
+
+:where(tbody) {
+	background-color: var(--s-color-bg);
+}
+
+:where(caption) {
+	text-transform: uppercase;
+	color: var(--s-color-fg-65-bg);
+	font-size: 0.75rem;
+	padding-block: 0.5rem;
+	background-color: inherit;
+}

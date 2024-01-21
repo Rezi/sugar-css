@@ -1,0 +1,10 @@
+:where(hr) {
+	margin-block: var(--sugar-spacing-block);
+	height: var(--s-hr-height);
+	background-color: var(--s-color-separator);
+	border: 0;
+}
+
+:where(article > hr) {
+	margin-inline: calc(var(--sugar-spacing-inline) * -1);
+}

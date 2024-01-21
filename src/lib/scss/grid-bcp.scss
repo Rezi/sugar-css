@@ -1,0 +1,80 @@
+$sugar-column-width: 5rem;
+$grid-columns-count: 10;
+
+:where(*:has(> .s-grid)) {
+	/* This is a fix for negative margin-block of the grid, 
+	which could be visible when background is applied to grid's wrapper */
+	padding-block-start: 0.02px;
+}
+
+:where(.s-grid) {
+	--span: 1;
+	--offset: 0;
+	--gap: 1rem;
+	--padding: 0rem;
+
+	--gap-half: calc(var(--gap) / 2);
+
+	@for $i from 2 through $grid-columns-count {
+		--span-#{$i}: initial;
+		--offset-#{$i}: initial;
+	}
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
+	container-type: inline-size;
+	container-name: fluid-grid;
+	margin: calc(var(--gap-half) * -1);
+}
+
+_::-webkit-full-page-media,
+:where(.s-grid) {
+	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
+}
+
+:where(.s-grid.s-fixed) {
+	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
+}
+
+:where(.s-grid > *) {
+	--max-span: 1;
+	--span-1f: var(--span);
+	--offset-1f: var(--offset);
+	--span-result: 1;
+
+	--span-plus-offset: calc(var(--span-result) + var(--offset-result));
+	grid-column: span min(var(--max-span), var(--span-plus-offset));
+	margin: var(--gap-half);
+	margin-inline-start: calc(
+		calc(100% / var(--span-plus-offset) * var(--offset-result)) + var(--gap-half)
+	);
+	padding: var(--padding);
+}
+
+:where(.s-grid > .s-grid) {
+	padding: 0;
+	margin: 0;
+}
+
+:where(.s-grid:has(+ .s-grid)) {
+	margin-bottom: calc(var(--gap) / 2);
+}
+
+@for $i from 2 through $grid-columns-count {
+	@container fluid-grid (min-width: #{$i * $sugar-column-width}) {
+		:where(.s-grid > *) {
+			--max-span: #{$i};
+			--span-#{$i}f: var(--span-#{$i}, var(--span-#{$i - 1}f));
+			--offset-#{$i}f: var(--offset-#{$i}, var(--offset-#{$i - 1}f));
+
+			--span-result: var(--span-#{$i}f);
+			--offset-result: var(--offset-#{$i}f);
+		}
+	}
+}
+
+/* :where(.s-col-full) {
+	grid-column-start: 1;
+	grid-column-end: -1;
+}
+ */

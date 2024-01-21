@@ -1,0 +1,39 @@
+:where(article) {
+	--inner-border-radius: calc(var(--s-block-radius) - var(--sugar-border-width));
+	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
+	box-shadow: var(--s-box-shadow);
+	margin-bottom: calc(var(--sugar-spacing-block) * 1.5);
+	border-radius: var(--s-block-radius);
+	background: var(--s-color-bg-article);
+	border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+}
+
+:where(article > header, article > footer) {
+	margin-inline: calc(var(--sugar-spacing-inline) * -1);
+}
+
+:where(article > header) {
+	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
+	border-radius: var(--inner-border-radius) var(--inner-border-radius) 0 0;
+	margin-block: calc(var(--sugar-spacing-block) * -1) var(--sugar-spacing-block);
+}
+:where(article > footer) {
+	margin-block: var(--sugar-spacing-block) calc(var(--sugar-spacing-block) * -1);
+	border-radius: 0 0 var(--inner-border-radius) var(--inner-border-radius);
+}
+
+:where(article > header, body > header) {
+	border-bottom: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+}
+:where(article > header) {
+	background-color: var(--s-color-bg-article-footer);
+}
+
+:where(article > footer, body > footer) {
+	border-top: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+	background-color: var(--s-color-bg-article-footer);
+}
+
+:where(article > footer) {
+	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
+}

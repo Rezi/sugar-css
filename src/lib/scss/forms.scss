@@ -1,0 +1,579 @@
+/* Forms
+  * ========================================================================== */
+
+/**
+  * Remove the margin on controls in Safari.
+  */
+
+:where(button, input, select) {
+	margin: 0;
+}
+
+/**
+    * Correct the inability to style buttons in iOS and Safari.
+    */
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i]) {
+	-webkit-appearance: button;
+}
+
+/**
+    * Change the inconsistent appearance in all browsers (opinionated).
+    */
+
+:where(fieldset) {
+	border: var(--sugar-border-width) solid var(--s-color-primary-80-fg);
+	border-radius: calc(var(--s-input-border-radius) * 1.5);
+	padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
+}
+
+:where(legend) {
+	color: var(--s-color-primary-80-fg);
+	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline);
+}
+
+/**
+    * 1. Remove the margin in Firefox and Safari.
+    * 3. Change the resize direction in all browsers (opinionated).
+    */
+
+:where(textarea) {
+	margin: 0; /* 1 */
+	resize: vertical; /* 3 */
+}
+
+/**
+    * Correct the cursor style of increment and decrement buttons in Safari.
+    */
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+    * Correct the text style of placeholders in Chrome, Edge, and Safari.
+    */
+
+::-webkit-input-placeholder {
+	color: inherit;
+	opacity: 0.54;
+}
+
+/**
+    * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+    */
+
+::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+    * 1. Correct the inability to style upload buttons in iOS and Safari.
+    * 2. Change font properties to `inherit` in Safari.
+    */
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/**
+ * 1. Change the inconsistent appearance in all browsers (opinionated).
+ * 2. Add typography inheritance in all browsers (opinionated).
+ */
+
+:where(
+		button,
+		input,
+		select,
+		textarea,
+		[type='button' i],
+		[type='reset' i],
+		[type='submit' i],
+		[role='button' i],
+		summary[role='button' i]
+	) {
+	background-color: var(--s-color-bg);
+	border: var(--sugar-border-width) solid var(--s-color-input-border); /* 1 */
+	color: inherit; /* 1 */
+	font: inherit; /* 2 */
+	letter-spacing: inherit; /* 2 */
+	padding: var(--s-input-block-padding) var(--s-input-padding-inline); /* 1 */
+	border-radius: var(--s-input-border-radius);
+}
+
+:where([role='button' i]:not(summary)) {
+	display: inline-block;
+	text-align: center;
+}
+
+:where(input:not([type='checkbox'], [type='radio']), select, textarea, button) {
+	width: 100%;
+}
+
+:where(
+		button,
+		input,
+		select,
+		textarea,
+		[role='button' i],
+		[type='reset' i],
+		[type='submit' i]
+	):disabled {
+	background-color: var(--s-color-bg-85-fg);
+}
+:where(button, [role='button' i], [type='reset' i], [type='submit' i]):disabled {
+	border-color: var(--s-color-bg-85-fg);
+}
+
+:where(input, textarea):where([aria-invalid]),
+:where(
+		select,
+		input[type='datetime-local'],
+		input[type='date'],
+		input[type='month'],
+		input[type='week'],
+		input[type='time'],
+		input[type='search']
+	) {
+	-webkit-appearance: none;
+	appearance: none;
+	background-position: center right var(--s-input-padding-inline);
+	background-size: 1.2rem;
+	background-repeat: no-repeat;
+	padding-right: 2.5rem;
+}
+
+:where(input, textarea):where([aria-invalid='true']) {
+	background-image: var(--sugar-icon-invalid);
+	border-color: var(--s-color-negative);
+}
+:where(input, textarea):where([aria-invalid='false']) {
+	background-image: var(--sugar-icon-valid);
+	border-color: var(--s-color-positive);
+}
+
+/**
+   * Change the inconsistent appearance in all browsers (opinionated).
+   */
+
+:where(select) {
+	background-size: 1rem;
+	background-image: var(--sugar-chevron);
+}
+
+:where(select[multiple]) {
+	background-image: none;
+}
+
+:where(
+		button,
+		[type='button' i],
+		[type='reset' i],
+		[type='submit' i],
+		[role='button' i],
+		summary[role='button' i]
+	) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--s-color-primary);
+	color: var(--s-color-primary-contrast);
+	border: var(--sugar-border-width) solid var(--s-color-primary);
+	cursor: pointer;
+	transition: background-color 0.25s;
+}
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
+		.s-outline
+	) {
+	background-color: var(--s-color-primary-contrast);
+	color: var(--s-color-primary);
+	border: var(--sugar-border-width) solid var(--s-color-primary);
+}
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
+		:hover
+	) {
+	background-color: var(--s-color-primary-80-fg);
+	border-color: var(--s-color-primary-80-fg);
+	color: var(--s-color-primary-contrast);
+}
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
+		.s-secondary
+	) {
+	filter: saturate(0.5);
+}
+
+/* File input */
+
+:where([type='file' i]) {
+	padding: calc(var(--s-input-block-padding) / 2);
+	display: flex;
+	align-items: center;
+}
+
+::file-selector-button {
+	height: 100%;
+	margin-inline-end: 1rem;
+	border-radius: calc(var(--s-input-border-radius) * 0.8);
+	border: var(--sugar-border-width) solid;
+	padding-inline: var(--s-input-padding-inline);
+	line-height: 0;
+	background-color: var(--s-color-bg);
+	color: var(--s-color-fg);
+}
+
+/* Color input */
+
+:where(input[type='color' i]) {
+	padding: calc(var(--s-input-block-padding) / 2);
+}
+
+::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+::-webkit-color-swatch {
+	border-radius: calc(var(--s-input-border-radius) * 0.8);
+}
+::-moz-color-swatch {
+	border-radius: calc(var(--s-input-border-radius) * 0.8);
+}
+
+:where(input[type='file' i], [type='color' i]) {
+	height: calc(
+		var(--s-input-block-padding) * 2 + var(--s-line-height) * 1rem + (2 * var(--sugar-border-width))
+	);
+	box-sizing: border-box;
+}
+
+:where(label) {
+	display: block;
+}
+
+:where(label) > :where(input, select, textarea, progress),
+:where(label) + :where(input, select, textarea, progress) {
+	margin-top: calc(var(--s-input-block-padding) / 3);
+}
+
+/**
+   * Progress
+
+    * Add the correct vertical alignment in Chrome, Edge, and Firefox.
+    */
+
+:where(progress) {
+	--sugar-progress-radius: calc(var(--sugar-progress-height) / 2);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: baseline;
+	height: var(--sugar-progress-height);
+	border-radius: var(--sugar-progress-radius);
+	background-color: var(--s-color-bg-85-fg-primary);
+	border: 0;
+}
+
+:where(progress)::-webkit-progress-bar {
+	background: none;
+}
+
+:where(progress):indeterminate::-moz-progress-bar {
+	background: none;
+}
+
+:where(progress)::-webkit-progress-value {
+	background-color: var(--s-color-primary);
+}
+
+:where(progress)::-moz-progress-bar {
+	background-color: var(--s-color-primary);
+}
+
+:where(progress):indeterminate {
+	background: var(--s-color-bg-85-fg-primary)
+		linear-gradient(to right, var(--s-color-primary) 20%, var(--s-color-bg-85-fg-primary) 20%)
+		left/200% no-repeat;
+	animation: progress-bar 1.3s infinite;
+}
+
+@keyframes progress-bar {
+	0% {
+		background-position: 40% 0;
+	}
+	100% {
+		background-position: -100% 0;
+	}
+}
+
+/* Radios and checkboxes */
+
+:where(input[type='radio'], input[type='checkbox']) {
+	appearance: none;
+	vertical-align: middle;
+	border-radius: 50%;
+	width: var(--sugar-check-radio-size);
+	height: var(--sugar-check-radio-size);
+	border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
+	transition: 0.2s all linear;
+	margin: 0;
+	margin-inline-end: var(--s-input-block-padding);
+	padding: 0;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+:where(label:has(input[type='radio'], input[type='checkbox'])) {
+	display: flex;
+	align-items: center;
+}
+
+:where(input[type='radio']):checked {
+	border: var(--sugar-check-radio-border-size) solid var(--s-color-primary);
+}
+
+:where(input[type='checkbox']:not([role='switch' i])) {
+	border-radius: var(--s-checkbox-radius);
+	display: grid;
+	place-content: center;
+}
+
+:where(input[type='checkbox']:not([role='switch' i]))::before {
+	content: '';
+	width: calc(var(--sugar-check-radio-size) / 1.6);
+	height: calc(var(--sugar-check-radio-size) / 1.6);
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	transform: scale(0);
+	transform-origin: bottom left;
+	transition: 0.1s transform ease-in-out;
+	background-color: var(--s-color-primary);
+}
+
+:where(input[type='checkbox']:not([role='switch' i])):checked::before {
+	transform: scale(1);
+}
+
+:where(input[type='checkbox']):focus {
+	outline: 2px solid -webkit-focus-ring-color;
+	outline-offset: var(--s-focus-offset);
+}
+
+:where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
+	padding-right: var(--s-input-padding-inline);
+}
+
+:where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
+	background-image: var(--sugar-icon-date);
+}
+
+:where(input[type='time']) {
+	background-image: var(--sugar-icon-time);
+}
+
+// prepare inputs with black icons to be black in lightmode
+:where(
+		input[type='time'],
+		input[type='datetime-local'],
+		input[type='date'],
+		input[type='month'],
+		input[type='week'],
+		select
+	) {
+	background-blend-mode: difference;
+}
+
+/**
+    * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+    * 2. Correct the outline style in Safari.
+    */
+//linear-gradient(rgb(255, 0, 0), rgb(255, 0, 0)),
+
+:where(input[type='search' i]) {
+	background-image: var(--sugar-icon-search);
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/* input button combo */
+
+:where(
+		:has(> input:not([type='radio'], [type='checkbox'], :last-child):first-child):has(
+				> :where(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child
+			)
+	) {
+	display: flex;
+}
+
+:where(
+		:has(> input:not([type='button' i], [type='reset' i], [type='submit' i])):has(
+				> :where(button, [type='button' i], [type='reset' i], [type='submit' i])
+			)
+			input:not([type='radio'], [type='checkbox']):first-child
+	) {
+	border-radius: 0;
+	border-start-start-radius: var(--s-input-border-radius);
+	border-end-start-radius: var(--s-input-border-radius);
+	border-inline-end: 0;
+}
+
+:where(
+		input:not([type='radio'], [type='checkbox']):first-child
+			+ :where(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child
+	) {
+	max-width: min-content;
+	text-wrap: nowrap;
+	border-radius: 0;
+	border-start-end-radius: var(--s-input-border-radius);
+	border-end-end-radius: var(--s-input-border-radius);
+}
+
+/* base for unifying input indicators */
+
+:where(
+		input[type='datetime-local'],
+		input[type='date'],
+		input[type='month'],
+		input[type='week'],
+		input[type='time']
+	)::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
+
+/* Avoid custom icons for mozilla as it is buggy */
+@-moz-document url-prefix() {
+	[type='date'],
+	[type='datetime-local'],
+	[type='month'],
+	[type='time'],
+	[type='week'] {
+		background-image: none !important;
+	}
+}
+
+/* Range slider */
+
+:where(input[type='range' i]) {
+	--c: var(--s-color-primary);
+	--g: 0.25rem; /* the gap */
+	--l: var(--sugar-range-height); /* line thickness*/
+	--s: var(--sugar-check-radio-size); /* thumb size*/
+
+	border-width: 0;
+	padding: 0;
+	width: 100%;
+	height: var(--s);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: none;
+	cursor: pointer;
+	overflow: hidden;
+
+	--polygon: polygon(
+		0 calc(50% + var(--l) / 2),
+		-100vw calc(50% + var(--l) / 2),
+		-100vw calc(50% - var(--l) / 2),
+		0 calc(50% - var(--l) / 2),
+		0 0,
+		100% 0,
+		100% calc(50% - var(--l) / 2),
+		100vw calc(50% - var(--l) / 2),
+		100vw calc(50% + var(--l) / 2),
+		100% calc(50% + var(--l) / 2),
+		100% 100%,
+		0 100%
+	);
+}
+:where(input):focus-visible,
+:where(input):hover {
+	--c: var(--s-color-primary-80-fg);
+}
+:where(input):active,
+:where(input):focus-visible {
+	--_b: var(--s);
+}
+
+:where(input[type='range' i])::-webkit-slider-thumb {
+	height: var(--s);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
+	border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0 100vw/0
+		calc(100vw + var(--g));
+	clip-path: var(--polygon);
+	-webkit-appearance: none;
+	appearance: none;
+	transition: 0.3s;
+}
+
+:where(input[type='range'])::-moz-range-thumb {
+	height: var(--s);
+	width: var(--s);
+	background: none;
+	border-radius: 50%;
+	box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
+	border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0 100vw/0
+		calc(100vw + var(--g));
+	clip-path: var(--polygon);
+	-moz-appearance: none;
+	appearance: none;
+	transition: 0.3s;
+}
+
+/*
+  * Change the cursor on disabled, not-editable, or otherwise
+  * inoperable elements in all browsers (opinionated).
+  */
+
+:where([aria-disabled='true' i], [disabled]) {
+	cursor: not-allowed;
+}
+
+/* Checkbox switch */
+
+:where(input[type='checkbox' i][role='switch' i]) {
+	--dot-gap: 0.15rem;
+	--dot-size: calc(
+		var(--sugar-check-radio-size) - 2 * (var(--dot-gap) + var(--sugar-border-width-plus))
+	);
+	--switch-width: calc(var(--sugar-check-radio-size) * 2);
+	--dot-move: calc(var(--switch-width) - var(--sugar-check-radio-size));
+	height: var(--sugar-check-radio-size);
+	width: var(--switch-width);
+	border-radius: calc(var(--sugar-check-radio-size) / 2);
+	border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
+	position: relative;
+	background-color: var(--s-color-primary-contrast);
+}
+
+:where(input[type='checkbox' i][role='switch' i])::before {
+	content: '';
+	display: block;
+	position: absolute;
+	transform: translateX(var(--dot-gap));
+	top: var(--dot-gap);
+	height: var(--dot-size);
+	width: var(--dot-size);
+	border-radius: 50%;
+	background-color: var(--s-color-primary);
+	transition:
+		transform 0.3s,
+		background-color 0.3s;
+}
+
+:where(input[type='checkbox' i][role='switch' i]:checked)::before {
+	transform: translateX(calc(var(--dot-gap) + var(--dot-move)));
+	background-color: var(--s-color-primary-contrast);
+}
+
+:where(input[type='checkbox' i][role='switch' i]:checked) {
+	background-color: var(--s-color-primary);
+}
