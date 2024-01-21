@@ -10,9 +10,12 @@
 
 <ul>
 	<li>Customize online and <a href="/customize">download</a></li>
-	<li><code>npm install sugar-css</code> and use <code>sugar-css/dist/index.scss</code></li>
 	<li>
-		Build via command line <code>npx sugar-css</code> (this way grid column width can be modified)
+		<code>npm install sugar-css-framework</code> and use
+		<code>sugar-css-framework/dist/index.scss</code>
+	</li>
+	<li>
+		Build via command line <code>npx sugar-css-framework</code> (this way grid column width can be modified)
 	</li>
 	<li>Download from a cdn</li>
 </ul>
