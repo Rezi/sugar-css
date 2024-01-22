@@ -6,7 +6,7 @@
 	<h2>About</h2>
 </hgroup>
 
-<section class="numbered">
+<article class="numbered">
 	<section>
 		<p>
 			Sugar grid is quite different from grid systems you probably know already (Bootstrap,
@@ -68,4 +68,17 @@
 		The grid container is defined by class <code>.s-grid</code> everything else is defined by inline
 		custom properties.
 	</p>
-</section>
+</article>
+
+<style lang="scss">
+	.numbered {
+		counter-reset: sections;
+		h2 {
+			counter-increment: sections;
+			&:before {
+				content: counter(sections) ') ';
+				display: inline;
+			}
+		}
+	}
+</style>

@@ -36,7 +36,7 @@
 			<h3>Lightweight</h3>
 			<p>
 				Whole framework is
-				<strong>8.4kB</strong> g-zipped. Including advanced grid system and custom properties to customize.
+				<strong>8.4 kB</strong> g-zipped. Including advanced grid system and custom properties to customize.
 			</p>
 		</div>
 	</div>
