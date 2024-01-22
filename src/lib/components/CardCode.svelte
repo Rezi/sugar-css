@@ -53,12 +53,31 @@
 
 		iframe.contentDocument?.write(code);
 
+		let link = document.createElement('link');
+
+		// set the attributes for link element
+		link.rel = 'stylesheet';
+
+		link.type = 'text/css';
+
+		link.href = '/sugar.min.css';
+
+		// Get HTML head element to append
+		// link element to it
 		const iframeHead = iframe.contentDocument?.getElementsByTagName('head')[0];
+		iframeHead?.appendChild(link);
+
+		/* 		<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/gh/Rezi/sugar-css@main/dist/sugar.min.css"
+/> */
+
+		/* 	const iframeHead = iframe.contentDocument?.getElementsByTagName('head')[0];
 		const arrStyleSheets = document.getElementsByTagName('style');
 		for (var i = 0; i < arrStyleSheets.length; i++)
 			Array.from(arrStyleSheets).forEach((StyleSheet) => {
 				iframeHead?.appendChild(StyleSheet.cloneNode(true));
-			});
+			}); */
 	}
 </script>
 
