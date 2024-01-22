@@ -38,6 +38,11 @@
 	justify-content: start;
 	list-style: none;
 	padding-left: 0;
+	flex-wrap: wrap;
+}
+
+:where(nav[aria-label='breadcrumb'] > ol > li) {
+	text-wrap: nowrap;
 }
 
 :where(nav[aria-label='breadcrumb'] > ol > li:not(:last-child)):after {
