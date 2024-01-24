@@ -2,6 +2,11 @@
 	import Logo from '$lib/components/Logo.svelte';
 </script>
 
+<svelte:head>
+	<title>Sugar.css</title>
+	<meta name="description" content="Sugar.css is lightweight class light CSS framework." />
+</svelte:head>
+
 <section class="center" style="--size:12rem">
 	<Logo>
 		<!-- <div slot="top" class="top-square"></div>
@@ -41,9 +46,7 @@
 		</div>
 	</div>
 </section>
-
 <hr />
-
 <section>
 	<h2>Sugar = cutting edge CSS</h2>
 	<p>

@@ -1,6 +1,11 @@
 <script>
 </script>
 
+<svelte:head>
+	<title>Inline elements | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Typography > Inline elements" />
+</svelte:head>
+
 <hgroup>
 	<h1>Typography</h1>
 	<h2>Inline elements</h2>

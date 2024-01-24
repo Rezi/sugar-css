@@ -32,6 +32,11 @@
 </menu>`;
 </script>
 
+<svelte:head>
+	<title>Lists | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Lists" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Lists</h2>

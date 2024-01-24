@@ -47,6 +47,11 @@
 </dialog>`;
 </script>
 
+<svelte:head>
+	<title>Modal | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Modal" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Modal</h2>

@@ -19,6 +19,11 @@
 <aside>`;
 </script>
 
+<svelte:head>
+	<title>Menu | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Navigation >  Menu" />
+</svelte:head>
+
 <hgroup>
 	<h1>Navigation</h1>
 	<h2>Menu</h2>

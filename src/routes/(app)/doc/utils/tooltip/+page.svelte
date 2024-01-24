@@ -45,6 +45,11 @@
 </div>`;
 </script>
 
+<svelte:head>
+	<title>Tooltip | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Utils > Tooltip" />
+</svelte:head>
+
 <hgroup>
 	<h1>Utils</h1>
 	<h2>Tooltip</h2>

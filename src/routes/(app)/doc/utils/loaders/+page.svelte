@@ -10,6 +10,11 @@
 </section>`;
 </script>
 
+<svelte:head>
+	<title>Loaders | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Utils > Loaders" />
+</svelte:head>
+
 <hgroup>
 	<h1>Utils</h1>
 	<h2>Loaders</h2>

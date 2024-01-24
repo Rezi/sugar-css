@@ -6,9 +6,14 @@
 consectetur adipisicing elit`;
 </script>
 
+<svelte:head>
+	<title>Horizontal rule | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Horizontal rule" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
-	<h2>horizontal rule</h2>
+	<h2>Horizontal rule</h2>
 </hgroup>
 
 <article>

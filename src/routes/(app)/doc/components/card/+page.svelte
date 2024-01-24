@@ -12,6 +12,11 @@
 </article>`;
 </script>
 
+<svelte:head>
+	<title>Card | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Card" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Card</h2>

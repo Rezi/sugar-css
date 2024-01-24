@@ -37,6 +37,11 @@
 </details>`;
 </script>
 
+<svelte:head>
+	<title>Accordion | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Accordion" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Accordion</h2>

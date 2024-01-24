@@ -21,6 +21,11 @@
 </div>`;
 </script>
 
+<svelte:head>
+	<title>Grid Layout | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Grid > Layout" />
+</svelte:head>
+
 <hgroup>
 	<h1>Grid</h1>
 	<h2>Layout</h2>

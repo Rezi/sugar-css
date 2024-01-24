@@ -12,21 +12,10 @@
 </div>`;
 </script>
 
-<!-- <input id="accordion-trigger-2" class="accordion-trigger-input" type="checkbox"></input>
-  <label class="accordion-trigger" for="accordion-trigger-2">Accordion item 2
-    </label>
-
-
-    <section class="accordion-animation-wrapper">
-      <div class="accordion-animation">
-         
-            <h2>Accordion content</h2>
-            <p>This accordion content can be any height. It does not require fixed max-height, or any ways of transitioning height with Javascript. This content could be as long as it might and should resize and animate effortlessly.</p>
-            <p>This should function smoothly in newest Webkit/Chromium browsers.</p>
-      
-      
-      </div>
-    </section> -->
+<svelte:head>
+	<title>Progress | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Progress" />
+</svelte:head>
 
 <hgroup>
 	<h1>Components</h1>

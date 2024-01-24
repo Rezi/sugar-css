@@ -66,18 +66,6 @@
 		// link element to it
 		const iframeHead = iframe.contentDocument?.getElementsByTagName('head')[0];
 		iframeHead?.appendChild(link);
-
-		/* 		<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/gh/Rezi/sugar-css@main/dist/sugar.min.css"
-/> */
-
-		/* 	const iframeHead = iframe.contentDocument?.getElementsByTagName('head')[0];
-		const arrStyleSheets = document.getElementsByTagName('style');
-		for (var i = 0; i < arrStyleSheets.length; i++)
-			Array.from(arrStyleSheets).forEach((StyleSheet) => {
-				iframeHead?.appendChild(StyleSheet.cloneNode(true));
-			}); */
 	}
 </script>
 
@@ -107,6 +95,8 @@
 {/if}
 
 <style type="scss">
+	@import 'highlight.js/styles/atom-one-dark.css';
+
 	.hljs {
 		margin: 0 calc(-1 * var(--sugar-spacing-inline)) calc(-1 * var(--sugar-spacing-block));
 		padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);

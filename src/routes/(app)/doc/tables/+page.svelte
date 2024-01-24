@@ -51,6 +51,11 @@
 </table>`;
 </script>
 
+<svelte:head>
+	<title>Tables | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Tables" />
+</svelte:head>
+
 <h1>Tables</h1>
 
 <article class="white-bg">

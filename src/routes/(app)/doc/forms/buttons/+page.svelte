@@ -33,6 +33,11 @@
 `;
 </script>
 
+<svelte:head>
+	<title>Buttons | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Forms > Buttons" />
+</svelte:head>
+
 <hgroup>
 	<h1>Forms</h1>
 	<h2>Buttons</h2>

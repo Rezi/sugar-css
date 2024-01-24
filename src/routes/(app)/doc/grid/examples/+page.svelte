@@ -65,6 +65,11 @@
 </div>`;
 </script>
 
+<svelte:head>
+	<title>Grid Examples | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Grid > Examples" />
+</svelte:head>
+
 <hgroup>
 	<h1>Grid</h1>
 	<h2>Examples</h2>

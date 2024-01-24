@@ -9,6 +9,11 @@
 </blockquote>`;
 </script>
 
+<svelte:head>
+	<title>Block Quote | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Block Quote" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Block Quote</h2>

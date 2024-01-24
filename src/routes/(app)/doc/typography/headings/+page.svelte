@@ -11,6 +11,11 @@
 </p>`;
 </script>
 
+<svelte:head>
+	<title>Headings | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Typography > Headings" />
+</svelte:head>
+
 <hgroup>
 	<h1>Typography</h1>
 	<h2>Headings</h2>

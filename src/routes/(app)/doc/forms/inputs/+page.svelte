@@ -109,6 +109,11 @@
 </div>`;
 </script>
 
+<svelte:head>
+	<title>Inputs | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Forms > Inputs" />
+</svelte:head>
+
 <hgroup>
 	<h1>Forms</h1>
 	<h2>Inputs</h2>

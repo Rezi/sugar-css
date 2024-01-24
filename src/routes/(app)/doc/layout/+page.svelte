@@ -36,6 +36,11 @@
 </article>`;
 </script>
 
+<svelte:head>
+	<title>Layout & Themes | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Layout & Themes" />
+</svelte:head>
+
 <h1>Layout & Themes</h1>
 <article>
 	<h2>Container</h2>

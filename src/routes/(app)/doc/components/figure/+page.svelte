@@ -9,6 +9,11 @@
 </figure>`;
 </script>
 
+<svelte:head>
+	<title>Figure | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Components > Figure" />
+</svelte:head>
+
 <hgroup>
 	<h1>Components</h1>
 	<h2>Figure</h2>

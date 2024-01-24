@@ -32,32 +32,49 @@
 `;
 </script>
 
+<svelte:head>
+	<title>Sizes & Margins | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Sizes & Margins" />
+</svelte:head>
+
 <h1>Sizes & Margins</h1>
 
 <section>
-	Beside common CSS reset rules like removing 8px <code>margin</code> from <code>body</code>,
-	setting <code>box-sizing </code> to <code>border-box</code>, there are two major opinionated
-	rules: <strong>Poly fluid font sizing</strong> and redefined default <strong>Margins</strong>
+	In addition to conventional CSS reset practices — such as eliminating the 8px margin from the body
+	and setting <code>box-sizing</code> to <code>border-box</code> — Sugar.css introduces two
+	distinctive opinionated rules:
+	<ol>
+		<li>
+			<strong>Poly Fluid Font Sizing:</strong> Sugar.css adopts a poly fluid font sizing approach, offering
+			a more dynamic and adaptable typography experience.
+		</li>
+		<li>
+			<strong>Redefined Default Margins:</strong> The default margins are redefined to align with Sugar.css's
+			opinionated design principles, ensuring consistency and improved layout control.
+		</li>
+	</ol>
 </section>
 
 <article>
 	<header><h2>Poly fluid font sizing</h2></header>
-	<section>
-		<p>
-			This technique enable us to scale font size dynamically together with screen size. The code
-			shown below sets default font size to 16px, and enlarges it towards 18px as the screen width
-			scales from 320px to 1280px. After that font starts growing even faster.
-		</p>
-		<p>
-			As the font size is set on <code>HTML</code> element, it also influences everything sized in
-			<code>rem</code> units in whole document. As almost everything in Sugar.css is sized in
-			<code>rem</code>, all spacings are slowly growing with the font size. Once 1280px is surpassed
-			everything (even grid system) starts scaling up in a pace that the page is growing 1:1 to the
-			screen size. If your web looks good on 1280px wide monitor, it will looks great on 16K monitor
-			as well.
-		</p>
-	</section>
+
+	<p>
+		Sugar.css employs a poly fluid font sizing technique, dynamically scaling font size in tandem
+		with screen dimensions. The code snippet below illustrates setting the default font size to
+		16px, progressively increasing it to 18px as the screen width ranges from 320px to 1280px.
+		Beyond 1280px, the font growth accelerates even further.
+	</p>
 	<CardCode code={codeFontSizing} language="css" examplePosition={''}></CardCode>
+
+	<p>
+		Setting the font size on the <code>HTML</code> element influences all elements sized in
+		<code>rem</code>
+		units throughout the document. Given that Sugar.css predominantly uses <code>rem</code> for sizing,
+		all spacings gradually adjust with the font size. Once the 1280px threshold is surpassed, everything—including
+		the grid system—scales proportionally to the screen size. This ensures that if your web content looks
+		appealing on a 1280px wide monitor, it will maintain its visual integrity on larger screens, including
+		16K monitors.
+	</p>
 </article>
 
 <article>
@@ -66,38 +83,34 @@
 	<section>
 		<h3>TLTR - Sugar's margins</h3>
 		<p>
-			Margins are mostly applied to bottom of elements and not to top of them (see those elements
-			listed in code example below). <strong
-				>Last element of its parent which would normally have margin bottom, has no margin bottom
-				instead</strong
-			>
+			<strong>Direction of Margins:</strong> Sugar.css mainly applies margins to the bottom of elements
+			rather than the top. The last element within its parent, which would typically have a margin bottom,
+			is intentionally devoid of such a margin.
 		</p>
-		<h3>Browser defaults and why they are not good</h3>
+		<h3>Browser Defaults and Drawbacks:</h3>
 		<p>
-			To understand why default margins are set in a way, they are, we need to go back to the
-			origins of HTML to early 90s. That time there was no CSS. In order to make the web pages
-			easier to read, default styles were applied. To make nice spacings without any custom styling,
-			elements got <em>margin</em>
-			top and bottom at the same time. To avoid huge gaps when elements like <code>h1</code> and
-			<code>p</code>
-			were added one below each other, margin collapsing was applied (smaller of two block-margins was
-			ignored). It solved issues like <code>h1</code> touching border of page when used as 1st
-			element in <code>body</code> etc.
+			Originating in the early '90s, default HTML margins were introduced to enhance readability in
+			the absence of CSS. Initially, both top and bottom margins were applied to establish
+			consistent spacing, ensuring a margin from both the top and bottom of a page. However, to
+			prevent excessive spacing, margin collapsing was introduced. This occurred when two
+			consecutive elements had margins, providing a neat and simple solution. Unfortunately, this
+			came at the cost of developers relinquishing full control over the spacing.
 		</p>
 		<p>
-			Later when more complex layouts started to be possible, it becomes handy to apply paddings on
-			content wrappers like cards menus etc. At the same time new appeared: Imagine a card with its
-			own padding, which is only filled with text, another instance of such a card has <code>p</code
-			>
-			element and another has <code>h1</code>. You could see that the space between the bottom edge
-			of the card and its content differs in all three cases. But its probably not what one would
-			expect. It would be better if the spacing is the same in all 3 cases.
+			As layouts became more sophisticated, the ability to implement paddings on content wrappers,
+			such as cards and menus, became increasingly advantageous. Simultaneously, a new consideration
+			emerged: envision a card endowed with its own padding. This card, when filled solely with
+			text, contrasts with another instance containing a <code>p</code> element and yet another with
+			a <code>h1</code>. Upon observation, it becomes evident that the space between the bottom edge
+			of the card and its content varies across the three scenarios. However, this discrepancy may
+			not align with one's expectations. It would be more desirable for the spacing to remain
+			consistent in all three instances.
 		</p>
 		<h3>Solution: no margin top</h3>
 		<p>
-			The simple solution is to avoid default margin bottom on a last element of its wrapper and do
-			not apply margin top on any of the elements below. Then whe wrapper's padding is the only
-			margin between wrapper and its content.
+			A straightforward solution involves refraining from using the default margin bottom on the
+			last element within its wrapper and abstaining from applying margin top to any element
+			altogether.
 		</p>
 	</section>
 

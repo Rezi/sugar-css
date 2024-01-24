@@ -22,6 +22,11 @@
 </nav>`;
 </script>
 
+<svelte:head>
+	<title>Breadcrumb | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Navigation >  Breadcrumb" />
+</svelte:head>
+
 <hgroup>
 	<h1>Navigation</h1>
 	<h2>Breadcrumb</h2>

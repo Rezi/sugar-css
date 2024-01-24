@@ -1,6 +1,11 @@
 <script>
 </script>
 
+<svelte:head>
+	<title>Grid API | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Grid > API" />
+</svelte:head>
+
 <hgroup>
 	<h1>Grid</h1>
 	<h2>API</h2>
