@@ -51,8 +51,8 @@
 	<section>
 		<section>
 			<p>
-				Accordion is base on native HTML elements <code>details</code> and <code>summary</code> which
-				have build in toggle behavior:
+				The accordion is based on native HTML elements <code>details</code> and
+				<code>summary</code>, which have built-in toggle behavior:
 			</p>
 			<dl>
 				<dt><code>details</code></dt>
@@ -69,9 +69,10 @@
 				</dd>
 			</dl>
 		</section>
+
 		<p>
-			By adding or removing the <code>open</code> attribute of the <code>details</code> element you can
-			programmatically (by JS) toggle the state of the accordion
+			By adding or removing the <code>open</code> attribute of the <code>details</code> element, you
+			can programmatically toggle the state of the accordion.
 		</p>
 	</section>
 
@@ -80,16 +81,16 @@
 	<hr />
 
 	<section>
-		When attribute <code>role="button"</code> is used on the <code>summary</code> element, the accordion
-		opener turn into a button:
+		When the attribute <code>role="button"</code> is used on the <code>summary</code> element, the accordion
+		opener turns into a button.
 	</section>
 	<CardCode code={accordionButtonCode} examplePosition="top"></CardCode>
 	<hr />
 
 	<section>
-		When <code>details</code> is only child of <code>article</code> it becomes an article accordion.
-		If you wrap the <code>details</code>' content (except <code>summary</code> ) into an element, padding
-		is applied to it automatically
+		When a <code>details</code> element is the only child of an <code>article</code>, it becomes an
+		article accordion. If you wrap the content of the <code>details</code> (excluding
+		<code>summary</code>) into an element, padding is applied to it automatically.
 	</section>
 	<CardCode code={accordionCardCode} examplePosition="top" card={false}></CardCode>
 </article>

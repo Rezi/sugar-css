@@ -23,11 +23,12 @@
 </hgroup>
 
 <section>
-	<code>article</code> element is styled probably in the most opinionated way among all Sugar
-	elements.
 	<p>
-		Card's look and feel fits to what an article should represent (independent reusable content:
-		post, product, widget,..).
+		The <code>article</code> element is styled in a particularly opinionated way among all Sugar elements.
+	</p>
+	<p>
+		The card's look and feel are designed to align with the typical representation of an article
+		(independent reusable content: post, product, widget, etc.).
 	</p>
 </section>
 

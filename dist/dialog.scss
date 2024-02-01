@@ -61,6 +61,7 @@
 :where(dialog > article, dialog > form > article)
 	:where(header:has(> button[aria-label]:last-child)) {
 	display: flex;
+	gap: var(--s-gap-default);
 	justify-content: space-between;
 	align-items: center;
 }

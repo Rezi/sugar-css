@@ -14,64 +14,54 @@
 <article class="numbered">
 	<section>
 		<p>
-			Sugar grid is quite different from grid systems you probably know already (Bootstrap,
-			Tailwind), but the result is very similar.
-		</p>
-		<p>
-			<strong
-				>It can do the same - in many cases even better - than traditions responsive grids. <br />
-				All of that is done in only 150 lines of code!</strong
-			> Bootstrap gid is 10x bigger for example.
+			The Sugar grid differs significantly from traditional grid systems like Bootstrap or Tailwind,
+			yet achieves similar results. Impressively, it accomplishes this in only 150 lines of code,
+			making it considerably more concise than alternatives such as Bootstrap's grid, which is 10
+			times larger.
 		</p>
 
 		<p>Sugar grid is:</p>
 		<ol>
-			<li>Based on css grid</li>
-			<li>Container driven</li>
+			<li>Based on CSS grid</li>
+			<li>Container-driven</li>
 			<li>Derived from its content</li>
 			<li>Defined by custom properties</li>
 		</ol>
 
-		<mark>Beware! There is a bug in Safari, which does not allow to use</mark> <code>auto-fit</code>
-		<mark>
-			on elements with container queries! Until the bug is fixed, there must be additional otherwise
-			meaningless
-		</mark> <code>div</code> <mark> inside the </mark><code>.s-grid</code>
-		<mark
-			>wrapping all the cells. Once the bug is resolved and sugar grid is adjusted accordingly, all
-			the "meaningless" divs can be removed</mark
-		>
+		<article class="warning-card">
+			Beware! There is a bug in Safari that does not allow the use of <code>auto-fit</code> on
+			elements with container queries! Until the bug is fixed, there must be an additional,
+			otherwise meaningless,
+			<code>div</code> wrapping all the cells inside the <code>.s-grid</code>. Once the bug is
+			resolved and Sugar grid is adjusted accordingly, all the "meaningless" divs can be removed.
+		</article>
 	</section>
 
-	<h2>Based on css grid</h2>
+	<h2>Based on CSS Grid</h2>
 	<p>It is built around:</p>
 	<p><code>grid-template-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));</code></p>
-	<p>It means that items are placed into dynamically created columns.</p>
+	<p>Which means that items are placed into dynamically created columns.</p>
 
-	<h2>Container driven</h2>
+	<h2>Container Driven</h2>
 	<p>
-		Sugar grid uses container queries under the hood. It means that Sugar grid is component ready.
-		Traditionally, a media query driven grid is hard to used in a library components as library
-		developer does not know what width the component will have. With Sugar's container driven grid
-		this is not issue at all.
+		Sugar grid uses container queries under the hood. This means that Sugar grid is component-ready.
+		Traditionally, a media query-driven grid is challenging to use in library components, as the
+		library developer does not know what width the component will have. With Sugar's
+		container-driven grid, this is not an issue at all.
 	</p>
 
-	<h2>Derived from its content</h2>
+	<h2>Derived from Its Content</h2>
 	<p>
 		Columns are added to a grid as the grid (container) grows. Columns have a predefined optimal
-		size (5rem). Once there is additional 5rem, new column is added. Until then columns evenly eat
-		the remaining space.
-	</p>
-	<p>
-		Sugar grid take care about some extras which the css grid itself does not solve. Deal with
-		scenarios like your item should span across 5 columns, but the container just has space for 3,
-		etc.
+		size (5rem). Once there is an additional 5rem, a new column is added. Until then, columns evenly
+		eat the remaining space. Sugar grid takes care of scenarios like your item should span across 5
+		columns, but the container only has space for 3, etc.
 	</p>
 
-	<h2>Defined by custom properties</h2>
+	<h2>Defined by Custom Properties</h2>
 	<p>
-		The grid container is defined by class <code>.s-grid</code> everything else is defined by inline
-		custom properties.
+		The grid container is defined by the class <code>.s-grid</code>; everything else is defined by
+		inline custom properties.
 	</p>
 </article>
 
@@ -85,5 +75,9 @@
 				display: inline;
 			}
 		}
+	}
+
+	.warning-card {
+		background-color: var(--s-color-bg-negative);
 	}
 </style>

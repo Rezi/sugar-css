@@ -46,7 +46,9 @@
 </header>
 <div class="s-container"><slot /></div>
 <footer>
-	<div class="s-container">MIT License</div>
+	<div class="s-container">
+		<a href="https://github.com/Rezi/sugar-css/blob/main/LICENSE.md">MIT License</a>
+	</div>
 </footer>
 
 <dialog bind:this={modalEl}>

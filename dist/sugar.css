@@ -514,7 +514,7 @@ SOFTWARE.
 :where(code, kbd, samp) {
   font-family: monospace, monospace; /* 1 */
   font-size: 1rem; /* 2 */
-  background-color: var(--s-color-bg-85-fg-primary);
+  background-color: var(--s-color-bg-85-fg);
   color: var(--s-color-fg-65-bg);
   border-radius: 0.25rem;
 }
@@ -549,6 +549,10 @@ SOFTWARE.
   --offset-9: initial;
   --span-10: initial;
   --offset-10: initial;
+  --span-11: initial;
+  --offset-11: initial;
+  --span-12: initial;
+  --offset-12: initial;
   container-type: inline-size;
   container-name: fluid-grid;
   margin: calc(var(--gap-half) * -1);
@@ -667,6 +671,24 @@ SOFTWARE.
     --offset-10f: var(--offset-10, var(--offset-9f));
     --span-result: var(--span-10f);
     --offset-result: var(--offset-10f);
+  }
+}
+@container fluid-grid (min-width: 55rem) {
+  :where(.s-grid > * > *) {
+    --max-span: 11;
+    --span-11f: var(--span-11, var(--span-10f));
+    --offset-11f: var(--offset-11, var(--offset-10f));
+    --span-result: var(--span-11f);
+    --offset-result: var(--offset-11f);
+  }
+}
+@container fluid-grid (min-width: 60rem) {
+  :where(.s-grid > * > *) {
+    --max-span: 12;
+    --span-12f: var(--span-12, var(--span-11f));
+    --offset-12f: var(--offset-12, var(--offset-11f));
+    --span-result: var(--span-12f);
+    --offset-result: var(--offset-12f);
   }
 }
 /* 
@@ -1548,6 +1570,7 @@ article > details:only-child > summary {
 
 :where(dialog > article, dialog > form > article) :where(header:has(> button[aria-label]:last-child)) {
   display: flex;
+  gap: var(--s-gap-default);
   justify-content: space-between;
   align-items: center;
 }

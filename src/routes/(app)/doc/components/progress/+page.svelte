@@ -24,9 +24,9 @@
 
 <article>
 	<section>
-		<code>progress</code> element without <code>value</code> attribute behaves as loader. You should
-		use <code>role="presentation"</code> on the <code>progress</code> 'loader' element as it does not
-		anymore represents progress in percents.
+		The <code>progress</code> element without a <code>value</code> attribute behaves as a loader.
+		Use <code>role="presentation"</code> on the <code>progress</code> 'loader' element as it no longer
+		represents progress in percentages.
 	</section>
 	<CardCode code={progressCode} examplePosition="top"></CardCode>
 </article>

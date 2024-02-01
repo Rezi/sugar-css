@@ -150,11 +150,14 @@
 </article>
 
 <article>
-	<h2>Input with button</h2>
+	<h2>Input with Button</h2>
 	<section>
-		If an input is directly followed by a button. Their wrapper get <code>display:flex;</code> style
-		and the button get <code>max-width: min-content;</code> to get width of its content. Also joining
-		border radiuses are collapsed.
+		<p>
+			If an input is directly followed by a button, their wrapper gets the <code>display:flex;</code
+			>
+			style, and the button gets <code>max-width: min-content;</code> to match the width of its content.
+			Additionally, the border radiuses are collapsed for a seamless appearance.
+		</p>
 	</section>
 	<CardCode code={inputButtonCode} examplePosition="top"></CardCode>
 </article>

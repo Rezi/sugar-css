@@ -59,13 +59,15 @@
 
 <section>
 	<p>
-		Dialog should be a direct child of
-		<code>body</code>, to ensure good positioning.
+		The <code>dialog</code> should be a direct child of
+		<code>body</code> to ensure good positioning.
 	</p>
+
 	<p>
-		To show closing cross, <code>button</code> with <code>aria-label</code> need to be added into
-		the header as shown below. <code>aria-label</code> translated description of the close action.
-		It can be more descriptive like <em>Close login</em>, etc. depending on the modal window usage.
+		To display the closing cross, a <code>button</code> with an <code>aria-label</code> needs to be
+		added into the header, as shown below. The <code>aria-label</code> provides a translated
+		description of the close action. It can be more descriptive, like <em>Close login</em>, etc.,
+		depending on the modal window usage.
 	</p>
 </section>
 
@@ -73,19 +75,20 @@
 	<section>
 		<h2>Modal</h2>
 		<p>
-			Dialog is a version of popup window which <strong>does</strong> disable interaction with rest of
-			the page.
+			The <code>dialog</code> is a version of a popup window that <strong>does</strong> disable interaction
+			with the rest of the page.
 		</p>
 		<p>
-			To open modal <strong>do not use</strong> <code>open</code> attribute. Instead open it by
-			javascript via <code>dialogElement.showModal()</code> function. This way, the
-
-			<kbd>esc</kbd> functionality is enabled by default (no JS needed).
+			To open the modal, <strong>do not use</strong> the <code>open</code> attribute. Instead, open
+			it using JavaScript via
+			<code>dialogElement.showModal()</code> function. This way, the <kbd>esc</kbd> functionality is
+			enabled by default (no JS needed).
 		</p>
 		<p>
-			In example below you can see <code>form</code> as wrapper of the article. This way the modal
-			will be auto-closed by a submit buttons. If you want to close a modal without submitting the
-			form, you need to add <code>formmethod="dialog"</code> to the submit button as shown below.
+			In the example below, you can see a <code>form</code> as the wrapper of the article. This way,
+			the modal will be auto-closed by a submit button. If you want to close a modal without
+			submitting the form, you need to add <code>formmethod="dialog"</code> to the submit button as shown
+			below.
 		</p>
 
 		<button
@@ -101,15 +104,15 @@
 <article>
 	<section>
 		<h2>Dialog</h2>
+
 		<p>
-			Dialog is a version of popup window which <strong>does not</strong> disable interaction with rest
-			of the page.
+			A dialog is a version of a popup window that <strong>does not</strong> disable interaction with
+			the rest of the page.
 		</p>
 		<p>
-			To open dialog either use <code>dialogElement.show()</code> or add <code>open</code> attribute
-			to it. Opening and
-			<kbd>esc</kbd> event need to be implemented by javascript. Closing can be handled by submit button
-			as in the example above.
+			To open a dialog, either use <code>dialogElement.show()</code> or add the <code>open</code>
+			attribute to it. Opening and <kbd>esc</kbd> event need to be implemented by JavaScript. Closing
+			can be handled by a submit button, as shown in the example above.
 		</p>
 
 		<button

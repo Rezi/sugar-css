@@ -35,11 +35,14 @@
 <article>
 	<section>
 		<p>
-			<code>aria-current="page"</code> must be applied to the last breadcrumb link to indicate active
-			page.
+			To indicate the active page, apply <code>aria-current="page"</code> to the last breadcrumb link.
 		</p>
-		<p><code>aria-label="breadcrumb"</code> must be applied to the <code>nav</code> element.</p>
-		<p>You must use <code>ol</code> as the breadcrumb order matters.</p>
+		<p>
+			Apply <code>aria-label="breadcrumb"</code> to the <code>nav</code> element for proper accessibility.
+		</p>
+		<p>
+			Ensure the use of <code>ol</code> as the breadcrumb, as order matters in conveying the hierarchy.
+		</p>
 	</section>
 
 	<CardCode code={navBreadcrumbCode} examplePosition="top"></CardCode>

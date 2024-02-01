@@ -57,10 +57,11 @@
 
 <article>
 	<header>
-		<h2>Heading groups</h2>
+		<h2>Heading Groups</h2>
 		<p>
-			When headings are used inside <code>hgroup</code> they have no margin. <code>hgroup</code>
-			itself has margin bottom <code>--sugar-spacing-block</code> instead
+			When headings are used inside a <code>hgroup</code>, they have no margin. The
+			<code>hgroup</code>
+			itself has a margin-bottom of <code>--sugar-spacing-block</code>.
 		</p>
 	</header>
 

@@ -67,7 +67,7 @@
 :where(code, kbd, samp) {
 	font-family: monospace, monospace; /* 1 */
 	font-size: 1rem; /* 2 */
-	background-color: var(--s-color-bg-85-fg-primary);
+	background-color: var(--s-color-bg-85-fg);
 	color: var(--s-color-fg-65-bg);
 	border-radius: 0.25rem;
 }

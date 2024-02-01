@@ -1,5 +1,5 @@
 $sugar-column-width: 5rem;
-$grid-columns-count: 10;
+$grid-columns-count: 12;
 
 :where(*:has(> .s-grid > *)) {
 	/* This is a fix for negative margin-block of the grid, 

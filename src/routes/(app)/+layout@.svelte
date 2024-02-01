@@ -1,4 +1,10 @@
 <script lang="ts">
+	let asideWidth: number;
+	let menuOpened = false;
+	let focusedInAsideNavigation = false;
+
+	$: collapsibleMenu = asideWidth > 200;
+
 	const menuKeyCodes = {
 		ArrowDown: (el: HTMLElement) => {
 			const { allMenuItems, activeIndex } = getActiveMenuItem(el);
@@ -65,6 +71,17 @@
 	}
 
 	type AllowedNavKeys = keyof typeof menuKeyCodes;
+
+	const keyUpHandler = (event: KeyboardEvent) => {
+		const sideNavigation = document.activeElement?.closest('#side-navigation') as HTMLElement;
+
+		if (!focusedInAsideNavigation && sideNavigation) {
+			const firstFocusableElement = sideNavigation.querySelector('button, a') as HTMLInputElement;
+			firstFocusableElement?.focus();
+		}
+
+		focusedInAsideNavigation = !!sideNavigation;
+	};
 
 	const keyDownHandler = (event: KeyboardEvent) => {
 		const sideNavigation = document.activeElement?.closest('#side-navigation') as HTMLElement;
@@ -214,11 +231,30 @@
 	}
 </script>
 
-<svelte:document on:keydown={keyDownHandler} />
+<svelte:document on:keydown={keyDownHandler} on:keyup={keyUpHandler} />
 <div class="s-grid">
 	<div>
-		<aside style="--span:2;">
-			<nav>
+		<aside style="--span:9;--span-11:2;" bind:clientWidth={asideWidth}>
+			{#if collapsibleMenu}
+				<button
+					class="menu-button"
+					id="menubutton"
+					aria-haspopup="true"
+					aria-expanded={menuOpened ? 'true' : 'false'}
+					on:click={() => {
+						menuOpened = !menuOpened;
+					}}
+					>Documentation
+
+					<span class="burger"><span></span></span></button
+				>
+			{/if}
+
+			<nav
+				aria-labelledby="menubutton"
+				class:shown={!collapsibleMenu || menuOpened}
+				inert={collapsibleMenu && !menuOpened}
+			>
 				<menu id="side-navigation">
 					{#each menuItems as menu}
 						<li style={menu.newBlock ? 'margin-top:1rem;' : ''}>
@@ -231,10 +267,22 @@
 								>
 								<ul hidden={!menu.isExpanded} id={menu.key}>
 									{#each menu.links as link}
-										<li><a href={link.url}>{link.name}</a></li>{/each}
+										<li>
+											<a
+												href={link.url}
+												on:click={() => {
+													menuOpened = false;
+												}}>{link.name}</a
+											>
+										</li>{/each}
 								</ul>
 							{:else}
-								<a href={menu.url}>{menu.headline}</a>
+								<a
+									href={menu.url}
+									on:click={() => {
+										menuOpened = false;
+									}}>{menu.headline}</a
+								>
 							{/if}
 						</li>
 					{/each}
@@ -246,6 +294,53 @@
 </div>
 
 <style lang="scss">
+	.menu-button {
+		width: max-content;
+		position: relative;
+		top: calc(var(--sugar-spacing-block) * -1 + 1rem);
+	}
+
+	.menu-button[aria-expanded='true'] {
+		.burger {
+			span {
+				opacity: 0;
+			}
+
+			&:before {
+				transform: translateY(0rem) rotate(45deg);
+			}
+			&:after {
+				transform: translateY(0rem) rotate(-45deg);
+			}
+		}
+	}
+	.burger {
+		margin-left: 1rem;
+		width: 2.5rem;
+		--height: 0.25rem;
+		position: relative;
+		transform: translateY(calc(var(--height) / -2));
+
+		span,
+		&:before,
+		&:after {
+			position: absolute;
+			transition: all 0.5s;
+			display: block;
+			content: '';
+			border-radius: calc(var(--height) / 2);
+			width: 100%;
+			height: var(--height);
+			background-color: var(--s-color-primary-contrast);
+		}
+
+		&:before {
+			transform: translateY(-0.75rem) rotate(0deg);
+		}
+		&:after {
+			transform: translateY(0.75rem) rotate(0deg);
+		}
+	}
 	aside {
 		position: relative;
 	}
@@ -253,6 +348,11 @@
 	aside nav {
 		position: sticky;
 		top: 6.8rem;
+		display: none;
+
+		&.shown {
+			display: block;
+		}
 	}
 
 	aside menu button {

@@ -42,22 +42,23 @@
 </svelte:head>
 
 <h1>Layout & Themes</h1>
+
 <article>
 	<h2>Container</h2>
 
 	<dl>
 		<dt><code>.s-container</code></dt>
 		<dd>
-			<p>css class defines default max page width.</p>
-			<p>It has <code>2.5rem</code> padding.</p>
+			<p>The <code>.s-container</code> class defines the default maximum page width.</p>
+			<p>It includes <code>2.5rem</code> padding.</p>
 
 			<p>
-				Its width is defined only by calculated inline margin. This way the container is still the
-				same width, no matter whether there is a scrollbar or not
+				Its width is calculated with an inline margin. This ensures the container remains the same
+				width, regardless of the presence of a scrollbar.
 			</p>
 			<p>
-				The container width is set to <strong>65rem</strong> by default, but can be changed by a
-				custom property <code>--container-width-number</code> (rem units are added by the framework)
+				The default container width is <strong>65rem</strong>, but can be customized by
+				<code>--container-width-number</code> custom property (framework adds rem units).
 			</p>
 		</dd>
 	</dl>
@@ -65,30 +66,29 @@
 
 <article>
 	<section>
-		<h2>Page structure</h2>
+		<h2>Page Structure</h2>
 		<p>
-			<code>body</code>, <code>header</code> and or <code>footer</code> elements could be treated in
-			a special way if the latter two are direct children of <code>body</code>:
+			The <code>body</code>, <code>header</code>, and <code>footer</code> elements may be treated
+			differently, especially if the latter two are direct children of <code>body</code>:
 		</p>
 		<hr />
 		<dl>
 			<dt><code>body</code></dt>
 			<dd>
-				If it has <code>footer</code> as direct child, it gets
-				<code>min-height: 100dvh; display: flex; flex-direction: column;</code>. This is needed for
-				keeping the footer as bottom of page even if there is not enough content in the page.
+				If it has a <code>footer</code> as a direct child, it receives
+				<code>min-height: 100dvh; display: flex; flex-direction: column;</code>. This is necessary
+				to keep the footer at the bottom of the page even with minimal content.
 			</dd>
 			<dt><code>header</code></dt>
 			<dd>
-				If it is direct child of <code>body</code>, <code>header</code> gets position sticky so it is
-				visible on a page all the time when scrolling. It gets a slight shadow box in that case as well.
+				If it is a direct child of <code>body</code>, the <code>header</code> becomes sticky, ensuring
+				it remains visible while scrolling. A slight box shadow is also applied in this case.
 			</dd>
 
 			<dt><code>footer</code></dt>
 			<dd>
-				If is is direct child of <code>body</code>, it is moved to the bottom of the document even
-				if there is not enough content in the page. It gets a slight shadow box in that case as
-				well.
+				If it is a direct child of <code>body</code>, it is positioned at the bottom of the document
+				even with limited content. A slight box shadow is applied in this scenario as well.
 			</dd>
 		</dl>
 	</section>
@@ -98,18 +98,21 @@
 <article>
 	<h2>Themes</h2>
 	<p>
-		Sugar.css supports <em>light</em> and <em>dark</em> themes by default. You can test them in
+		Sugar.css supports <em>light</em> and <em>dark</em> themes by default. You can preview them on
+		the
 		<a href="/customize">customization</a> page.
 	</p>
 	<p>
-		Themes are switched by
-		<code>prefers-color-scheme</code> set by browser or operating system.
+		Themes are automatically switched based on the <code>prefers-color-scheme</code> set by the browser
+		or operating system.
 	</p>
 	<p>
-		Base colors (their custom properties) are doubled. One set of colors for light theme, other for
-		dark.
+		Base colors, defined as custom properties, are provided in two sets: one for the light theme and
+		the other for the dark theme.
 	</p>
-	<p>You can turn any element to dark or light theme by adding classes</p>
+	<p>
+		You can manually set any element to the dark or light theme by adding the following classes:
+	</p>
 	<ul>
 		<li><code>.s-dark</code></li>
 		<li><code>.s-light</code></li>

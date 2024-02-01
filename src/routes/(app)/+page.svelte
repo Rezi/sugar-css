@@ -22,6 +22,12 @@
 	<h2>Semantic, accessible, lightweight <strong>CSS framework</strong></h2>
 </hgroup>
 
+<p class="text-center">
+	Sugar.css is freshly baked, currently in <sup class="beta">beta</sup>. Please leave feedback in
+	the form of an issue at
+	<a href="https://github.com/Rezi/sugar-css">GitHub</a>.
+</p>
+
 <hr />
 <section class="s-grid" style="--span:8;--span-9:3;--gap:2rem;">
 	<div>
@@ -67,11 +73,18 @@
 </section>
 
 <style>
+	.beta {
+		color: var(--s-color-primary-40-bg);
+	}
 	hr {
 		margin-block: clamp(2.5rem, 10dvw, 6rem);
 	}
 	.cols {
 		columns: 12rem;
+	}
+
+	.text-center {
+		text-align: center;
 	}
 
 	.center {

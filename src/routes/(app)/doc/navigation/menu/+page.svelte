@@ -31,34 +31,36 @@
 
 <section>
 	<p>
-		By default <code>nav</code> element has following styles: <code>display:flex</code> and
+		By default, the <code>nav</code> element has the following styles: <code>display:flex</code> and
 		<code>justify-content: space-between;</code>. Any link used in the navigation has no underline
 		decoration by default.
 	</p>
 	<p>
-		If you need to spread multiple navigation groups. Use more <code>menu</code> elements.
-		<code>menu</code>
-		is semantic alternative to <code>ul</code> element and can contain <code>li</code> with navigation
-		elements.
+		If you need to organize multiple navigation groups, use more <code>menu</code> elements.
+		<code>menu</code> is a semantic alternative to the <code>ul</code> element and can contain
+		<code>li</code> with navigation elements.
 	</p>
 </section>
 
 <article>
 	<h2>Nav</h2>
+
 	<section>
 		<p>
-			Styles are only applied to <code>nav</code> and its sub elements, when it has at least one
-			<code>menu</code> as direct child
+			Styles are applied to <code>nav</code> and its sub-elements only when it has at least one
+			<code>menu</code> as a direct child.
 		</p>
 	</section>
 
 	<CardCode code={navHeaderCode}></CardCode>
 
 	<hr />
+
 	<section>
-		<h2>Nav aside</h2>
-		When
-		<code>nav</code> is used in <code>aside</code> element. Navigation is ordered vertically.
+		<h2>Nav Aside</h2>
+		<p>
+			When the <code>nav</code> is used in the <code>aside</code> element, navigation is ordered vertically.
+		</p>
 	</section>
 
 	<CardCode code={navAsideCode}></CardCode>

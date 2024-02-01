@@ -27,6 +27,43 @@
 		<meta name="twitter:description" content="Semantic, accessible, lightweight CSS framework">
 		%sveltekit.head%
 		<!-- <link rel="stylesheet" type="text/css" href="%sveltekit.assets%/sugar.css"> -->
+
+		<!-- <style>
+			body {
+				position: relative;
+			}
+
+			body:before{
+				content: "";
+				background-image: url(/imgs/wall.jpeg);
+				background-size: cover;
+				width: 100vw;
+				height: 100vh;
+				position: fixed;
+				opacity: 0.62;
+				z-index: -1;
+			}
+
+			article:not(article article) {
+				background-color: color-mix(in srgb, var(--s-color-bg-article) 20%, transparent);
+				backdrop-filter: blur(10px);
+			}
+
+			@media (prefers-reduced-motion: no-preference) {
+				body:before {
+
+					--translate:1000px;
+					height: calc(100vh + var(--translate));
+					animation: parallax linear;
+					animation-timeline: scroll(root);
+				}
+			}
+
+			@keyframes parallax {
+				from { transform: 0; }
+				to { transform: translateY(calc(var(--translate) * -1)); }
+			}
+		</style> -->
 	</head>
 
 	<body data-sveltekit-preload-data="hover">

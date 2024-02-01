@@ -56,8 +56,10 @@
 </hgroup>
 
 <article>
-	<header>
-		<p>Accessible tooltip should fulfill - not only - the following criteria:</p>
+	<section>
+		<h3>Tooltip Implementation Limitations</h3>
+
+		<p>Accessible tooltips should fulfill the following criteria:</p>
 		<ol>
 			<li>Present additional information about an associated element</li>
 			<li>Be visible on hover and focus</li>
@@ -65,56 +67,49 @@
 			<li>Be closable by <kbd>esc</kbd> button</li>
 			<li>Remain visible until manually dismissed</li>
 		</ol>
-	</header>
 
-	<section>
-		<h3>Beware of following:</h3>
+		<h3>Your responsibilities:</h3>
+
 		<ul>
 			<li>
-				As you can see, the last 2 criteria require javascript. <strong
+				As you can see, the last 2 criteria require JavaScript. <strong
 					>You are fully responsible for implementing those on your own.</strong
 				>
 			</li>
 			<li>
-				Focus criteria only apply for focusable elements like <code>a</code>, <code>button</code>,
+				Focus criteria only apply to focusable elements like <code>a</code>, <code>button</code>,
 				<code>input</code>,
 				<code>textarea</code>,
-				<code>select</code>, <code>[contentEditable]</code> and <code>iframe</code>. Do not use
+				<code>select</code>, <code>[contentEditable]</code>, and <code>iframe</code>. Do not use
 				tooltips with any other element.
 			</li>
 			<li>
-				Also tooltips does not work at all on submit <code>button</code> and <code>a</code> link, when
-				used on touch screen devices (The tooltip is not shown as the touch trigger the element's native
-				action at the same time)
+				Tooltips do not work at all on submit <code>button</code> and <code>a</code> link when used on
+				touch screen devices (The tooltip is not shown as the touch triggers the element's native action
+				at the same time).
 			</li>
 		</ul>
 
 		<p>
-			Note, that any wrapper element directly containing elements with <code
-				>[aria-describedby]</code
+			Note that any wrapper element directly containing elements with <code>[aria-describedby]</code
 			>
-			and <code>[role='tooltip']</code> (in the example bellow it is the <code>label</code>) is
-			styled with <code>position:relative</code>
+			and <code>[role='tooltip']</code> (in the example below it is the <code>label</code>) is
+			styled with <code>position:relative</code>.
 		</p>
 
 		<p>
-			<em>Please use with caution! The best tooltip is no tooltip.</em>
+			<em>Please use with caution! The best tooltip is often no tooltip.</em>
 		</p>
 	</section>
 
 	<CardCode {code} language="xml"></CardCode>
-	<hr />
-	<h2>Tooltip positioning</h2>
-	<section>
-		Please avoid using focusable elements in places where they are meaningless, just to enforce
-		triggering of tooltip.
-	</section>
+
 	<CardCode code={codeAll} language="xml"></CardCode>
 	<section>
 		<p>Tooltip has <code>max-width: 25rem</code></p>
 		<p>
-			By default a tooltip is positioned at <mark>bottom end</mark>, to avoid overlapping content.
-			Only in case of <code>a</code>, the tooltip is at <mark>bottom start</mark>.
+			By default, a tooltip is positioned at <mark>bottom end</mark> to avoid overlapping content.
+			Only in the case of <code>a</code>, the tooltip is at <mark>bottom start</mark>.
 		</p>
 	</section>
 </article>

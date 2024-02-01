@@ -30,7 +30,7 @@ consectetur adipisicing elit`;
 	<CardCode code={hrCode}></CardCode>
 
 	<p>
-		When used as direct child of <code>article</code>, it gets negative margin to span across full
-		card's width
+		When used as a direct child of <code>article</code>, it gets a negative margin to span across
+		the full card's width.
 	</p>
 </article>

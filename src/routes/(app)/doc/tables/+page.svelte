@@ -58,7 +58,7 @@
 
 <h1>Tables</h1>
 
-<article class="white-bg">
+<article>
 	<h2>Example</h2>
 	<CardCode {code} card={false} examplePosition="top"></CardCode>
 
@@ -66,7 +66,4 @@
 </article>
 
 <style>
-	.white-bg {
-		background: var(--s-color-bg);
-	}
 </style>
