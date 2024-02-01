@@ -2,8 +2,9 @@
 	let asideWidth: number;
 	let menuOpened = false;
 	let focusedInAsideNavigation = false;
+	let docWidth: number;
 
-	$: collapsibleMenu = asideWidth > 200;
+	$: collapsibleMenu = asideWidth > 200 && docWidth < 1200;
 
 	const menuKeyCodes = {
 		ArrowDown: (el: HTMLElement) => {
@@ -232,6 +233,8 @@
 </script>
 
 <svelte:document on:keydown={keyDownHandler} on:keyup={keyUpHandler} />
+<svelte:window bind:innerWidth={docWidth} />
+
 <div class="s-grid">
 	<div>
 		<aside style="--span:9;--span-11:2;" bind:clientWidth={asideWidth}>
