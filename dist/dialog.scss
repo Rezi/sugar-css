@@ -20,6 +20,7 @@
 	padding: 0;
 	border: none;
 	border-radius: var(--s-block-radius);
+	color: var(--s-color-text);
 }
 
 :where(dialog:not(:modal)) {
@@ -29,7 +30,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 9;
-	color: var(--s-color-text);
+
 	border: 1px solid var(--s-color-fg);
 }
 

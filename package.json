@@ -1,6 +1,6 @@
 {
 	"name": "sugar-css-framework",
-	"version": "0.0.6",
+	"version": "0.1.0",
 	"description": "Sugar.css minimalistic CSS framework",
 	"scripts": {
 		"dev": "vite dev",
