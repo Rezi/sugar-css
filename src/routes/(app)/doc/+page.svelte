@@ -52,9 +52,9 @@
 		viewed as a CSS reset. All styles applied by Sugar.css utilize the :where() pseudo-selector,
 		avoiding specificity issues. There's no need to move Sugar.css into a separate layer; you can
 		seamlessly overwrite styles without additional complexity. The emphasis is on simplicity,
-		keeping the size compact at 8.4 kB when minified.
+		keeping the size compact at 7.5 kB when minified.
 	</p>
-	<p>Sugar.css tries to be as simple as possible and keep its size down (8.4 kB minified).</p>
+	<p>Sugar.css tries to be as simple as possible and keep its size down (7.5 kB minified).</p>
 
 	<h3>Use cases</h3>
 	<p>Sugar.css is well-suited for projects where::</p>
