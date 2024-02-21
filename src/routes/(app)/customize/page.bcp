@@ -1,3 +1,30 @@
+<script>
+	import Accessibility from '$lib/components/Accessibility.svelte';
+	import Downloader from '$lib/components/Downloader.svelte';
+	import EncoderDecoder from '$lib/components/EncoderDecoder.svelte';
+</script>
+
+<section>
+	<Accessibility></Accessibility>
+	<article>
+		<details>
+			<summary role="button">Download CSS (customized)</summary>
+			<div>
+				<Downloader></Downloader>
+			</div>
+		</details>
+	</article>
+
+	<article>
+		<details>
+			<summary role="button">Import / Export</summary>
+			<div>
+				<EncoderDecoder></EncoderDecoder>
+			</div>
+		</details>
+	</article>
+</section>
+
 <article>
 	<header><h2>Example to play with</h2></header>
 	<form>

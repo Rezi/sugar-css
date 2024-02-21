@@ -28,7 +28,7 @@
 		</li>
 		<li>Access via CDN:</li>
 	</ul>
-	<InlineCode code={cdn}></InlineCode>
+	<code>{cdn}</code>
 </article>
 
 <article>

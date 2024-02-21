@@ -19,10 +19,8 @@
 <code dir="ltr" class="hljs simple">{@html highlightedCode}</code>
 
 <style type="scss">
-	@import 'highlight.js/styles/arduino-light.css';
-
 	.hljs {
-		background-color: var(--s-color-bg-85-fg);
+		background-color: var(--s-color-bg-95-fg);
 	}
 
 	:global(.card-code.top) .hljs {

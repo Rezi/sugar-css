@@ -18,15 +18,15 @@
 }
 `;
 
-	const codeMargin = `/* Don't apply margin top to following */
+	const codeMargin = `/* Sugar Doesn't apply margin top to following */
 
 :where(h1, h2, h3, h4, h5, h6, hgroup, dl, article, section, table, p) {
 	margin-block-start: 0;
 }
 
-/* Don't apply margin bottom to a last child */
+/* Sugar Doesn't apply margin bottom to following :last-child */
 
-:where(h1, h2, h3, h4, h5, h6, hgroup, dl, article, section, table, p):last-child {
+:where(h1, h2, h3, h4, h5, h6, hgroup, dl, article, section, table, p, [role='tabpanel']):last-child {
 	margin-block-end: 0;
 }
 `;

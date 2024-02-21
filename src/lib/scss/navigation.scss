@@ -42,7 +42,7 @@
 }
 
 :where(nav[aria-label='breadcrumb'] > ol > li) {
-	text-wrap: nowrap;
+	white-space: nowrap;
 }
 
 :where(nav[aria-label='breadcrumb'] > ol > li:not(:last-child)):after {

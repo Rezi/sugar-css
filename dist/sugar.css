@@ -9,6 +9,7 @@
   --text-inline-padding-inline: 0.375rem;
   --s-line-height: 1.6;
   --s-focus-offset: 3px;
+  --s-focus-offset-negative: -2px;
   --s-input-border-radius: calc(0.375rem * var(--s-multiplier-rounded));
   --s-checkbox-radius: calc(0.2rem + 0.05rem * var(--s-multiplier-rounded));
   --s-block-radius: calc(0.5rem * var(--s-multiplier-rounded));
@@ -281,33 +282,14 @@ SOFTWARE.
   src: local(".AppleSystemUIFont"), local("Segoe UI Bold Italic"), local("Ubuntu-BoldItalic"), local("Roboto-BoldItalic"), local("HelveticaNeue-BoldItalic");
 }
 /**
- * Add the correct system-ui ly in Firefox.
- */
-@font-face {
-  font-family: system-ui;
-  src: local(".AppleSystemUIFont"), local("Segoe UI"), local("Ubuntu"), local("Roboto-Regular"), local("HelveticaNeue");
-}
-@font-face {
-  font-family: system-ui;
-  font-style: italic;
-  src: local(".AppleSystemUIFont"), local("Segoe UI Italic"), local("Ubuntu-Italic"), local("Roboto-Italic"), local("HelveticaNeue-Italic");
-}
-@font-face {
-  font-family: system-ui;
-  font-weight: bold;
-  src: local(".AppleSystemUIFont"), local("Segoe UI Bold"), local("Ubuntu-Bold"), local("Roboto-Bold"), local("HelveticaNeue-Bold");
-}
-@font-face {
-  font-family: system-ui;
-  font-style: italic;
-  font-weight: bold;
-  src: local(".AppleSystemUIFont"), local("Segoe UI Bold Italic"), local("Ubuntu-BoldItalic"), local("Roboto-BoldItalic"), local("HelveticaNeue-BoldItalic");
-}
-/**
  * Use the default user interface font in all browsers (opinionated).
  */
+:root {
+  --font-family: system-ui;
+}
+
 :where(html) {
-  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--font-family), -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /**
@@ -815,14 +797,30 @@ SOFTWARE.
     * Change the inconsistent appearance in all browsers (opinionated).
     */
 :where(fieldset) {
-  border: var(--sugar-border-width) solid var(--s-color-primary-80-fg);
-  border-radius: calc(var(--s-input-border-radius) * 1.5);
-  padding: calc(0.5rem + var(--sugar-spacing-inline) * 0.375);
+  --fieldset-radius: calc(var(--s-input-border-radius) * 1.5);
+  --fieldset-padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
+  border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+  border-radius: var(--fieldset-radius);
+  padding: var(--fieldset-padding);
+}
+
+:where(fieldset:has(> legend)) {
+  --legend-height: calc((var(--s-input-block-padding) / 2) + (0.5rem * var(--s-line-height)));
+  margin-top: calc(var(--fieldset-padding) + var(--legend-height));
 }
 
 :where(legend) {
+  /* color: var(--s-color-primary-80-fg);
+  padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline); */
   color: var(--s-color-primary-80-fg);
   padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline);
+  border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+  border-bottom: 0;
+  translate: 0 calc(var(--sugar-border-width) / 2 - 50%);
+  line-height: 0;
+  padding-top: var(--legend-height);
+  border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
+  margin-left: var(--s-input-border-radius);
 }
 
 /**
@@ -1158,7 +1156,7 @@ select) {
 :where(input[type=search i]) {
   background-image: var(--sugar-icon-search);
   -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  outline-offset: var(--s-focus-offset-negative); /* 2 */
 }
 
 /* input button combo */
@@ -1175,7 +1173,7 @@ select) {
 
 :where(input:not([type=radio], [type=checkbox]):first-child + :where(button, [type=button i], [type=reset i], [type=submit i]):last-child) {
   max-width: min-content;
-  text-wrap: nowrap;
+  white-space: nowrap;
   border-radius: 0;
   border-start-end-radius: var(--s-input-border-radius);
   border-end-end-radius: var(--s-input-border-radius);
@@ -1379,7 +1377,6 @@ input[type=time])::-webkit-calendar-picker-indicator {
 
 /* Accordion - Summary / details */
 :where(details summary) {
-  list-style: none;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -1422,12 +1419,6 @@ input[type=time])::-webkit-calendar-picker-indicator {
 
 :where(details[open] summary):after {
   transform: rotate(45deg);
-}
-
-summary::marker,
-summary::-webkit-details-marker {
-  display: none;
-  content: none; /* remove triangle (my case, it is button-like) */
 }
 
 /* Card Accordion */
@@ -1496,7 +1487,7 @@ article > details:only-child > summary {
 }
 
 :where(nav[aria-label=breadcrumb] > ol > li) {
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 :where(nav[aria-label=breadcrumb] > ol > li:not(:last-child)):after {
@@ -1692,6 +1683,104 @@ when moving from the 'aria-describedby' element to tooltip element
   transform: scale3d(1, 1, 1);
   visibility: visible;
   z-index: 2;
+}
+
+:where([role=tablist]) {
+  --padding-tabs: calc(var(--s-input-padding-inline) * 2);
+  display: flex;
+  margin-bottom: var(--sugar-spacing-block);
+  overflow: auto clip;
+  padding-bottom: var(--s-border-width-max);
+}
+
+/* :where([role='tablist']:dir(ltr)):before,
+:where([role='tablist']:dir(ltr)):after {
+	--direction: 90deg;
+	content: '';
+	background-image: linear-gradient(var(--direction), var(--s-color-bg), transparent);
+	position: sticky;
+	left: 0;
+	flex: 1 0 var(--padding-tabs);
+	margin-left: calc(-1 * var(--padding-tabs));
+	margin-bottom: var(--s-border-width-max);
+	z-index: 2;
+}
+
+:where([role='tablist']:dir(ltr)):after {
+	--direction: 270deg;
+	right: -1px;
+	left: auto;
+} */
+:where([role=tablist] > [role=tab]) {
+  --radius: calc(var(--s-border-width-max) / 2);
+  color: var(--s-color-text);
+  background: var(--s-color-bg);
+  border: none;
+  position: relative;
+  white-space: nowrap;
+  outline-offset: var(--s-focus-offset-negative);
+  /*  In case you need tab to be an anchor instead of a button uncomment the following code: */
+  /* 	display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: var(--s-input-block-padding) var(--s-input-padding-inline); */
+}
+
+:where([role=tablist] > [role=tab]):focus {
+  outline: 2px solid -webkit-focus-ring-color;
+}
+
+:where([role=tablist] > [role=tab]):after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: var(--s-border-width-max);
+  background-color: var(--s-color-primary);
+  translate: 0 var(--s-border-width-max);
+}
+
+:where([role=tablist] > [role=tab]:first-child) {
+  padding-inline-start: var(--padding-tabs);
+  /* &::after {
+  	border-start-start-radius: var(--radius);
+  	border-end-start-radius: var(--radius);
+  } */
+}
+
+:where([role=tablist] > [role=tab]:last-child) {
+  padding-inline-end: var(--padding-tabs);
+  /* &::after {
+  	border-start-end-radius: var(--radius);
+  	border-end-end-radius: var(--radius);
+  } */
+}
+
+:where([role=tablist] > [role=tab][aria-selected=false]):after {
+  background-color: var(--s-color-separator);
+}
+
+:where([role=tablist] + [role=tabpanel]) {
+  margin-block-end: var(--sugar-spacing-block);
+}
+
+/* Above we added margin bottom for all tabpanels, 
+but we need to remove it for all tabpanels of the last tablist, 
+if the last tabpanel is last-child of its parent */
+:where([role=tablist]:not(:has(~ [role=tablist])) ~ [role=tabpanel]:last-child,
+[role=tablist]:not(:has(~ [role=tablist])) ~ [role=tabpanel]:has(~ [role=tabpanel]:last-child)) {
+  margin-block-end: 0;
+}
+
+/* special treatment if tablist and tabpanel are only children on an article */
+:where(article:not(:has(> :not([role=tablist]):not([role=tabpanel])))) {
+  padding: 0;
+}
+
+:where(article:not(:has(> :not([role=tablist]):not([role=tabpanel]))) [role=tabpanel]) {
+  padding: 0 var(--sugar-spacing-inline) var(--sugar-spacing-block);
 }
 
 /*# sourceMappingURL=sugar.css.map */

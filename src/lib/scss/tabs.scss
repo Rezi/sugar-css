@@ -1,0 +1,106 @@
+:where([role='tablist']) {
+	--padding-tabs: calc(var(--s-input-padding-inline) * 2);
+
+	display: flex;
+	margin-bottom: var(--sugar-spacing-block);
+	overflow: auto clip;
+	padding-bottom: var(--s-border-width-max);
+}
+
+/* :where([role='tablist']:dir(ltr)):before,
+:where([role='tablist']:dir(ltr)):after {
+	--direction: 90deg;
+	content: '';
+	background-image: linear-gradient(var(--direction), var(--s-color-bg), transparent);
+	position: sticky;
+	left: 0;
+	flex: 1 0 var(--padding-tabs);
+	margin-left: calc(-1 * var(--padding-tabs));
+	margin-bottom: var(--s-border-width-max);
+	z-index: 2;
+}
+
+:where([role='tablist']:dir(ltr)):after {
+	--direction: 270deg;
+	right: -1px;
+	left: auto;
+} */
+
+:where([role='tablist'] > [role='tab']) {
+	--radius: calc(var(--s-border-width-max) / 2);
+	color: var(--s-color-text);
+	background: var(--s-color-bg);
+	border: none;
+	position: relative;
+	white-space: nowrap;
+	outline-offset: var(--s-focus-offset-negative);
+
+	/*  In case you need tab to be an anchor instead of a button uncomment the following code: */
+
+	/* 	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: var(--s-input-block-padding) var(--s-input-padding-inline); */
+}
+
+:where([role='tablist'] > [role='tab']):focus {
+	outline: 2px solid -webkit-focus-ring-color;
+}
+
+:where([role='tablist'] > [role='tab']):after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	height: var(--s-border-width-max);
+	background-color: var(--s-color-primary);
+	translate: (0 var(--s-border-width-max));
+}
+
+:where([role='tablist'] > [role='tab']:first-child) {
+	padding-inline-start: var(--padding-tabs);
+
+	/* &::after {
+		border-start-start-radius: var(--radius);
+		border-end-start-radius: var(--radius);
+	} */
+}
+:where([role='tablist'] > [role='tab']:last-child) {
+	padding-inline-end: var(--padding-tabs);
+
+	/* &::after {
+		border-start-end-radius: var(--radius);
+		border-end-end-radius: var(--radius);
+	} */
+}
+
+:where([role='tablist'] > [role='tab'][aria-selected='false']):after {
+	background-color: var(--s-color-separator);
+}
+
+:where([role='tablist'] + [role='tabpanel']) {
+	margin-block-end: var(--sugar-spacing-block);
+}
+
+/* Above we added margin bottom for all tabpanels, 
+but we need to remove it for all tabpanels of the last tablist, 
+if the last tabpanel is last-child of its parent */
+:where(
+		[role='tablist']:not(:has(~ [role='tablist'])) ~ [role='tabpanel']:last-child,
+		[role='tablist']:not(:has(~ [role='tablist']))
+			~ [role='tabpanel']:has(~ [role='tabpanel']:last-child)
+	) {
+	margin-block-end: 0;
+}
+
+/* special treatment if tablist and tabpanel are only children on an article */
+
+:where(article:not(:has(> :not([role='tablist']):not([role='tabpanel'])))) {
+	padding: 0;
+}
+
+:where(article:not(:has(> :not([role='tablist']):not([role='tabpanel']))) [role='tabpanel']) {
+	padding: 0 var(--sugar-spacing-inline) var(--sugar-spacing-block);
+}

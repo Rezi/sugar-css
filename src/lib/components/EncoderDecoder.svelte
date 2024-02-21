@@ -14,6 +14,8 @@
 	let error = false;
 	let loadedFromUrl = true;
 
+	const hasChangedDebounced = debounce(hashChanged, 200);
+
 	$: onHashchange(hash);
 
 	function onHashchange(hash: string) {
@@ -23,7 +25,7 @@
 				() => {
 					error = false;
 
-					hashChanged(hash);
+					hasChangedDebounced(hash);
 				},
 				() => {
 					error = true;
@@ -38,8 +40,20 @@
 			hash = btoa(JSON.stringify({ base, theme }));
 			$customizationHash = hash;
 			error = false;
-			hashChanged(hash);
+			hasChangedDebounced(hash);
 		}
+	}
+
+	function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {
+		let timeout: ReturnType<typeof setTimeout> | undefined = undefined;
+
+		return (...args: Parameters<T>) => {
+			timeout && clearTimeout(timeout);
+
+			timeout = setTimeout(() => {
+				fn(...args);
+			}, delay);
+		};
 	}
 
 	function hashChanged(hash: string) {

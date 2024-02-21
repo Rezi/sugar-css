@@ -18,6 +18,7 @@
 	export let iframe = false;
 	export let examplePosition: PositionType = showExample ? 'bottom' : '';
 	export let simple = false;
+	export let withSlot = false;
 
 	let exampleEl: HTMLElement;
 
@@ -75,7 +76,13 @@
 	<section class="card-code {examplePosition}">
 		{#if language === 'xml' && showExample && examplePosition === 'top'}
 			<div class="example-top" bind:this={exampleEl}>
-				{@html codeInCard}
+				{#if withSlot}
+					<article class={resizable ? 'resizable' : ''}>
+						<slot />
+					</article>
+				{:else}
+					{@html codeInCard}
+				{/if}
 			</div>
 		{/if}
 
@@ -88,7 +95,13 @@
 
 		{#if language === 'xml' && showExample && examplePosition === 'bottom'}
 			<div class="example-bottom" bind:this={exampleEl}>
-				{@html codeInCard}
+				{#if withSlot}
+					<article class={resizable ? 'resizable' : ''}>
+						<slot />
+					</article>
+				{:else}
+					{@html codeInCard}
+				{/if}
 			</div>
 		{/if}
 	</section>

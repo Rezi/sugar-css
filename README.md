@@ -5,7 +5,7 @@
 Sugar.css is like a very advanced and opinionated CSS reset with zero selectivity. It can be easily combined with utility classes or custom CSS.
 
 **Semantic**
-Except for 5 classes, all styles are applied based on semantic HTML and aria attributes. This way, accessible and easy-to-read HTML is encouraged.
+Except for 7 classes, all styles are applied based on semantic HTML and aria attributes. This way, accessible and easy-to-read HTML is encouraged.
 
 **Customizable**
 You can easily adjust the look and feel of your very own build of Sugar.css

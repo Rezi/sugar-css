@@ -6,8 +6,8 @@
 	<nav class="s-container">
 		<div>Your logo</div>
 		<menu>
-		  <li><a href="#">item</a></li>
-		  <li><a href="#">item</a></li>
+		  <li><a>item</a></li>
+		  <li><a>item</a></li>
 		</menu>
 	</nav>
   </header>
@@ -64,7 +64,7 @@
 	</dl>
 </article>
 
-<article>
+<article class="non-clickable">
 	<section>
 		<h2>Page Structure</h2>
 		<p>

@@ -22,14 +22,31 @@
     */
 
 :where(fieldset) {
-	border: var(--sugar-border-width) solid var(--s-color-primary-80-fg);
-	border-radius: calc(var(--s-input-border-radius) * 1.5);
-	padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
+	--fieldset-radius: calc(var(--s-input-border-radius) * 1.5);
+	--fieldset-padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
+	border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+	border-radius: var(--fieldset-radius);
+	padding: var(--fieldset-padding);
+}
+
+:where(fieldset:has(> legend)) {
+	--legend-height: calc((var(--s-input-block-padding) / 2) + (0.5rem * var(--s-line-height)));
+	margin-top: calc(var(--fieldset-padding) + var(--legend-height));
 }
 
 :where(legend) {
+	/* color: var(--s-color-primary-80-fg);
+	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline); */
+
 	color: var(--s-color-primary-80-fg);
 	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline);
+	border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+	border-bottom: 0;
+	translate: 0 calc(var(--sugar-border-width) / 2 - 50%);
+	line-height: 0;
+	padding-top: var(--legend-height);
+	border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
+	margin-left: var(--s-input-border-radius);
 }
 
 /**
@@ -398,7 +415,7 @@
 :where(input[type='search' i]) {
 	background-image: var(--sugar-icon-search);
 	-webkit-appearance: textfield; /* 1 */
-	outline-offset: -2px; /* 2 */
+	outline-offset: var(--s-focus-offset-negative); /* 2 */
 }
 
 /* input button combo */
@@ -428,7 +445,7 @@
 			+ :where(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child
 	) {
 	max-width: min-content;
-	text-wrap: nowrap;
+	white-space: nowrap;
 	border-radius: 0;
 	border-start-end-radius: var(--s-input-border-radius);
 	border-end-end-radius: var(--s-input-border-radius);

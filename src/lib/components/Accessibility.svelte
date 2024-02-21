@@ -56,6 +56,7 @@
 	let lightColorContrasts: { bg: ColorKey; fg: ColorKey; result: number }[] = [];
 	let darkColorContrasts: { bg: ColorKey; fg: ColorKey; result: number }[] = [];
 
+	$: activeTheme = $customizationStore.isDarkTheme ? 'dark' : 'light';
 	$: getResults($customizationStore, $customizationThemeStore);
 
 	function getContrastValue(val: number) {
@@ -219,10 +220,10 @@
 	}
 </script>
 
-<article class="s-light">
+{#if activeTheme === 'light'}
 	<details>
-		<summary role="button"
-			>Light Theme - Accessibility score:
+		<summary
+			><strong>Contrasts WCAG</strong>
 			{#each Object.values(lightColorContrasts) as contrast}<span
 					>{getContrastValue(contrast.result)}
 				</span>{/each}
@@ -253,6 +254,13 @@
 					{/each}
 				</tbody>
 			</table>
+		</div>
+	</details>
+
+	<details>
+		<summary><strong>Color palette</strong> </summary>
+
+		<div>
 			<h3>Colors</h3>
 			<section>
 				<dl style="--dl-width: 16rem; --dd-min-width: 50%">
@@ -270,11 +278,12 @@
 			</section>
 		</div>
 	</details>
-</article>
-<article class="s-dark">
+{/if}
+{#if activeTheme === 'dark'}
 	<details>
-		<summary role="button"
-			>Dark Theme - Accessibility score: {#each Object.values(darkColorContrasts) as contrast}<span
+		<summary
+			><strong>Contrasts WCAG</strong>
+			{#each Object.values(darkColorContrasts) as contrast}<span
 					>{getContrastValue(contrast.result)}</span
 				>{/each}</summary
 		>
@@ -303,6 +312,12 @@
 					{/each}
 				</tbody>
 			</table>
+		</div>
+	</details>
+
+	<details>
+		<summary><strong>Color palette</strong></summary>
+		<div>
 			<h3>Colors</h3>
 			<section>
 				<dl style="--dl-width: 16rem; --dd-min-width: 50%">
@@ -320,7 +335,7 @@
 			</section>
 		</div>
 	</details>
-</article>
+{/if}
 
 <style lang="scss">
 	.color-square {

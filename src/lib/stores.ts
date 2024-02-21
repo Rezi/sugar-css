@@ -4,7 +4,7 @@ import { writable, type Writable } from 'svelte/store';
 export const dialogOpenedStore: Writable<boolean | undefined> = writable(undefined);
 export const modalOpenedStore: Writable<boolean | undefined> = writable(undefined);
 
-export type RangeType = 'roundness' | 'sparsity' | 'fatness' | 'shadow';
+export type RangeType = 'roundness' | 'sparsity' | 'fatness' | 'shadow' | 'lineHeight';
 export type Theme = 'light' | 'dark';
 export type ThemeColors = {
 	bgColor: string;
@@ -32,8 +32,10 @@ export const baseCustomizationValues = {
 	roundness: 1,
 	sparsity: 1,
 	fatness: 0,
+	lineHeight: 1.6,
 	shadow: 1,
-	isDarkTheme: false
+	isDarkTheme: false,
+	fontFamily: 'system-ui'
 };
 
 type CustomizationStore = typeof baseCustomizationValues;
@@ -42,9 +44,11 @@ export type CustomizedCssVariables = { [key: string]: string };
 
 export const initialCustomizationStoreValue = {
 	roundness: baseCustomizationValues.roundness,
+	lineHeight: baseCustomizationValues.lineHeight,
 	sparsity: baseCustomizationValues.sparsity,
 	fatness: baseCustomizationValues.fatness,
 	shadow: baseCustomizationValues.shadow,
+	fontFamily: baseCustomizationValues.fontFamily,
 	isDarkTheme: baseCustomizationValues.isDarkTheme
 };
 

@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import Accessibility from '$lib/components/Accessibility.svelte';
-
 	import {
 		customizationStore,
 		customizationThemeStore,
@@ -15,29 +13,10 @@
 	} from '$lib/stores';
 	import { onMount } from 'svelte';
 
-	type Tab = 'color' | 'typography' | 'base';
-
-	let tabSelected: Tab = 'color';
-
 	const rangeMax = 100;
 	const rangeMin = 0;
 
 	let activeTheme: Theme;
-
-	const tabs = [
-		{
-			key: 'color',
-			title: 'Colors'
-		},
-		{
-			key: 'base',
-			title: 'Base'
-		},
-		{
-			key: 'typography',
-			title: 'Typography'
-		}
-	] as const;
 
 	onMount(() => {
 		// toggle theme back and forth to populate both theme css variables
@@ -57,8 +36,7 @@
 		roundness: { min: 0, max: 4.5 },
 		sparsity: { min: 0.3, max: 2 },
 		fatness: { min: 0, max: 1 },
-		shadow: { min: 0, max: 2 },
-		lineHeight: { min: 1.3, max: 2.5 }
+		shadow: { min: 0, max: 2 }
 	};
 
 	const fontFamilies = [
@@ -121,10 +99,6 @@
 	];
 
 	let rangeRoundnessValue = getRangeFromValue(Number($customizationStore.roundness), 'roundness');
-	let rangeLineHeightValue = getRangeFromValue(
-		Number($customizationStore.lineHeight),
-		'lineHeight'
-	);
 	let rangeSparsityValue = getRangeFromValue(Number($customizationStore.sparsity), 'sparsity');
 	let rangeFatnessValue = getRangeFromValue(Number($customizationStore.fatness), 'fatness');
 	let rangeShadowValue = getRangeFromValue(Number($customizationStore.shadow), 'shadow');
@@ -162,7 +136,6 @@
 			light: { ...initialCustomizationThemeStoreValue.light },
 			dark: { ...initialCustomizationThemeStoreValue.dark }
 		};
-		rangeLineHeightValue = getRangeFromValue(baseCustomizationValues.lineHeight, 'lineHeight');
 		rangeRoundnessValue = getRangeFromValue(baseCustomizationValues.roundness, 'roundness');
 		rangeSparsityValue = getRangeFromValue(baseCustomizationValues.sparsity, 'sparsity');
 		rangeFatnessValue = getRangeFromValue(baseCustomizationValues.fatness, 'fatness');
@@ -202,13 +175,11 @@
 	}
 
 	$: setToStore(rangeRoundnessValue, 'roundness');
-	$: setToStore(rangeLineHeightValue, 'lineHeight');
 	$: setToStore(rangeSparsityValue, 'sparsity');
 	$: setToStore(rangeFatnessValue, 'fatness');
 	$: setToStore(rangeShadowValue, 'shadow');
 	$: $customizationStore.fontFamily = fontFamilyValue;
 
-	$: setCustomProperty('--s-line-height', $customizationStore.lineHeight.toString());
 	$: setCustomProperty('--s-multiplier-rounded', $customizationStore.roundness.toString());
 	$: setCustomProperty('--s-multiplier-sparsity', $customizationStore.sparsity.toString());
 	$: setCustomProperty('--s-multiplier-fatness', $customizationStore.fatness.toString());
@@ -235,250 +206,125 @@
 		$customizationThemeStore[activeTheme].fgColor.toString(),
 		activeTheme
 	);
-
-	// tabs
-
-	const ArrowKeyCodes = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
-
-	function selectTab(allMenuItems: NodeListOf<Element>, index: number) {
-		const nextEl = allMenuItems.item(index) as HTMLElement;
-		nextEl.focus();
-		nextEl.click();
-	}
-
-	const menuKeyCodes = {
-		ArrowLeft: (el: HTMLElement) => {
-			const { allMenuItems, activeIndex } = getActiveMenuItem(el);
-			const newIndex = 0 === activeIndex ? allMenuItems.length - 1 : activeIndex - 1;
-			selectTab(allMenuItems, newIndex);
-		},
-		ArrowRight: (el: HTMLElement) => {
-			const { allMenuItems, activeIndex } = getActiveMenuItem(el);
-			const newIndex = allMenuItems.length - 1 === activeIndex ? 0 : activeIndex + 1;
-			selectTab(allMenuItems, newIndex);
-		},
-		Home: (el: HTMLElement) => {
-			const { allMenuItems } = getActiveMenuItem(el);
-			selectTab(allMenuItems, 0);
-		},
-		End: (el: HTMLElement) => {
-			const { allMenuItems } = getActiveMenuItem(el);
-			selectTab(allMenuItems, allMenuItems.length - 1);
-		}
-	};
-
-	type AllowedNavKeys = keyof typeof menuKeyCodes;
-
-	function getActiveMenuItem(el: HTMLElement) {
-		const list = el.parentElement as HTMLElement;
-
-		const allMenuItems = list.querySelectorAll(':scope > [role="tab"]');
-		let activeIndex = 0;
-		allMenuItems.forEach((menuItem, index) => {
-			if (menuItem === el) {
-				activeIndex = index;
-			}
-		});
-
-		return { allMenuItems, activeIndex };
-	}
-
-	const keyDownHandler = (event: KeyboardEvent) => {
-		if (document.activeElement) {
-			const tablist = document.activeElement?.closest('#tablist') as HTMLElement;
-			if (tablist) {
-				const keyPressedCode = event.code;
-				if ([...ArrowKeyCodes].includes(keyPressedCode)) {
-					event.preventDefault();
-				}
-
-				const currEl = document.activeElement as HTMLElement;
-				if (ArrowKeyCodes.includes(keyPressedCode)) {
-					menuKeyCodes[keyPressedCode as AllowedNavKeys](currEl);
-				}
-			}
-		}
-	};
 </script>
 
-<svelte:document on:keydown={keyDownHandler} />
-
-<article>
-	<div role="tablist" id="tablist">
-		{#each tabs as tab, index}
-			<button
-				aria-controls={tab.key}
-				on:click={() => {
-					tabSelected = tab.key;
-				}}
-				aria-selected={tab.key === tabSelected ? 'true' : 'false'}
-				id="tab-{tab.key}"
-				role="tab"
-				tabindex={index ? -1 : 0}
-			>
-				{tab.title}
-			</button>
-		{/each}
-	</div>
-
-	{#each tabs as tab}
-		<div
-			aria-labelledby="tab-{tab.key}"
-			id={tab.key}
-			role="tabpanel"
-			hidden={tab.key !== tabSelected}
-		>
-			{#if tab.key === 'color'}
-				<section>
-					<div class="theme-headline">
-						<div class="colors-wrapper">
-							<div
-								class="color-example"
-								style="background-color: {$customizationThemeStore['light']
-									.bgColor}; color: {$customizationThemeStore['light'].fgColor}"
-							>
-								L
-							</div>
-							<div
-								class="color-example"
-								style="background-color: {$customizationThemeStore['light']
-									.primaryColor}; color: {$customizationThemeStore['light']['primary-contrast']}"
-							>
-								L
-							</div>
-						</div>
-						<label>
-							Theme {activeTheme}
-							<input
-								type="checkbox"
-								role="switch"
-								class="theme-switch"
-								bind:checked={$customizationStore.isDarkTheme}
-							/></label
+<div class="controls">
+	<div class="s-grid" style="--span:8; --gap:0.5rem;">
+		<div>
+			<fieldset>
+				<legend>Theme: {activeTheme}</legend>
+				<div class="theme-headline">
+					<div class="colors-wrapper">
+						<div
+							class="color-example"
+							style="background-color: {$customizationThemeStore['light']
+								.bgColor}; color: {$customizationThemeStore['light'].fgColor}"
 						>
-						<div class="colors-wrapper">
-							<div
-								class="color-example"
-								style="background-color: {$customizationThemeStore['dark']
-									.bgColor}; color: {$customizationThemeStore['dark'].fgColor}"
-							>
-								D
-							</div>
-							<div
-								class="color-example"
-								style="background-color: {$customizationThemeStore['dark']
-									.primaryColor}; color: {$customizationThemeStore['dark']['primary-contrast']}"
-							>
-								D
-							</div>
+							L
+						</div>
+						<div
+							class="color-example"
+							style="background-color: {$customizationThemeStore['light']
+								.primaryColor}; color: {$customizationThemeStore['light']['primary-contrast']}"
+						>
+							L
 						</div>
 					</div>
-
-					<div class="s-grid">
-						<div>
-							<label>
-								Foreground<small> {$customizationThemeStore[activeTheme].fgColor}</small>
-								<input type="color" bind:value={$customizationThemeStore[activeTheme].fgColor} />
-							</label>
-							<label>
-								Background<small> {$customizationThemeStore[activeTheme].bgColor}</small>
-								<input type="color" bind:value={$customizationThemeStore[activeTheme].bgColor} />
-							</label>
+					<input
+						type="checkbox"
+						role="switch"
+						class="theme-switch"
+						bind:checked={$customizationStore.isDarkTheme}
+					/>
+					<div class="colors-wrapper">
+						<div
+							class="color-example"
+							style="background-color: {$customizationThemeStore['dark']
+								.bgColor}; color: {$customizationThemeStore['dark'].fgColor}"
+						>
+							D
 						</div>
-
-						<div>
-							<label>
-								Primary <small>{$customizationThemeStore[activeTheme].primaryColor}</small>
-								<input
-									type="color"
-									bind:value={$customizationThemeStore[activeTheme].primaryColor}
-								/>
-							</label>
-
-							<label
-								>Contrast <small>{$customizationThemeStore[activeTheme]['primary-contrast']}</small
-								><input
-									type="color"
-									bind:value={$customizationThemeStore[activeTheme]['primary-contrast']}
-								/></label
-							>
-						</div>
-					</div>
-				</section>
-				<Accessibility></Accessibility>
-			{/if}
-			{#if tab.key === 'base'}
-				<div class="s-grid" style="--span:6">
-					<div>
-						<div>
-							<label>
-								Roundness: {Number($customizationStore.roundness).toFixed(2)}
-								<input
-									type="range"
-									min={rangeMin}
-									max={rangeMax}
-									bind:value={rangeRoundnessValue}
-								/>
-							</label>
-						</div>
-						<div>
-							<label>
-								Sparsity: {Number($customizationStore.sparsity).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeSparsityValue} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Fatness: {Number($customizationStore.fatness).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeFatnessValue} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Shadow: {Number($customizationStore.shadow).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeShadowValue} />
-							</label>
-						</div>
-					</div>
-				</div>{/if}
-			{#if tab.key === 'typography'}
-				<div class="s-grid" style="--span:6">
-					<div>
-						<div>
-							<label>
-								Font Family <a target="_blank" href="https://modernfontstacks.com/?stack=system-ui"
-									>(more on fonts)</a
-								>
-								<select name="" id="" bind:value={fontFamilyValue}>
-									{#each fontFamilies as ff}
-										<option value={ff.value}>{ff.title}</option>
-									{/each}
-								</select>
-							</label>
-						</div>
-						<div>
-							<label>
-								Line Height: {Number($customizationStore.lineHeight).toFixed(2)}
-								<input
-									type="range"
-									min={rangeMin}
-									max={rangeMax}
-									bind:value={rangeLineHeightValue}
-								/>
-							</label>
+						<div
+							class="color-example"
+							style="background-color: {$customizationThemeStore['dark']
+								.primaryColor}; color: {$customizationThemeStore['dark']['primary-contrast']}"
+						>
+							D
 						</div>
 					</div>
 				</div>
-			{/if}
-		</div>
-	{/each}
-</article>
 
-<button on:click={reset}>Reset</button>
+				<div class="s-grid">
+					<div>
+						<label>
+							Foreground<small> {$customizationThemeStore[activeTheme].fgColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].fgColor} />
+						</label>
+						<label>
+							Background<small> {$customizationThemeStore[activeTheme].bgColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].bgColor} />
+						</label>
+					</div>
+
+					<div>
+						<label>
+							Primary <small>{$customizationThemeStore[activeTheme].primaryColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].primaryColor} />
+						</label>
+
+						<label
+							>Contrast <small>{$customizationThemeStore[activeTheme]['primary-contrast']}</small
+							><input
+								type="color"
+								bind:value={$customizationThemeStore[activeTheme]['primary-contrast']}
+							/></label
+						>
+					</div>
+				</div>
+			</fieldset>
+
+			<label>
+				Roundness: {Number($customizationStore.roundness).toFixed(2)}
+				<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeRoundnessValue} />
+			</label>
+			<label>
+				Sparsity: {Number($customizationStore.sparsity).toFixed(2)}
+				<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeSparsityValue} />
+			</label>
+			<label>
+				Fatness: {Number($customizationStore.fatness).toFixed(2)}
+				<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeFatnessValue} />
+			</label>
+			<label>
+				Shadow: {Number($customizationStore.shadow).toFixed(2)}
+				<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeShadowValue} />
+			</label>
+			<label>
+				Font Family <a target="_blank" href="https://modernfontstacks.com/?stack=system-ui"
+					>(more on fonts)</a
+				>
+				<select name="" id="" bind:value={fontFamilyValue}>
+					{#each fontFamilies as ff}
+						<option value={ff.value}>{ff.title}</option>
+					{/each}
+				</select>
+			</label>
+
+			<div>
+				<button on:click={reset}>Reset</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <style lang="scss">
 	small {
 		display: block;
+	}
+	.controls {
+		position: sticky;
+		top: 5.5rem;
+		z-index: 2;
 	}
 
 	.theme-headline {
@@ -501,7 +347,7 @@
 	}
 
 	.theme-switch {
-		margin: 0 0 0 0.5rem;
+		margin: 0;
 		--dot-gap: 0.25rem;
 	}
 

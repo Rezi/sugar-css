@@ -1,7 +1,7 @@
 /* Accordion - Summary / details */
 
 :where(details summary) {
-	list-style: none;
+	//list-style: none;
 	display: flex;
 	gap: 1rem;
 	align-items: center;
@@ -43,12 +43,6 @@
 
 :where(details[open] summary):after {
 	transform: rotate(45deg);
-}
-
-summary::marker,
-summary::-webkit-details-marker {
-	display: none;
-	content: none; /* remove triangle (my case, it is button-like) */
 }
 
 /* Card Accordion */

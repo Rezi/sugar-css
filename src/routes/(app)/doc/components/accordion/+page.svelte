@@ -25,12 +25,12 @@
 	</details>
 </article>`;
 
-	const accordionCode = `<details open>
+	const accordionCode = `<details open name="accordions">
 	<summary>Open for Instant Smiles, Handle With Glee!</summary>
 		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
 		for grins!
 </details>
-<details>
+<details name="accordions">
 	<summary>Open for Instant Smiles, Handle With Glee!</summary>
 		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
 		for grins! 
@@ -57,9 +57,18 @@
 			<dl>
 				<dt><code>details</code></dt>
 				<dd>
-					creates a disclosure widget in which information is visible only when the widget is
-					toggled into an <code>open</code> state. A summary or label must be provided using the
-					<code>summary</code> element.
+					<p>
+						creates a disclosure widget in which information is visible only when the widget is
+						toggled into an <code>open</code> state. A summary or label must be provided using the
+						<code>summary</code> element.
+					</p>
+					<p>
+						<code>name</code> attribute of the <code>details</code> element is being utilized to
+						construct an exclusive accordion, which consists of a set of <code>details</code>
+						elements. When a user triggers an action to open one <code>details</code> element, any
+						other open <code>details</code> elements with the same <code>name</code> attribute are automatically
+						closed.
+					</p>
 				</dd>
 				<dt><code>summary</code></dt>
 				<dd>

@@ -197,7 +197,8 @@
 				{ name: 'Horizontal rule', url: '/doc/components/horizontal-rule' },
 				{ name: 'Lists', url: '/doc/components/lists' },
 				{ name: 'Modal', url: '/doc/components/modal' },
-				{ name: 'Progress bar', url: '/doc/components/progress' }
+				{ name: 'Progress bar', url: '/doc/components/progress' },
+				{ name: 'Tabs', url: '/doc/components/tabs' }
 			]
 		},
 		{

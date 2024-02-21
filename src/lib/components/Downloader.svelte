@@ -114,7 +114,7 @@ in order to modify this specific build of sugar.css.
 	}
 </script>
 
-<section class="s-grid" style="--span:3;">
+<section class="s-grid" style="--span:2;">
 	<div>
 		<label><input bind:group={cssParts} value="core" type="checkbox" checked disabled /> Core</label
 		>

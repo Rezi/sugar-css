@@ -1,26 +1,50 @@
 <script lang="ts">
+	import Downloader from '$lib/components/Downloader.svelte';
+	import EncoderDecoder from '$lib/components/EncoderDecoder.svelte';
+
 	import CustomControls from '$lib/components/CustomControls.svelte';
 
 	import { customizationLoadedStore } from '$lib/stores';
-	import { display } from 'colorjs.io/fn';
 	import { onDestroy } from 'svelte';
+
+	let accordions: { [key: string]: boolean } = {
+		download: false,
+		import: false
+	};
 
 	onDestroy(() => {
 		$customizationLoadedStore = false;
 	});
 </script>
 
-<div class="s-grid" style="--gap: 2rem; --span:6;">
+<h1>Customization</h1>
+<div class="s-grid" style="--gap: 2rem; --span:5;">
 	<div
 		class="loader"
 		aria-busy={$customizationLoadedStore ? 'false' : 'true'}
 		style={$customizationLoadedStore ? 'display:none' : ''}
 	></div>
 	<div style={!$customizationLoadedStore ? 'display:none' : ''}>
-		<aside style="--span-8:3;--span-10:3;">
+		<aside>
+			<section>
+				<details bind:open={accordions.download}>
+					<summary role="button">Download CSS (customized)</summary>
+					<div inert={!accordions.download}>
+						<Downloader></Downloader>
+					</div>
+				</details>
+
+				<details bind:open={accordions.import}>
+					<summary role="button">Import / Export</summary>
+					<div inert={!accordions.import}>
+						<EncoderDecoder></EncoderDecoder>
+					</div>
+				</details>
+			</section>
+
 			<CustomControls></CustomControls>
 		</aside>
-		<main style="--span-8:5;--span-10:7;"><slot /></main>
+		<main><slot /></main>
 	</div>
 </div>
 
