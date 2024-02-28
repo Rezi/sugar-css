@@ -5,41 +5,47 @@
 $sugar-column-width: 5rem;
 $grid-columns-count: 12;
 
-:where(*:has(> .s-grid > *)) {
-	/* This is a fix for negative margin-block of the grid, 
-	which could be visible when background is applied to grid's wrapper */
-	padding-block-start: 0.02px;
-}
-
 :where(.s-grid) {
 	--span: 1;
 	--offset: 0;
-	--gap: var(--s-gap-default);
+	--gap: 1rem;
 	--padding: 0rem;
-	--gap-half: calc(var(--gap) / 2);
+	--col-width: #{$sugar-column-width};
 
 	@for $i from 2 through $grid-columns-count {
 		--span-#{$i}: initial;
 		--offset-#{$i}: initial;
 	}
 
+	margin-right: calc(var(--gap) * -1);
+
 	container-type: inline-size;
 	container-name: s-grid;
-	margin: calc(var(--gap-half) * -1);
 }
 
 :where(.s-grid > *) {
+	gap: var(--gap);
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
+	margin-right: var(--gap);
+
+	grid-template-columns: repeat(auto-fit, minmax(calc(var(--col-width) - var(--gap)), 1fr));
 }
 
-/* _::-webkit-full-page-media,
-:where(.s-grid > *) {
-	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
-}
- */
 :where(.s-grid.s-fixed > *) {
-	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(var(--col-width), 1fr));
+}
+
+:where(.s-grid > * > .s-grid) {
+	margin-right: 0;
+}
+
+:where(.s-grid > * > .s-grid > *) {
+	margin-right: 0;
+	grid-template-columns: subgrid;
+}
+
+:where(.s-grid:has(+ .s-grid)) {
+	margin-bottom: var(--gap);
 }
 
 :where(.s-grid > * > *) {
@@ -50,20 +56,11 @@ $grid-columns-count: 12;
 
 	--span-plus-offset: calc(var(--span-result) + var(--offset-result));
 	grid-column: span min(var(--max-span), var(--span-plus-offset));
-	margin: var(--gap-half);
+
 	margin-inline-start: calc(
-		calc(100% / var(--span-plus-offset) * var(--offset-result)) + var(--gap-half)
+		calc(100% / var(--span-plus-offset) * var(--offset-result)) + (var(--gap) / 2)
 	);
 	padding: var(--padding);
-}
-
-/* :where(.s-grid > .s-grid) {
-	padding: 0;
-	margin: 0;
-} */
-
-:where(.s-grid:has(+ .s-grid)) {
-	margin-bottom: calc(var(--gap) / 2);
 }
 
 @for $i from 2 through $grid-columns-count {
@@ -78,6 +75,7 @@ $grid-columns-count: 12;
 		}
 	}
 }
+
 /* 
 :where(.s-col-full) {
 	grid-column-start: 1;

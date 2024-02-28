@@ -1,3 +1,7 @@
+/* LAYOUT
+========================================================================
+*/
+
 :where(.s-container) {
 	padding-inline: var(--sugar-spacing-inline);
 	margin-inline: calc((100dvw - min(100dvw, var(--container-width))) / 2);

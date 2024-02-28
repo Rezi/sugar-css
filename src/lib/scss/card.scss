@@ -1,3 +1,7 @@
+/* CARD 
+========================================================================
+*/
+
 :where(article) {
 	--inner-border-radius: calc(var(--s-block-radius) - var(--sugar-border-width));
 	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);

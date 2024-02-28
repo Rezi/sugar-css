@@ -26,21 +26,22 @@
 	></div>
 	<div style={!$customizationLoadedStore ? 'display:none' : ''}>
 		<aside>
-			<section>
+			<article>
 				<details bind:open={accordions.download}>
 					<summary role="button">Download CSS (customized)</summary>
 					<div inert={!accordions.download}>
 						<Downloader></Downloader>
 					</div>
 				</details>
-
+			</article>
+			<article>
 				<details bind:open={accordions.import}>
 					<summary role="button">Import / Export</summary>
 					<div inert={!accordions.import}>
 						<EncoderDecoder></EncoderDecoder>
 					</div>
 				</details>
-			</section>
+			</article>
 
 			<CustomControls></CustomControls>
 		</aside>

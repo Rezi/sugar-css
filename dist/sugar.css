@@ -1,4 +1,32 @@
 @charset "UTF-8";
+/* MIT License
+
+Copyright (c) 2024 Tomáš Řezáč
+
+https://github.com/Rezi/sugar-css
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ */
+/* VARIABLES
+========================================================================
+*/
 :where(:root) {
   --s-multiplier-rounded: 1;
   --s-multiplier-sparsity: 1;
@@ -50,6 +78,9 @@
     );
   }
 }
+/* COLORS 
+========================================================================
+*/
 :where(:root) {
   --s-color-dark-theme-bg: #1a1a1a;
   --s-color-dark-theme-fg: #fff;
@@ -122,45 +153,22 @@
     --s-color-primary-contrast: var(--s-color-dark-theme-primary-contrast);
   }
 }
-/* MIT License
-
-Copyright (c) 2024 Tomáš Řezáč
-
-https://github.com/Rezi/sugar-css
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
- */
-:where(html) {
-  font-size: 16px;
-}
-
+/* FONT SIZING 
+========================================================================
+*/
 @media screen and (min-width: 320px) {
   :where(html) {
-    font-size: calc(16px + 2 * (100vw - 320px) / 960);
+    font-size: calc(100% + 2 * (100vw - 320px) / 960);
   }
 }
 @media screen and (min-width: 1280px) {
   :where(html) {
-    font-size: calc(18px + 54 * (100vw - 1280px) / 10000);
+    font-size: calc(100% + 2px + 54 * (100vw - 1280px) / 10000);
   }
 }
+/* CORE 
+========================================================================
+*/
 /**
  * 1. Add border box sizing in all browsers (opinionated).
  * 2. Backgrounds do not repeat by default (opinionated).
@@ -258,6 +266,9 @@ SOFTWARE.
   fill: currentColor;
 }
 
+/* FONT 
+========================================================================
+*/
 /**
  * Add the correct system-ui font-family in Firefox.
  */
@@ -310,6 +321,9 @@ SOFTWARE.
   overflow: auto; /* 3 */
 }
 
+/* REDUCED MOTION
+========================================================================
+*/
 /*
  * 1. Remove animations when motion is reduced (opinionated).
  * 2. Remove fixed background attachments when motion is reduced (opinionated).
@@ -335,10 +349,9 @@ SOFTWARE.
     scroll-padding-top: var(--sugar-spacing-block);
   }
 }
-/**
-  * Correct the font size and margin on `h1` elements within `section` and
-  * `article` contexts in Chrome, Edge, Firefox, and Safari.
-  */
+/* HEADLINES
+========================================================================
+*/
 :where(h1, h2, h3, h4, h5, h6) {
   font-weight: 700;
   margin: 0 0 calc(1em * var(--s-multiplier-sparsity));
@@ -382,8 +395,9 @@ SOFTWARE.
   font-weight: normal;
 }
 
-/* Tabular data
-  * ========================================================================== */
+/* TABLES
+========================================================================
+*/
 /**
   * 1. Collapse border spacing in all browsers (opinionated).
   * 2. Correct table border color in Chrome, Edge, and Safari.
@@ -432,8 +446,9 @@ SOFTWARE.
   background-color: inherit;
 }
 
-/* Text-level semantics
-  * ========================================================================== */
+/* TEXT INLINE
+========================================================================
+*/
 /**
   * Add the correct font size in all browsers.
   */
@@ -501,6 +516,9 @@ SOFTWARE.
   border-radius: 0.25rem;
 }
 
+/* GRID
+========================================================================
+*/
 :where(*:has(> .s-grid > *)) {
   /* This is a fix for negative margin-block of the grid, 
   which could be visible when background is applied to grid's wrapper */
@@ -536,7 +554,7 @@ SOFTWARE.
   --span-12: initial;
   --offset-12: initial;
   container-type: inline-size;
-  container-name: fluid-grid;
+  container-name: s-grid;
   margin: calc(var(--gap-half) * -1);
 }
 
@@ -574,7 +592,7 @@ SOFTWARE.
   margin-bottom: calc(var(--gap) / 2);
 }
 
-@container fluid-grid (min-width: 10rem) {
+@container s-grid (min-width: 10rem) {
   :where(.s-grid > * > *) {
     --max-span: 2;
     --span-2f: var(--span-2, var(--span-1f));
@@ -583,7 +601,7 @@ SOFTWARE.
     --offset-result: var(--offset-2f);
   }
 }
-@container fluid-grid (min-width: 15rem) {
+@container s-grid (min-width: 15rem) {
   :where(.s-grid > * > *) {
     --max-span: 3;
     --span-3f: var(--span-3, var(--span-2f));
@@ -592,7 +610,7 @@ SOFTWARE.
     --offset-result: var(--offset-3f);
   }
 }
-@container fluid-grid (min-width: 20rem) {
+@container s-grid (min-width: 20rem) {
   :where(.s-grid > * > *) {
     --max-span: 4;
     --span-4f: var(--span-4, var(--span-3f));
@@ -601,7 +619,7 @@ SOFTWARE.
     --offset-result: var(--offset-4f);
   }
 }
-@container fluid-grid (min-width: 25rem) {
+@container s-grid (min-width: 25rem) {
   :where(.s-grid > * > *) {
     --max-span: 5;
     --span-5f: var(--span-5, var(--span-4f));
@@ -610,7 +628,7 @@ SOFTWARE.
     --offset-result: var(--offset-5f);
   }
 }
-@container fluid-grid (min-width: 30rem) {
+@container s-grid (min-width: 30rem) {
   :where(.s-grid > * > *) {
     --max-span: 6;
     --span-6f: var(--span-6, var(--span-5f));
@@ -619,7 +637,7 @@ SOFTWARE.
     --offset-result: var(--offset-6f);
   }
 }
-@container fluid-grid (min-width: 35rem) {
+@container s-grid (min-width: 35rem) {
   :where(.s-grid > * > *) {
     --max-span: 7;
     --span-7f: var(--span-7, var(--span-6f));
@@ -628,7 +646,7 @@ SOFTWARE.
     --offset-result: var(--offset-7f);
   }
 }
-@container fluid-grid (min-width: 40rem) {
+@container s-grid (min-width: 40rem) {
   :where(.s-grid > * > *) {
     --max-span: 8;
     --span-8f: var(--span-8, var(--span-7f));
@@ -637,7 +655,7 @@ SOFTWARE.
     --offset-result: var(--offset-8f);
   }
 }
-@container fluid-grid (min-width: 45rem) {
+@container s-grid (min-width: 45rem) {
   :where(.s-grid > * > *) {
     --max-span: 9;
     --span-9f: var(--span-9, var(--span-8f));
@@ -646,7 +664,7 @@ SOFTWARE.
     --offset-result: var(--offset-9f);
   }
 }
-@container fluid-grid (min-width: 50rem) {
+@container s-grid (min-width: 50rem) {
   :where(.s-grid > * > *) {
     --max-span: 10;
     --span-10f: var(--span-10, var(--span-9f));
@@ -655,7 +673,7 @@ SOFTWARE.
     --offset-result: var(--offset-10f);
   }
 }
-@container fluid-grid (min-width: 55rem) {
+@container s-grid (min-width: 55rem) {
   :where(.s-grid > * > *) {
     --max-span: 11;
     --span-11f: var(--span-11, var(--span-10f));
@@ -664,7 +682,7 @@ SOFTWARE.
     --offset-result: var(--offset-11f);
   }
 }
-@container fluid-grid (min-width: 60rem) {
+@container s-grid (min-width: 60rem) {
   :where(.s-grid > * > *) {
     --max-span: 12;
     --span-12f: var(--span-12, var(--span-11f));
@@ -679,6 +697,9 @@ SOFTWARE.
 	grid-column-end: -1;
 }
  */
+/* CARD 
+========================================================================
+*/
 :where(article) {
   --inner-border-radius: calc(var(--s-block-radius) - var(--sugar-border-width));
   padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
@@ -721,6 +742,9 @@ SOFTWARE.
   padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 }
 
+/* LAYOUT
+========================================================================
+*/
 :where(.s-container) {
   padding-inline: var(--sugar-spacing-inline);
   margin-inline: calc((100dvw - min(100dvw, var(--container-width))) / 2);
@@ -763,6 +787,9 @@ SOFTWARE.
   flex-direction: column;
 }
 
+/* MARGINS
+========================================================================
+*/
 :where(section) {
   margin-bottom: var(--sugar-spacing-block);
 }
@@ -777,8 +804,9 @@ SOFTWARE.
   margin-block-end: 0;
 }
 
-/* Forms
-  * ========================================================================== */
+/* FORMS
+========================================================================
+*/
 /**
   * Remove the margin on controls in Safari.
   */
@@ -1311,6 +1339,9 @@ input[type=time])::-webkit-calendar-picker-indicator {
   background-color: var(--s-color-primary);
 }
 
+/* LISTS
+========================================================================
+*/
 /**
   * Remove the margin on nested lists in Chrome, Edge, and Safari.
   */
@@ -1341,6 +1372,9 @@ input[type=time])::-webkit-calendar-picker-indicator {
   margin: 0;
 }
 
+/* BLOCKQUOTE
+========================================================================
+*/
 :where(blockquote) {
   border-inline-start: var(--s-border-width-max) var(--s-color-primary) solid;
   padding-inline: 1rem 0;
@@ -1353,6 +1387,9 @@ input[type=time])::-webkit-calendar-picker-indicator {
   color: var(--s-color-fg-65-bg);
 }
 
+/* FIGURE 
+========================================================================
+*/
 :where(figure) {
   margin: 0;
 }
@@ -1364,6 +1401,9 @@ input[type=time])::-webkit-calendar-picker-indicator {
   padding-top: 0.2rem;
 }
 
+/* HORIZONTAL RULE
+========================================================================
+*/
 :where(hr) {
   margin-block: var(--sugar-spacing-block);
   height: var(--s-hr-height);
@@ -1375,7 +1415,9 @@ input[type=time])::-webkit-calendar-picker-indicator {
   margin-inline: calc(var(--sugar-spacing-inline) * -1);
 }
 
-/* Accordion - Summary / details */
+/* Accordion 
+========================================================================
+*/
 :where(details summary) {
   display: flex;
   gap: 1rem;
@@ -1445,6 +1487,9 @@ article > details:only-child > summary {
   padding: var(--s-input-block-padding) var(--s-input-padding-inline);
 }
 
+/* NAVIGATION
+========================================================================
+*/
 :where(menu) {
   list-style-type: none;
   padding: 0;
@@ -1501,23 +1546,9 @@ article > details:only-child > summary {
   color: var(--s-color-text);
 }
 
-/* :where(dialog) {
-	--padding: calc(var(--sugar-spacing-inline) / 2);
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: grid;
-	place-content: center;
-	background-color: rgba(0, 0, 0, 0.5);
-	min-width: 100%;
-	min-height: 100%;
-	z-index: 9;
-	border: none;
-	color: var(--s-color-text);
-	padding: var(--padding);
-	-webkit-backdrop-filter: blur(3px);
-	backdrop-filter: blur(3px);
-} */
+/* DIALOG 
+========================================================================
+*/
 :where(dialog) {
   padding: 0;
   border: none;
@@ -1579,8 +1610,9 @@ article > details:only-child > summary {
   background-color: var(--s-color-bg-article-footer);
 }
 
-/* Accessibility
-  * ========================================================================== */
+/* LOADERS
+========================================================================
+*/
 /**
   * Change the cursor on busy elements in all browsers (opinionated).
   */
@@ -1617,7 +1649,9 @@ article > details:only-child > summary {
     transform: rotate(360deg);
   }
 }
-/* setup tooltips */
+/* TOOLTIPS
+========================================================================
+*/
 :where(*:has(> [aria-describedby]):has(> [role=tooltip i])) {
   position: relative;
 }
@@ -1685,6 +1719,9 @@ when moving from the 'aria-describedby' element to tooltip element
   z-index: 2;
 }
 
+/* TABS
+========================================================================
+*/
 :where([role=tablist]) {
   --padding-tabs: calc(var(--s-input-padding-inline) * 2);
   display: flex;

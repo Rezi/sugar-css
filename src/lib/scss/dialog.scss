@@ -1,20 +1,6 @@
-/* :where(dialog) {
-	--padding: calc(var(--sugar-spacing-inline) / 2);
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: grid;
-	place-content: center;
-	background-color: rgba(0, 0, 0, 0.5);
-	min-width: 100%;
-	min-height: 100%;
-	z-index: 9;
-	border: none;
-	color: var(--s-color-text);
-	padding: var(--padding);
-	-webkit-backdrop-filter: blur(3px);
-	backdrop-filter: blur(3px);
-} */
+/* DIALOG 
+========================================================================
+*/
 
 :where(dialog) {
 	padding: 0;

@@ -1,3 +1,7 @@
+/* BLOCKQUOTE
+========================================================================
+*/
+
 :where(blockquote) {
 	border-inline-start: var(--s-border-width-max) var(--s-color-primary) solid;
 	padding-inline: 1rem 0;

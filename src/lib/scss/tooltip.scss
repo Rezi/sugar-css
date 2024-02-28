@@ -1,4 +1,7 @@
-/* setup tooltips */
+/* TOOLTIPS
+========================================================================
+*/
+
 :where(*:has(> [aria-describedby]):has(> [role='tooltip' i])) {
 	position: relative;
 }

@@ -5,17 +5,20 @@ import * as sass from 'sass';
 
 import { $, chalk, fs, question } from 'zx';
 
+import cssNanoPreset from 'cssnano-preset-advanced';
 import cssnano from 'cssnano';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import postcss from 'postcss';
 import which from 'which';
 
+const preset = cssNanoPreset({ calc: false });
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const DEFAULTS = {
 	COLUMN_WIDTH: 5,
-	MAX_COLSPAN: 10
+	MAX_COLSPAN: 12
 };
 
 $.verbose = true;
@@ -139,7 +142,7 @@ console.log(
 `)
 );
 
-const postprocessedCss = await postcss([cssnano]).process(compiledCss.css, {
+const postprocessedCss = await postcss([cssnano({ preset })]).process(compiledCss.css, {
 	from: undefined,
 	to: undefined
 });

@@ -2,10 +2,11 @@
 	import { customizedCssVariables, customizationHash } from '$lib/stores';
 
 	import CSSvariables from '$lib/scss/variables.scss?inline';
+	import CSSlicense from '$lib/scss/license.scss?inline';
 	import CSScolors from '$lib/scss/colors.scss?inline';
 	import CSScore from '$lib/scss/core.scss?inline';
-
 	import CSSfonts from '$lib/scss/fonts.scss?inline';
+	import CSSfontSizing from '$lib/scss/font-sizing.scss?inline';
 	import CSSheadlines from '$lib/scss/headlines.scss?inline';
 	import CSSreducedMotion from '$lib/scss/reduced-motion.scss?inline';
 	import CSStable from '$lib/scss/table.scss?inline';
@@ -24,30 +25,179 @@
 	import CSSdialog from '$lib/scss/dialog.scss?inline'; // needs card
 	import CSSloader from '$lib/scss/loader.scss?inline';
 	import CSStooltip from '$lib/scss/tooltip.scss?inline';
+	import CSStabs from '$lib/scss/tabs.scss?inline';
 
 	let cssParts: string[] = ['core'];
 
-	const cssPartsMap: Record<string, { css: string[]; require?: string }> = {
-		core: { css: [/* CSSvariables, CSScolors, */ CSScore] }, // CSSvariables, CSScolors added when downloaded
-		fonts: { css: [CSSfonts] },
-		reducedMotion: { css: [CSSreducedMotion] },
-		headlines: { css: [CSSheadlines] },
-		table: { css: [CSStable] },
-		textInline: { css: [CSStextInline] },
-		grid: { css: [CSSgrid] },
-		card: { css: [CSScard] },
-		layout: { css: [CSSlayout] },
-		margins: { css: [CSSmargins] },
-		forms: { css: [CSSforms] },
-		lists: { css: [CSSlists] },
-		blockquote: { css: [CSSblockquote] },
-		figure: { css: [CSSfigure] },
-		hr: { css: [CSShr] },
-		accordion: { css: [CSSaccordion], require: 'card' },
-		navigation: { css: [CSSnavigation] },
-		dialog: { css: [CSSdialog], require: 'card' },
-		loader: { css: [CSSloader] },
-		tooltip: { css: [CSStooltip] }
+	const cssPartsMap: Record<
+		string,
+		{
+			css: string[];
+			require?: string;
+			name: string;
+			checked: boolean;
+			disabled: boolean;
+			description: string;
+		}
+	> = {
+		core: {
+			css: [CSScore],
+			name: 'Core',
+			checked: true,
+			disabled: true,
+			description: 'Variables, colors, box-sizing, <code>body</code> base styles'
+		}, // CSSvariables, CSScolors added when downloaded
+		fontSizing: {
+			css: [CSSfontSizing],
+			name: 'Font sizing',
+			checked: false,
+			disabled: false,
+			description: 'Font will grow up a bit with your screen'
+		},
+		fonts: {
+			css: [CSSfonts],
+			name: 'Fonts',
+			checked: false,
+			disabled: false,
+			description: 'Monospace and system fonts cross browser compatibility'
+		},
+		reducedMotion: {
+			css: [CSSreducedMotion],
+			name: 'Reduced motion',
+			checked: false,
+			disabled: false,
+			description: 'Reduced motion query for improved accessibility'
+		},
+		headlines: {
+			css: [CSSheadlines],
+			name: 'Headlines',
+			checked: false,
+			disabled: false,
+			description: '<code>h1</code> - <code>h6</code>, <code>hgroup</code>'
+		},
+		table: {
+			css: [CSStable],
+			name: 'Table',
+			checked: false,
+			disabled: false,
+			description: 'Base table styles'
+		},
+		textInline: {
+			css: [CSStextInline],
+			name: 'Inline elements',
+			checked: false,
+			disabled: false,
+			description:
+				'inline elements like <code>strong</code>, <code>i</code>, <code>a</code>, <code>em</code> and many others '
+		},
+		grid: {
+			css: [CSSgrid],
+			name: 'Grid',
+			checked: false,
+			disabled: false,
+			description: 'Gris system based on css Grid'
+		},
+		card: {
+			css: [CSScard],
+			name: 'Card (article)',
+			checked: false,
+			disabled: false,
+			description: 'Card like styling for an <code>article</code> element'
+		},
+		layout: {
+			css: [CSSlayout],
+			name: 'Layout',
+			checked: false,
+			disabled: false,
+			description: '<code>(body > header, footer, .s-container)</code>'
+		},
+		margins: {
+			css: [CSSmargins],
+			name: 'Margins',
+			checked: false,
+			disabled: false,
+			description:
+				'Elements with margins has only margin bottom. Last element of parent has margin collapsed'
+		},
+		forms: {
+			css: [CSSforms],
+			name: 'Forms',
+			checked: false,
+			disabled: false,
+			description: 'Inputs and buttons'
+		},
+		lists: {
+			css: [CSSlists],
+			name: 'Lists',
+			checked: false,
+			disabled: false,
+			description: '<code>ol</code>, <code>ul</code> and <code>dl</code>'
+		},
+		blockquote: {
+			css: [CSSblockquote],
+			name: 'Blockquote',
+			checked: false,
+			disabled: false,
+			description: 'Quotation block styling <code>blockquote</code>'
+		},
+		figure: {
+			css: [CSSfigure],
+			name: 'Figure',
+			checked: false,
+			disabled: false,
+			description: 'Figure for images and diagrams'
+		},
+		hr: {
+			css: [CSShr],
+			name: 'Horizontal rule',
+			checked: false,
+			disabled: false,
+			description: 'Horizontal rule with additional card support'
+		},
+		accordion: {
+			css: [CSSaccordion],
+			require: 'card',
+			name: 'Accordion',
+			checked: false,
+			disabled: false,
+			description: 'Several styles for various accordions'
+		},
+		navigation: {
+			css: [CSSnavigation],
+			name: 'Navigation',
+			checked: false,
+			disabled: false,
+			description: 'Top navigation menu, aside navigation'
+		},
+		dialog: {
+			css: [CSSdialog],
+			require: 'card',
+			name: 'Dialog',
+			checked: false,
+			disabled: false,
+			description: 'Dialog and modal styles'
+		},
+		loader: {
+			css: [CSSloader],
+			name: 'Loader',
+			checked: false,
+			disabled: false,
+			description: 'Loading indicator for buttons, blocks, links'
+		},
+		tooltip: {
+			css: [CSStooltip],
+			name: 'Tooltip',
+			checked: false,
+			disabled: false,
+			description: 'Accessible tooltip with support for HTML like this one'
+		},
+		tabs: {
+			css: [CSStabs],
+			name: 'Tabs',
+			checked: false,
+			disabled: false,
+			description: 'Accessible tabs'
+		}
 	};
 
 	let includeCustomColors = true;
@@ -72,11 +222,17 @@
 
 	function triggerDownload() {
 		if (includeCustomColors) {
-			const CssWithVariables = customizeCss(CSSvariables + CSScolors);
+			const CssWithVariables = customizeCss(joinCSSParts([CSSvariables, CSScolors]));
 			download(CssWithVariables);
 		} else {
-			download(CSSvariables + CSScolors);
+			download(joinCSSParts([CSSvariables, CSScolors]));
 		}
+	}
+
+	function joinCSSParts(parts: string[]) {
+		return parts.join(`
+
+`);
 	}
 
 	function download(CssWithVariables: string) {
@@ -88,16 +244,18 @@ Your can visit:
 https://sugar-css.com/customize?seed=${$customizationHash}
 in order to modify this specific build of sugar.css.
 */
-        
-        `;
 
-		const stylesToDownload = cssParts
-			.flatMap((key) => {
+`;
+
+		const stylesToDownload = joinCSSParts(
+			cssParts.flatMap((key) => {
 				return cssPartsMap[key].css;
 			})
-			.join('');
+		);
 
-		const blob = new Blob([CSSstylesHeader + CssWithVariables + stylesToDownload]);
+		const blob = new Blob([
+			joinCSSParts([CSSlicense, CSSstylesHeader, CssWithVariables, stylesToDownload])
+		]);
 		const a = document.createElement('a');
 		document.body.append(a);
 		a.download = 'sugar.css';
@@ -116,36 +274,22 @@ in order to modify this specific build of sugar.css.
 
 <section class="s-grid" style="--span:2;">
 	<div>
-		<label><input bind:group={cssParts} value="core" type="checkbox" checked disabled /> Core</label
-		>
-		<label><input bind:group={cssParts} value="fonts" type="checkbox" /> Fonts</label>
-		<label
-			><input bind:group={cssParts} value="reducedMotion" type="checkbox" /> Reduced motion</label
-		>
-		<label><input bind:group={cssParts} value="headlines" type="checkbox" /> Headlines</label>
-		<label><input bind:group={cssParts} value="table" type="checkbox" /> Table</label>
-		<label
-			><input bind:group={cssParts} value="textInline" type="checkbox" /> Inline (text) elements</label
-		>
-		<label><input bind:group={cssParts} value="grid" type="checkbox" /> Grid</label>
-		<label><input bind:group={cssParts} value="card" type="checkbox" /> Card (article)</label>
-		<label
-			><input bind:group={cssParts} value="layout" type="checkbox" /> Layout (body > header, footer,
-			.s-container)</label
-		>
-		<label><input bind:group={cssParts} value="margins" type="checkbox" /> Margins</label>
-		<label
-			><input bind:group={cssParts} value="forms" type="checkbox" /> Forms (inputs, buttons)</label
-		>
-		<label><input bind:group={cssParts} value="lists" type="checkbox" /> Lists</label>
-		<label><input bind:group={cssParts} value="blockquote" type="checkbox" /> Blockquote</label>
-		<label><input bind:group={cssParts} value="figure" type="checkbox" /> Figure</label>
-		<label><input bind:group={cssParts} value="hr" type="checkbox" /> Horizontal rule</label>
-		<label><input bind:group={cssParts} value="accordion" type="checkbox" /> Accordion</label>
-		<label><input bind:group={cssParts} value="navigation" type="checkbox" /> Navigation</label>
-		<label><input bind:group={cssParts} value="dialog" type="checkbox" /> Dialog</label>
-		<label><input bind:group={cssParts} value="loader" type="checkbox" /> Loader</label>
-		<label><input bind:group={cssParts} value="tooltip" type="checkbox" /> Tooltip</label>
+		{#each Object.entries(cssPartsMap) as section}
+			<label
+				><input
+					bind:group={cssParts}
+					value={section[0]}
+					type="checkbox"
+					checked={section[1].checked}
+					disabled={section[1].disabled}
+					aria-describedby="{section[0]}-tooltip"
+				/>
+				{section[1].name}
+				<span role="tooltip" id="{section[0]}-tooltip">
+					{@html section[1].description}
+				</span>
+			</label>
+		{/each}
 	</div>
 </section>
 <section>

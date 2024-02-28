@@ -1,0 +1,15 @@
+/* FONT SIZING 
+========================================================================
+*/
+
+@media screen and (min-width: 320px) {
+	:where(html) {
+		font-size: calc(100% + (2 * ((100vw - 320px) / 960)));
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	:where(html) {
+		font-size: calc(100% + 2px + (54 * ((100vw - 1280px) / 10000)));
+	}
+}

@@ -1,3 +1,7 @@
+/* GRID
+========================================================================
+*/
+
 $sugar-column-width: 5rem;
 $grid-columns-count: 12;
 
@@ -20,7 +24,7 @@ $grid-columns-count: 12;
 	}
 
 	container-type: inline-size;
-	container-name: fluid-grid;
+	container-name: s-grid;
 	margin: calc(var(--gap-half) * -1);
 }
 
@@ -63,7 +67,7 @@ $grid-columns-count: 12;
 }
 
 @for $i from 2 through $grid-columns-count {
-	@container fluid-grid (min-width: #{$i * $sugar-column-width}) {
+	@container s-grid (min-width: #{$i * $sugar-column-width}) {
 		:where(.s-grid > * > *) {
 			--max-span: #{$i};
 			--span-#{$i}f: var(--span-#{$i}, var(--span-#{$i - 1}f));

@@ -1,22 +1,17 @@
 <script>
 	import CardCode from '$lib/components/CardCode.svelte';
 
-	const codeFontSizing = `:where(html) {
-	font-size: 16px;
-}
-
-@media screen and (min-width: 320px) {
+	const codeFontSizing = `@media screen and (min-width: 320px) {
 	:where(html) {
-		font-size: calc(16px + 2 * ((100vw - 320px) / 960));
+		font-size: calc(100% + (2 * ((100vw - 320px) / 960)));
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	:where(html) {
-		font-size: calc(18px + 54 * ((100vw - 1280px) / 10000));
+		font-size: calc(100% + 2px + (54 * ((100vw - 1280px) / 10000)));
 	}
-}
-`;
+}`;
 
 	const codeMargin = `/* Sugar Doesn't apply margin top to following */
 
@@ -60,9 +55,9 @@
 
 	<p>
 		Sugar.css employs a poly fluid font sizing technique, dynamically scaling font size in tandem
-		with screen dimensions. The code snippet below illustrates setting the default font size to
-		16px, progressively increasing it to 18px as the screen width ranges from 320px to 1280px.
-		Beyond 1280px, the font growth accelerates even further.
+		with screen dimensions. The code snippet below illustrates using the default browser font size
+		16px (100%), progressively increasing it to 18px as the screen width ranges from 320px to
+		1280px. Beyond 1280px, the font growth accelerates even further.
 	</p>
 	<CardCode code={codeFontSizing} language="css" examplePosition={''}></CardCode>
 
@@ -74,6 +69,10 @@
 		the grid system—scales proportionally to the screen size. This ensures that if your web content looks
 		appealing on a 1280px wide monitor, it will maintain its visual integrity on larger screens, including
 		16K monitors.
+	</p>
+	<p>
+		If this technique doesn't fit your needs, removing it from Sugar.css does not break anything,
+		you just lose the built-in auto-adjustment for bigger screens.
 	</p>
 </article>
 

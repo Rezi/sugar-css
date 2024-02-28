@@ -1,3 +1,8 @@
+<svelte:head>
+	<title>Customization | Sugar.css</title>
+	<meta name="description" content="Sugar.css - Customization" />
+</svelte:head>
+
 <article>
 	<header><h2>Example to play with</h2></header>
 	<form>
