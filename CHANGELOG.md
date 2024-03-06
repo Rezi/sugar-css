@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- Tooltip z-index fix
+
 ## 0.2.2
 
 - Fixed Combo of input and button

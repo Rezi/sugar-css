@@ -1,6 +1,6 @@
 {
 	"name": "sugar-css-framework",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "Sugar.css minimalistic CSS framework",
 	"main": "dist/sugar.css",
 	"homepage": "https://sugar-css.com/",

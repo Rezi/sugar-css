@@ -1670,6 +1670,7 @@ article > details:only-child > summary {
   opacity: 0;
   inset-inline-end: 0;
   max-width: 20rem;
+  z-index: 2;
 }
 
 :where(a[aria-describedby] + [role=tooltip i]) {
@@ -1712,7 +1713,6 @@ when moving from the 'aria-describedby' element to tooltip element
   opacity: 1;
   transform: scale3d(1, 1, 1);
   visibility: visible;
-  z-index: 2;
 }
 
 /* TABS
