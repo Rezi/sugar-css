@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Fixed Combo of input and button
+
 ## 0.2.1
 
 - The Poly fluid font sizing formula has been updated from pixels to percentages, enabling it to seamlessly integrate with custom preset font sizes in browser settings.

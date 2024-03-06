@@ -34,7 +34,7 @@
 		<div>
 			<h3>Semantic</h3>
 			<p>
-				Except 5 classes, all styles are applied based on <strong>semantic</strong> HTML and aria
+				Except 7 classes, all styles are applied based on <strong>semantic</strong> HTML and aria
 				attributes. This way, <strong>accessible</strong> and easy to read HTML is encouraged.
 			</p>
 		</div>

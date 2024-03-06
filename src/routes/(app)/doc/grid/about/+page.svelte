@@ -19,6 +19,12 @@
 			making it considerably more concise than alternatives such as Bootstrap's grid, which is 10
 			times larger.
 		</p>
+		<p>
+			The CSS utilized for the grid can be somewhat challenging to comprehend, yet it constitutes an
+			intriguing piece of code. I encourage you to examine it further <a
+				href="https://github.com/Rezi/sugar-css/blob/main/src/lib/scss/grid.scss">here</a
+			>.
+		</p>
 
 		<p>Sugar grid is:</p>
 		<ol>

@@ -531,6 +531,7 @@ SOFTWARE.
   --gap: var(--s-gap-default);
   --padding: 0rem;
   --gap-half: calc(var(--gap) / 2);
+  /* In case of nested grids, it is necessary to reset spans and offsets so they don't inherit them */
   --span-2: initial;
   --offset-2: initial;
   --span-3: initial;
@@ -563,11 +564,6 @@ SOFTWARE.
   grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
 }
 
-/* _::-webkit-full-page-media,
-:where(.s-grid > *) {
-	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
-}
- */
 :where(.s-grid.s-fixed > *) {
   grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
 }
@@ -584,10 +580,6 @@ SOFTWARE.
   padding: var(--padding);
 }
 
-/* :where(.s-grid > .s-grid) {
-	padding: 0;
-	margin: 0;
-} */
 :where(.s-grid:has(+ .s-grid)) {
   margin-bottom: calc(var(--gap) / 2);
 }
@@ -691,12 +683,6 @@ SOFTWARE.
     --offset-result: var(--offset-12f);
   }
 }
-/* 
-:where(.s-col-full) {
-	grid-column-start: 1;
-	grid-column-end: -1;
-}
- */
 /* CARD 
 ========================================================================
 */
@@ -1177,29 +1163,39 @@ select) {
   background-blend-mode: difference;
 }
 
-/**
-    * 1. Correct the odd appearance in Chrome, Edge, and Safari.
-    * 2. Correct the outline style in Safari.
-    */
 :where(input[type=search i]) {
   background-image: var(--sugar-icon-search);
   -webkit-appearance: textfield; /* 1 */
+}
+
+/**
+    * Correct the outline style in Safari.
+    */
+_::-webkit-full-page-media,
+:where(input[type=search i]) {
   outline-offset: var(--s-focus-offset-negative); /* 2 */
 }
 
 /* input button combo */
-:where(:has(> input:not([type=radio], [type=checkbox], :last-child):first-child):has(> :where(button, [type=button i], [type=reset i], [type=submit i]):last-child)) {
+:where(:has(> input:not([type=radio], [type=checkbox]):first-child:nth-last-child(2)):has(> :where(button,
+[type=button i],
+[type=reset i],
+[type=submit i]):last-child:nth-child(2))) {
   display: flex;
 }
-
-:where(:has(> input:not([type=button i], [type=reset i], [type=submit i])):has(> :where(button, [type=button i], [type=reset i], [type=submit i])) input:not([type=radio], [type=checkbox]):first-child) {
+:where(:has(> input:not([type=radio], [type=checkbox]):first-child:nth-last-child(2)):has(> :where(button,
+[type=button i],
+[type=reset i],
+[type=submit i]):last-child:nth-child(2))) :first-child {
   border-radius: 0;
   border-start-start-radius: var(--s-input-border-radius);
   border-end-start-radius: var(--s-input-border-radius);
   border-inline-end: 0;
 }
-
-:where(input:not([type=radio], [type=checkbox]):first-child + :where(button, [type=button i], [type=reset i], [type=submit i]):last-child) {
+:where(:has(> input:not([type=radio], [type=checkbox]):first-child:nth-last-child(2)):has(> :where(button,
+[type=button i],
+[type=reset i],
+[type=submit i]):last-child:nth-child(2))) :last-child {
   max-width: min-content;
   white-space: nowrap;
   border-radius: 0;

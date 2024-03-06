@@ -18,6 +18,7 @@ $grid-columns-count: 12;
 	--padding: 0rem;
 	--gap-half: calc(var(--gap) / 2);
 
+	/* In case of nested grids, it is necessary to reset spans and offsets so they don't inherit them */
 	@for $i from 2 through $grid-columns-count {
 		--span-#{$i}: initial;
 		--offset-#{$i}: initial;
@@ -33,11 +34,6 @@ $grid-columns-count: 12;
 	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
 }
 
-/* _::-webkit-full-page-media,
-:where(.s-grid > *) {
-	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
-}
- */
 :where(.s-grid.s-fixed > *) {
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
@@ -57,11 +53,6 @@ $grid-columns-count: 12;
 	padding: var(--padding);
 }
 
-/* :where(.s-grid > .s-grid) {
-	padding: 0;
-	margin: 0;
-} */
-
 :where(.s-grid:has(+ .s-grid)) {
 	margin-bottom: calc(var(--gap) / 2);
 }
@@ -78,9 +69,3 @@ $grid-columns-count: 12;
 		}
 	}
 }
-/* 
-:where(.s-col-full) {
-	grid-column-start: 1;
-	grid-column-end: -1;
-}
- */
