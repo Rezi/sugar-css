@@ -101,8 +101,8 @@
   * Remove the border on iframes in all browsers (opinionated).
   */
 
-:where(iframe) {
-	border-style: none;
+:where(iframe, img) {
+	border: none;
 }
 
 /**
