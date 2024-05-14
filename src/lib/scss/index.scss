@@ -1,30 +1,30 @@
-@import './license';
-@import './variables';
-@import './colors';
-@import './font-sizing';
-@import './core';
+@use './license';
+@use './variables';
+@use './colors';
+@use './font-sizing';
+@use './core';
 
-@import './fonts';
-@import './reduced-motion';
-@import './headlines';
+@use './fonts';
+@use './reduced-motion';
+@use './headlines';
 
-@import './table';
-@import './text-inline';
+@use './table';
+@use './text-inline';
 
-@import './grid';
-@import './card';
-@import './layout';
-@import './margins';
+@use './grid';
+@use './card';
+@use './layout';
+@use './margins';
 
-@import './forms';
-@import './lists';
-@import './blockquote';
-@import './figure';
-@import './hr';
-@import './accordion';
+@use './forms';
+@use './lists';
+@use './blockquote';
+@use './figure';
+@use './hr';
+@use './accordion';
 
-@import './navigation';
-@import './dialog';
-@import './loader';
-@import './tooltip';
-@import './tabs';
+@use './navigation';
+@use './dialog';
+@use './loader';
+@use './tooltip';
+@use './tabs';

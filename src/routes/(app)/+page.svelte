@@ -19,7 +19,8 @@
 
 <hgroup class="hgroup">
 	<h1>Sugar.css</h1>
-	<h2>Semantic, accessible, lightweight <strong>CSS framework</strong></h2>
+	<!-- <h2>Semantic, accessible, lightweight <strong>CSS framework</strong></h2> -->
+	<h2><a href="customize">Customizable</a> <strong>CSS reset</strong> on steroids</h2>
 </hgroup>
 
 <p class="text-center">
@@ -46,7 +47,7 @@
 		<div>
 			<h3>Lightweight</h3>
 			<p>
-				Whole framework is
+				Whole solution is
 				<strong>7.5 kB</strong> g-zipped. Including advanced grid system and custom properties to customize.
 			</p>
 		</div>

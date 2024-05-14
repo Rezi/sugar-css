@@ -31,13 +31,13 @@
 } */
 
 :where([role='tablist'] > [role='tab']) {
-	--radius: calc(var(--s-border-width-max) / 2);
 	color: var(--s-color-text);
 	background: var(--s-color-bg);
 	border: none;
 	position: relative;
 	white-space: nowrap;
 	outline-offset: var(--s-focus-offset-negative);
+	border-radius: 0;
 
 	/*  In case you need tab to be an anchor instead of a button uncomment the following code: */
 
@@ -65,19 +65,9 @@
 
 :where([role='tablist'] > [role='tab']:first-child) {
 	padding-inline-start: var(--padding-tabs);
-
-	/* &::after {
-		border-start-start-radius: var(--radius);
-		border-end-start-radius: var(--radius);
-	} */
 }
 :where([role='tablist'] > [role='tab']:last-child) {
 	padding-inline-end: var(--padding-tabs);
-
-	/* &::after {
-		border-start-end-radius: var(--radius);
-		border-end-end-radius: var(--radius);
-	} */
 }
 
 :where([role='tablist'] > [role='tab'][aria-selected='false']):after {
@@ -103,8 +93,25 @@ if the last tabpanel is last-child of its parent */
 
 :where(article:not(:has(> :not([role='tablist']):not([role='tabpanel'])))) {
 	padding: 0;
+	--tabs-radius: calc(var(--s-block-radius) - var(--sugar-border-width));
 }
 
 :where(article:not(:has(> :not([role='tablist']):not([role='tabpanel']))) [role='tabpanel']) {
 	padding: 0 var(--sugar-spacing-inline) var(--sugar-spacing-block);
+}
+
+:where(
+		article:not(:has(> :not([role='tablist']):not([role='tabpanel'])))
+			> [role='tablist']:first-child
+			> [role='tab']:first-child
+	) {
+	border-top-left-radius: var(--tabs-radius);
+}
+
+:where(
+		article:not(:has(> :not([role='tablist']):not([role='tabpanel'])))
+			> [role='tablist']:first-child
+			> [role='tab']:last-child
+	) {
+	border-top-right-radius: var(--tabs-radius);
 }
