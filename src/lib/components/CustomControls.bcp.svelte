@@ -362,15 +362,6 @@
 		outline: 2px dotted var(--sun-color);
 	}
 
-	/* 
-	.theme-switch:checked::before {
-		background-color: transparent;
-		box-shadow: calc(var(--dot-size) * -0.375) 0 0 0 rgb(220, 220, 220);
-		left: calc(var(--dot-size) * 0.375);
-		outline: none;
-	}
- */
-
 	.theme-switch:checked::before {
 		background-color: transparent;
 		box-shadow: calc(var(--dot-size) * -0.375) 0 0 0 var(--s-color-primary-contrast);

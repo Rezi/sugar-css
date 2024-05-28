@@ -47,7 +47,7 @@
 	line-height: 0;
 	padding-top: var(--legend-height);
 	border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
-	margin-left: var(--s-input-border-radius);
+	margin-inline-start: var(--s-input-border-radius);
 }
 
 /**
@@ -385,7 +385,7 @@
 }
 
 :where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
-	padding-right: var(--s-input-padding-inline);
+	padding-inline-end: var(--s-input-padding-inline);
 }
 
 :where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
@@ -570,6 +570,8 @@ _::-webkit-full-page-media,
 	border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
 	position: relative;
 	background-color: var(--s-color-primary-contrast);
+	display: flex;
+	justify-content: left;
 }
 
 :where(input[type='checkbox' i][role='switch' i])::before {

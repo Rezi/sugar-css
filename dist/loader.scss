@@ -20,7 +20,7 @@
 
 :where([aria-busy='true' i]):not(:has(progress)):before {
 	display: inline-block;
-	margin-right: 0.5rem;
+	margin-inline-end: 0.5rem;
 	content: '';
 	height: clamp(1em, 80%, 3rem);
 	min-width: 1em;

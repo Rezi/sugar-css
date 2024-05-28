@@ -20,12 +20,13 @@
 <hgroup class="hgroup">
 	<h1>Sugar.css</h1>
 	<!-- <h2>Semantic, accessible, lightweight <strong>CSS framework</strong></h2> -->
-	<h2><a href="customize">Customizable</a> <strong>CSS reset</strong> on steroids</h2>
+	<h2>Semantic, accessible, lightweight <strong>CSS framework</strong></h2>
 </hgroup>
 
 <p class="text-center">
-	Sugar.css is freshly baked, currently in <sup class="beta">beta</sup>. Please leave feedback in
-	the form of an issue at
+	Sugar.css is freshly baked, currently in <sup
+		><a href="https://github.com/Rezi/sugar-css/issues">beta</a></sup
+	>. Please leave feedback in the form of an issue at
 	<a href="https://github.com/Rezi/sugar-css">GitHub</a>.
 </p>
 
@@ -74,9 +75,6 @@
 </section>
 
 <style>
-	.beta {
-		color: var(--s-color-primary-40-bg);
-	}
 	hr {
 		margin-block: clamp(2.5rem, 10dvw, 6rem);
 	}

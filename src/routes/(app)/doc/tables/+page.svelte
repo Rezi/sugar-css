@@ -41,7 +41,7 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<th></th>
+			<th aria-hidden="true"></th>
 			<td>✓</td>
 			<td>✓</td>
 			<td>✓</td>

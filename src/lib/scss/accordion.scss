@@ -58,8 +58,8 @@ article > details:only-child {
 }
 article:has(> details:only-child) > details[open] > summary {
 	margin: 0;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+	border-end-end-radius: 0;
+	border-end-start-radius: 0;
 }
 article > details:only-child > :not(summary) {
 	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);

@@ -27,8 +27,8 @@
 	}
 </script>
 
-<header>
-	<nav class="s-container">
+<header aria-label="Sticky header">
+	<nav class="s-container" aria-label="Main navigation">
 		<menu><li><a href="/"><Logo --size="2.2rem" withName={true}></Logo></a></li></menu>
 		<menu
 			><li><a href="/doc">Getting started</a></li>
@@ -45,7 +45,7 @@
 	</nav>
 </header>
 <div class="s-container"><slot /></div>
-<footer>
+<footer aria-label="License footer">
 	<div class="s-container">
 		<a href="https://github.com/Rezi/sugar-css/blob/main/LICENSE.md">MIT License</a>
 	</div>

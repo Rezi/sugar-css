@@ -17,17 +17,17 @@
 	content: '';
 	background-image: linear-gradient(var(--direction), var(--s-color-bg), transparent);
 	position: sticky;
-	left: 0;
+	inset-inline-start: 0;
 	flex: 1 0 var(--padding-tabs);
-	margin-left: calc(-1 * var(--padding-tabs));
+	margin-inline-start: calc(-1 * var(--padding-tabs));
 	margin-bottom: var(--s-border-width-max);
 	z-index: 2;
 }
 
 :where([role='tablist']:dir(ltr)):after {
 	--direction: 270deg;
-	right: -1px;
-	left: auto;
+	inset-inline-end: -1px;
+	inset-inline-start: auto;
 } */
 
 :where([role='tablist'] > [role='tab']) {
@@ -56,8 +56,8 @@
 	content: '';
 	display: block;
 	width: 100%;
-	bottom: 0;
-	left: 0;
+	inset-block-end: 0;
+	inset-inline-start: 0;
 	height: var(--s-border-width-max);
 	background-color: var(--s-color-primary);
 	translate: (0 var(--s-border-width-max));
@@ -105,7 +105,7 @@ if the last tabpanel is last-child of its parent */
 			> [role='tablist']:first-child
 			> [role='tab']:first-child
 	) {
-	border-top-left-radius: var(--tabs-radius);
+	border-start-start-radius: var(--tabs-radius);
 }
 
 :where(
@@ -113,5 +113,5 @@ if the last tabpanel is last-child of its parent */
 			> [role='tablist']:first-child
 			> [role='tab']:last-child
 	) {
-	border-top-right-radius: var(--tabs-radius);
+	border-start-end-radius: var(--tabs-radius);
 }

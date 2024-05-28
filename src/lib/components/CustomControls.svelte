@@ -501,29 +501,17 @@
 	}
 
 	.theme-switch {
-		margin: 0 0 0 0.5rem;
+		margin-inline-start: 0.5rem;
+		margin-inline-end: 0.5rem;
 		--dot-gap: 0.25rem;
 	}
 
-	/* .theme-switch::before {
-		transition: all 0.3s;
-		outline: 2px dotted var(--s-color-primary);
-	} */
 	.theme-switch::before {
 		--sun-color: rgb(255, 174, 0);
 		background-color: var(--sun-color);
 		transition: all 0.3s;
 		outline: 2px dotted var(--sun-color);
 	}
-
-	/* 
-	.theme-switch:checked::before {
-		background-color: transparent;
-		box-shadow: calc(var(--dot-size) * -0.375) 0 0 0 rgb(220, 220, 220);
-		left: calc(var(--dot-size) * 0.375);
-		outline: none;
-	}
- */
 
 	.theme-switch:checked::before {
 		background-color: transparent;

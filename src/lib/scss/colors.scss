@@ -17,7 +17,7 @@
 :where(:root, .s-dark, .s-light) {
 	--s-color-bg-95-fg: color-mix(in srgb, var(--s-color-bg) 95%, var(--s-color-fg));
 	--s-color-bg-85-fg: color-mix(in srgb, var(--s-color-bg) 85%, var(--s-color-fg));
-	--s-color-fg-65-bg: color-mix(in srgb, var(--s-color-fg) 60%, var(--s-color-bg));
+	--s-color-fg-65-bg: color-mix(in srgb, var(--s-color-fg) 65%, var(--s-color-bg));
 	--s-color-text: var(--s-color-fg);
 
 	--s-color-input-border: var(--s-color-fg-65-bg);
@@ -41,7 +41,7 @@
 	--s-color-link: var(--s-color-primary);
 	--s-color-mark: var(--s-color-primary-40-bg);
 
-	--s-color-positive: rgb(30, 130, 0);
+	--s-color-positive: rgb(28, 120, 0);
 	--s-color-bg-positive: color-mix(in srgb, var(--s-color-positive) 10%, var(--s-color-bg));
 	--s-color-negative: rgb(180, 40, 40);
 	--s-color-bg-negative: color-mix(in srgb, var(--s-color-negative) 10%, var(--s-color-bg));

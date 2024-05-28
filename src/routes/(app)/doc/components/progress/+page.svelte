@@ -5,8 +5,8 @@
 		<div>
 			<label><progress value=".7" max="1">70 %</progress></label>
 		</div>
-		<div>
-			<progress role="presentation"></progress>
+		<div aria-busy="true" inert>
+			<progress role="presentation" ></progress>
 		</div>
 	</div>
 </div>`;

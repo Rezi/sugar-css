@@ -242,7 +242,6 @@
 			{#if collapsibleMenu}
 				<button
 					class="menu-button"
-					id="menubutton"
 					aria-haspopup="true"
 					aria-expanded={menuOpened ? 'true' : 'false'}
 					on:click={() => {
@@ -255,7 +254,7 @@
 			{/if}
 
 			<nav
-				aria-labelledby="menubutton"
+				aria-label="Documentation navigation"
 				class:shown={!collapsibleMenu || menuOpened}
 				inert={collapsibleMenu && !menuOpened}
 			>
@@ -293,7 +292,7 @@
 				</menu>
 			</nav>
 		</aside>
-		<main style="--span:9;"><slot /></main>
+		<main style="--span:9;" aria-label="Documentation content"><slot /></main>
 	</div>
 </div>
 
@@ -319,7 +318,7 @@
 		}
 	}
 	.burger {
-		margin-left: 1rem;
+		margin-inline-start: 1rem;
 		width: 2.5rem;
 		--height: 0.25rem;
 		position: relative;
@@ -376,15 +375,23 @@
 		width: var(--chevron-size);
 		height: var(--chevron-size);
 		border: solid currentColor;
-		border-width: 0 0 var(--sugar-border-width-plus) var(--sugar-border-width-plus);
+		border-width: 0;
+		border-inline-start-width: var(--sugar-border-width-plus);
+		border-block-end-width: var(--sugar-border-width-plus);
 		transform: translateX(0.25rem) rotate(-135deg);
 		transition: transform 0.3s;
 		display: inline-block;
 	}
 
+	[dir='rtl'] {
+		aside menu button::after {
+			transform: translateX(-0.25rem) rotate(135deg);
+		}
+	}
+
 	aside menu ul {
 		list-style: none;
 		margin: 0.5rem 0;
-		padding-left: 1.5rem;
+		padding-inline-start: 1.5rem;
 	}
 </style>

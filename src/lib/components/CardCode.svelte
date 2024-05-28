@@ -19,6 +19,7 @@
 	export let examplePosition: PositionType = showExample ? 'bottom' : '';
 	export let simple = false;
 	export let withSlot = false;
+	export let ariaLabel = '';
 
 	let exampleEl: HTMLElement;
 
@@ -48,6 +49,10 @@
 
 		iframe.style.width = '100%';
 		iframe.style.height = '450px';
+		if (ariaLabel) {
+			iframe.ariaLabel = ariaLabel;
+		}
+
 		exampleEl.innerHTML = '';
 		article.style.backgroundColor = '#444';
 		exampleEl.appendChild(article);
@@ -71,7 +76,7 @@
 </script>
 
 {#if simple}
-	<pre dir="ltr" class="hljs simple">{@html highlightedCode}</pre>
+	<pre dir="ltr" class="hljs simple" tabindex="0">{@html highlightedCode}</pre>
 {:else}
 	<section class="card-code {examplePosition}">
 		{#if language === 'xml' && showExample && examplePosition === 'top'}
@@ -87,6 +92,7 @@
 		{/if}
 
 		<pre
+			tabindex="0"
 			class="hljs"
 			dir="ltr"
 			style={language === 'xml' && showExample
@@ -150,8 +156,8 @@
 	}
 
 	:global(article .card-code:last-child:not(.bottom) .hljs) {
-		border-bottom-left-radius: var(--s-block-radius);
-		border-bottom-right-radius: var(--s-block-radius);
+		border-end-start-radius: var(--s-block-radius);
+		border-end-end-radius: var(--s-block-radius);
 	}
 
 	:global(.card-code table) {

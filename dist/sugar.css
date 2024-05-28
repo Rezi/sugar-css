@@ -95,7 +95,7 @@ SOFTWARE.
 :where(:root, .s-dark, .s-light) {
   --s-color-bg-95-fg: color-mix(in srgb, var(--s-color-bg) 95%, var(--s-color-fg));
   --s-color-bg-85-fg: color-mix(in srgb, var(--s-color-bg) 85%, var(--s-color-fg));
-  --s-color-fg-65-bg: color-mix(in srgb, var(--s-color-fg) 60%, var(--s-color-bg));
+  --s-color-fg-65-bg: color-mix(in srgb, var(--s-color-fg) 65%, var(--s-color-bg));
   --s-color-text: var(--s-color-fg);
   --s-color-input-border: var(--s-color-fg-65-bg);
   --s-color-separator: var(--s-color-bg-85-fg);
@@ -112,7 +112,7 @@ SOFTWARE.
   );
   --s-color-link: var(--s-color-primary);
   --s-color-mark: var(--s-color-primary-40-bg);
-  --s-color-positive: rgb(30, 130, 0);
+  --s-color-positive: rgb(28, 120, 0);
   --s-color-bg-positive: color-mix(in srgb, var(--s-color-positive) 10%, var(--s-color-bg));
   --s-color-negative: rgb(180, 40, 40);
   --s-color-bg-negative: color-mix(in srgb, var(--s-color-negative) 10%, var(--s-color-bg));
@@ -834,7 +834,7 @@ SOFTWARE.
   line-height: 0;
   padding-top: var(--legend-height);
   border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
-  margin-left: var(--s-input-border-radius);
+  margin-inline-start: var(--s-input-border-radius);
 }
 
 /**
@@ -1144,7 +1144,7 @@ summary[role=button i]) {
 }
 
 :where(input[type=datetime-local], input[type=date], input[type=month], input[type=week]) {
-  padding-right: var(--s-input-padding-inline);
+  padding-inline-end: var(--s-input-padding-inline);
 }
 
 :where(input[type=datetime-local], input[type=date], input[type=month], input[type=week]) {
@@ -1312,6 +1312,8 @@ input[type=time])::-webkit-calendar-picker-indicator {
   border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
   position: relative;
   background-color: var(--s-color-primary-contrast);
+  display: flex;
+  justify-content: left;
 }
 
 :where(input[type=checkbox i][role=switch i])::before {
@@ -1472,8 +1474,8 @@ article > details:only-child {
 
 article:has(> details:only-child) > details[open] > summary {
   margin: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-end-end-radius: 0;
+  border-end-start-radius: 0;
 }
 
 article > details:only-child > :not(summary) {
@@ -1524,7 +1526,7 @@ article > details:only-child > summary {
   display: flex;
   justify-content: start;
   list-style: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   flex-wrap: wrap;
 }
 
@@ -1626,7 +1628,7 @@ article > details:only-child > summary {
 
 :where([aria-busy=true i]):not(:has(progress)):before {
   display: inline-block;
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
   content: "";
   height: clamp(1em, 80%, 3rem);
   min-width: 1em;
@@ -1733,26 +1735,26 @@ when moving from the 'aria-describedby' element to tooltip element
 	content: '';
 	background-image: linear-gradient(var(--direction), var(--s-color-bg), transparent);
 	position: sticky;
-	left: 0;
+	inset-inline-start: 0;
 	flex: 1 0 var(--padding-tabs);
-	margin-left: calc(-1 * var(--padding-tabs));
+	margin-inline-start: calc(-1 * var(--padding-tabs));
 	margin-bottom: var(--s-border-width-max);
 	z-index: 2;
 }
 
 :where([role='tablist']:dir(ltr)):after {
 	--direction: 270deg;
-	right: -1px;
-	left: auto;
+	inset-inline-end: -1px;
+	inset-inline-start: auto;
 } */
 :where([role=tablist] > [role=tab]) {
-  --radius: calc(var(--s-border-width-max) / 2);
   color: var(--s-color-text);
   background: var(--s-color-bg);
   border: none;
   position: relative;
   white-space: nowrap;
   outline-offset: var(--s-focus-offset-negative);
+  border-radius: 0;
   /*  In case you need tab to be an anchor instead of a button uncomment the following code: */
   /* 	display: flex;
   width: 100%;
@@ -1769,8 +1771,8 @@ when moving from the 'aria-describedby' element to tooltip element
   content: "";
   display: block;
   width: 100%;
-  bottom: 0;
-  left: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
   height: var(--s-border-width-max);
   background-color: var(--s-color-primary);
   translate: 0 var(--s-border-width-max);
@@ -1778,18 +1780,10 @@ when moving from the 'aria-describedby' element to tooltip element
 
 :where([role=tablist] > [role=tab]:first-child) {
   padding-inline-start: var(--padding-tabs);
-  /* &::after {
-  	border-start-start-radius: var(--radius);
-  	border-end-start-radius: var(--radius);
-  } */
 }
 
 :where([role=tablist] > [role=tab]:last-child) {
   padding-inline-end: var(--padding-tabs);
-  /* &::after {
-  	border-start-end-radius: var(--radius);
-  	border-end-end-radius: var(--radius);
-  } */
 }
 
 :where([role=tablist] > [role=tab][aria-selected=false]):after {
@@ -1811,10 +1805,19 @@ if the last tabpanel is last-child of its parent */
 /* special treatment if tablist and tabpanel are only children on an article */
 :where(article:not(:has(> :not([role=tablist]):not([role=tabpanel])))) {
   padding: 0;
+  --tabs-radius: calc(var(--s-block-radius) - var(--sugar-border-width));
 }
 
 :where(article:not(:has(> :not([role=tablist]):not([role=tabpanel]))) [role=tabpanel]) {
   padding: 0 var(--sugar-spacing-inline) var(--sugar-spacing-block);
+}
+
+:where(article:not(:has(> :not([role=tablist]):not([role=tabpanel]))) > [role=tablist]:first-child > [role=tab]:first-child) {
+  border-start-start-radius: var(--tabs-radius);
+}
+
+:where(article:not(:has(> :not([role=tablist]):not([role=tabpanel]))) > [role=tablist]:first-child > [role=tab]:last-child) {
+  border-start-end-radius: var(--tabs-radius);
 }
 
 /*# sourceMappingURL=sugar.css.map */

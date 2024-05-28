@@ -17,7 +17,12 @@
 					<div>
 						<label><input type="checkbox" />Checkbox</label>
 					</div>
-					<div style="font-size:0"><input type="range" min="0" max="100" /></div>
+					<div>
+						<label>
+							Select value
+							<input type="range" min="0" max="100" />
+						</label>
+					</div>
 					<div>
 						<progress value=".7" max="1">70 %</progress>
 					</div>
@@ -41,11 +46,11 @@
 						Valid
 						<input type="text" placeholder="Email" aria-invalid="false" />
 					</label>
-					<div style="--span:4"><input type="file" /></div>
+					<div style="--span:4"><label>Upload a file<input type="file" /></label></div>
 
 					<div><input type="text" placeholder="Disabled" disabled /></div>
 					<div>
-						<select>
+						<select aria-label="Select an animal">
 							<option value="1">Ape</option>
 							<option value="2">Elephant</option>
 							<option value="3">Jaguar</option>
@@ -159,7 +164,7 @@
 
 	<hr />
 
-	<div>
+	<div tabindex="0">
 		<table>
 			<caption> Favorites by topic </caption>
 			<thead>
@@ -189,7 +194,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<th></th>
+					<th aria-hidden="true"></th>
 					<td>✓</td>
 					<td>✓</td>
 					<td>✓</td>

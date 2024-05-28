@@ -87,13 +87,13 @@
 		font-size: 7rem;
 		float: left;
 		line-height: 1;
-		padding-right: 1rem;
+		padding-inline-end: 1rem;
 		margin-top: calc(-1 * var(--capital-spacing));
 	}
 
 	.tale-img {
 		width: 20rem;
 		float: left;
-		padding-right: 1rem;
+		padding-inline-end: 1rem;
 	}
 </style>

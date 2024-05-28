@@ -21,7 +21,7 @@
  	<h2>Headline</h2>
  	<p>This is a boring text</p>
 	<search>
-		<input type="text">
+		<input type="text" aria-label="Search">
 		<button>I do nothing</button>
 	</search>
 </article>`;
@@ -30,7 +30,7 @@
  	<h2>Headline</h2>
  	<p>This is a boring text</p>
 	<search>
-		<input type="text">
+		<input type="text" aria-label="Search">
 		<button>I do nothing</button>
     </search>
 </article>`;
@@ -92,7 +92,12 @@
 			</dd>
 		</dl>
 	</section>
-	<CardCode code={pageExampleCode} showExample={true} iframe={true}></CardCode>
+	<CardCode
+		code={pageExampleCode}
+		showExample={true}
+		iframe={true}
+		ariaLabel={'Page structure example layout'}
+	></CardCode>
 </article>
 
 <article>

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.4
+
+- Fix: accessibility issues in the documentation
+- Fix: RTL for cards with components and switcher
+- Fix: Outlines rounded corners for tabs
+- Change: @use over @import in index.scss
+
 ## 0.2.3
 
 - Tooltip z-index fix
