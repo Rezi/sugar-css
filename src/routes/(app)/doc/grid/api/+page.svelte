@@ -21,7 +21,10 @@
 			<dd>
 				<p>
 					Defines a grid container and a media query container. Unfortunately, due to a
-					<a href="https://bugs.webkit.org/show_bug.cgi?id=267525">bug in Safari</a>, an additional
+					<a
+						href="https://bugs.webkit.org/show_bug.cgi?id=267525"
+						aria-label="Safari bug report related to grid implementation">bug in Safari</a
+					>, an additional
 					<code>div</code>
 					inside <code>.s-grid</code> is necessary. This class currently defines only a container
 					query, while the nested <code>div</code> defines a grid container with:

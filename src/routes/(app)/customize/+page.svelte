@@ -3,7 +3,7 @@
 	<meta name="description" content="Sugar.css - Customization" />
 </svelte:head>
 
-<article>
+<article aria-hidden="true">
 	<header><h2>Example to play with</h2></header>
 	<form>
 		<fieldset>

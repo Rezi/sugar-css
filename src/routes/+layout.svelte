@@ -29,7 +29,11 @@
 
 <header aria-label="Sticky header">
 	<nav class="s-container" aria-label="Main navigation">
-		<menu><li><a href="/"><Logo --size="2.2rem" withName={true}></Logo></a></li></menu>
+		<menu
+			><li>
+				<a href="/" aria-label="Go to homepage"><Logo --size="2.2rem" withName={true}></Logo></a>
+			</li></menu
+		>
 		<menu
 			><li><a href="/doc">Getting started</a></li>
 			<li>
@@ -47,7 +51,9 @@
 <div class="s-container"><slot /></div>
 <footer aria-label="License footer">
 	<div class="s-container">
-		<a href="https://github.com/Rezi/sugar-css/blob/main/LICENSE.md">MIT License</a>
+		<a href="https://github.com/Rezi/sugar-css/blob/main/LICENSE.md" aria-label="MIR license text"
+			>MIT License</a
+		>
 	</div>
 </footer>
 

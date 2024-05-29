@@ -105,7 +105,7 @@
 	<p>
 		Sugar.css supports <em>light</em> and <em>dark</em> themes by default. You can preview them on
 		the
-		<a href="/customize">customization</a> page.
+		<a href="/customize" aria-label="Preview themes in customization section">customization</a> page.
 	</p>
 	<p>
 		Themes are automatically switched based on the <code>prefers-color-scheme</code> set by the browser

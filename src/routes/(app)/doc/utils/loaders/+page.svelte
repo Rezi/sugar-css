@@ -25,9 +25,10 @@
 		Loaders are managed using the <code>aria-busy</code> attribute. You are responsible for toggling
 		it with JavaScript. Additionally, ensure users cannot submit buttons or links when they are
 		busy; pointer events are disabled by CSS, but the <kbd>Enter</kbd> key cannot be avoided by CSS
-		alone. You need to handle it with JavaScript. Or perhaps by the new
-		<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert">inert</a> HTML
-		attribute.
+		alone. You need to handle it with JavaScript. Or perhaps by
+		<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert"
+			>the new inert HTML attribute</a
+		>.
 	</header>
 
 	<CardCode {code}></CardCode>

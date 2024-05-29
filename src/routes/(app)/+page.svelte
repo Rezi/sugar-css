@@ -25,9 +25,10 @@
 
 <p class="text-center">
 	Sugar.css is freshly baked, currently in <sup
-		><a href="https://github.com/Rezi/sugar-css/issues">beta</a></sup
+		><a href="https://github.com/Rezi/sugar-css/issues" aria-label="Open an issue on GitHub">beta</a
+		></sup
 	>. Please leave feedback in the form of an issue at
-	<a href="https://github.com/Rezi/sugar-css">GitHub</a>.
+	<a href="https://github.com/Rezi/sugar-css" aria-label="Check the project on GitHub">GitHub</a>.
 </p>
 
 <hr />

@@ -19,7 +19,11 @@
 	<p>Explore various ways to integrate Sugar.css.</p>
 
 	<ul>
-		<li>Customize online and <a href="/customize">download</a></li>
+		<li>
+			Customize online and <a href="/customize" aria-label="Download own customized build"
+				>download</a
+			>
+		</li>
 		<li>
 			<code>npm install sugar-css-framework</code>
 		</li>
@@ -69,16 +73,3 @@
 		properties but also the source code of Sugar.css.
 	</p>
 </article>
-<!-- <article>
-	<details>
-		<summary role="button">Download CSS</summary>
-		<div>
-			<p>
-				You can also change colors and spacings in the <a href="/customize">customization page</a>,
-				they will be then used in the downloaded build.
-			</p>
-			<Downloader></Downloader>
-		</div>
-	</details>
-</article>
- -->
