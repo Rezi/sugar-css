@@ -17,7 +17,7 @@
   </footer>
 </body>`;
 
-	const lightCardCode = `<article class="s-light">
+	const lightCardCode = `<article class="s-light" role="presentation">
  	<h2>Headline</h2>
  	<p>This is a boring text</p>
 	<search>
@@ -26,7 +26,7 @@
 	</search>
 </article>`;
 
-	const darkCardCode = `<article class="s-dark">
+	const darkCardCode = `<article class="s-dark" role="presentation">
  	<h2>Headline</h2>
  	<p>This is a boring text</p>
 	<search>
@@ -43,7 +43,7 @@
 
 <h1>Layout & Themes</h1>
 
-<article>
+<article aria-label="Container documentation">
 	<h2>Container</h2>
 
 	<dl>
@@ -64,7 +64,7 @@
 	</dl>
 </article>
 
-<article class="non-clickable">
+<article class="non-clickable" aria-label="Page structure documentation">
 	<section>
 		<h2>Page Structure</h2>
 		<p>
@@ -100,7 +100,7 @@
 	></CardCode>
 </article>
 
-<article>
+<article aria-label="Themes documentation">
 	<h2>Themes</h2>
 	<p>
 		Sugar.css supports <em>light</em> and <em>dark</em> themes by default. You can preview them on

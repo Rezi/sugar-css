@@ -12,11 +12,11 @@ consectetur adipisicing elit`;
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Horizontal rule</h2>
+	<h1 aria-label="Components - Horizontal rule">Components</h1>
+	<h2 aria-hidden="true">Horizontal rule</h2>
 </hgroup>
 
-<article>
+<article aria-label="Hr DOM element description">
 	<section>
 		<dl>
 			<dt><code>hr</code></dt>

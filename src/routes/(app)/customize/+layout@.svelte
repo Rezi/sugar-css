@@ -27,7 +27,7 @@
 		></div>
 		<div style={!$customizationLoadedStore ? 'display:none' : ''}>
 			<div>
-				<article>
+				<article aria-label="Download section">
 					<details bind:open={accordions.download}>
 						<summary role="button">Download CSS (customized)</summary>
 						<div inert={!accordions.download}>
@@ -35,7 +35,7 @@
 						</div>
 					</details>
 				</article>
-				<article>
+				<article aria-label="Import Export section">
 					<details bind:open={accordions.import}>
 						<summary role="button">Import / Export</summary>
 						<div inert={!accordions.import}>

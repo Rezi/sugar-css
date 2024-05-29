@@ -17,7 +17,7 @@
 		for grins!
 </details>`;
 
-	const accordionCardCode = `<article>
+	const accordionCardCode = `<article role="presentation">
 	<details>
 		<summary role="button">Open for Instant Smiles, Handle With Glee!</summary>
 		<div>Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
@@ -43,11 +43,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Accordion</h2>
+	<h1 aria-label="Components - Accordion">Components</h1>
+	<h2 aria-hidden="true">Accordion</h2>
 </hgroup>
 
-<article>
+<article role="presentation">
 	<section>
 		<section>
 			<p>

@@ -31,7 +31,9 @@
 
 	function getCodeInCard(code: string, resizable: boolean, card: boolean, iframe: boolean) {
 		if (card && !iframe) {
-			return `<article class=${resizable ? 'resizable' : ''}>${code}</article>`;
+			return `<article aria-label="HTML as result of the connected above code example" class=${
+				resizable ? 'resizable' : ''
+			}>${code}</article>`;
 		} else if (iframe && browser) {
 			setTimeout(() => {
 				prepareIframe(code);
@@ -92,6 +94,7 @@
 		{/if}
 
 		<pre
+			aria-label="Code example"
 			tabindex="0"
 			class="hljs"
 			dir="ltr"

@@ -71,11 +71,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Grid</h1>
-	<h2>Examples</h2>
+	<h1 aria-label="Grid - Examples">Grid</h1>
+	<h2 aria-hidden="true">Examples</h2>
 </hgroup>
 
-<article class="colored-grid">
+<article class="colored-grid" aria-label="Grid documentation - examples">
 	<section>
 		<h2>Simple</h2>
 

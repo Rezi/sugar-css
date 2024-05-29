@@ -15,11 +15,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Block Quote</h2>
+	<h1 aria-label="Components - Block Quote">Components</h1>
+	<h2 aria-hidden="true">Block Quote</h2>
 </hgroup>
 
-<article>
+<article role="presentation">
 	<section>
 		<dl>
 			<dt><code>blockquote</code></dt>

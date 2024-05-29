@@ -13,8 +13,8 @@
 
 <h1>Getting started</h1>
 
-<article>
-	<h2>Install</h2>
+<article aria-label="How to install sugar.css">
+	<h2 id="doc-install">Install</h2>
 
 	<p>Explore various ways to integrate Sugar.css.</p>
 
@@ -35,7 +35,7 @@
 	<code>{cdn}</code>
 </article>
 
-<article>
+<article aria-label="How to use sugar.css">
 	<h2>Usage</h2>
 
 	<h3>Browser Support</h3>

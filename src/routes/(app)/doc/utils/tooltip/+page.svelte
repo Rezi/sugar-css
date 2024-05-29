@@ -51,11 +51,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Utils</h1>
-	<h2>Tooltip</h2>
+	<h1 aria-label="Utils - tooltip">Utils</h1>
+	<h2 aria-hidden="true">Tooltip</h2>
 </hgroup>
 
-<article>
+<article aria-label="Tooltips documentation">
 	<section>
 		<h3>Tooltip Implementation Limitations</h3>
 

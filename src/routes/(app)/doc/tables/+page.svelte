@@ -58,7 +58,7 @@
 
 <h1>Tables</h1>
 
-<article>
+<article aria-label="Table example">
 	<h2>Example</h2>
 	<CardCode {code} card={false} examplePosition="top"></CardCode>
 

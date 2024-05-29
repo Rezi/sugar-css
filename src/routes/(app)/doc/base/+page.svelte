@@ -50,8 +50,8 @@
 	</ol>
 </section>
 
-<article>
-	<header><h2>Poly fluid font sizing</h2></header>
+<article aria-labelledby="doc-base-polyfluid">
+	<header><h2 id="doc-base-polyfluid">Poly fluid font sizing</h2></header>
 
 	<p>
 		Sugar.css employs a poly fluid font sizing technique, dynamically scaling font size in tandem
@@ -76,8 +76,8 @@
 	</p>
 </article>
 
-<article>
-	<header><h2>Margins</h2></header>
+<article aria-labelledby="doc-base-margins">
+	<header><h2 id="doc-base-margins">Margins</h2></header>
 
 	<section>
 		<h3>TLTR - Sugar's margins</h3>

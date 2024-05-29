@@ -39,10 +39,10 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Forms</h1>
-	<h2>Buttons</h2>
+	<h1 aria-label="Forms - Buttons">Forms</h1>
+	<h2 aria-hidden="true">Buttons</h2>
 </hgroup>
 
-<article>
+<article aria-label="Buttons documentation and examples">
 	<CardCode code={buttonsCode} examplePosition="top"></CardCode>
 </article>

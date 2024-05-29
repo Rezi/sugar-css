@@ -7,13 +7,13 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Grid</h1>
-	<h2>API</h2>
+	<h1 aria-label="Grid - Api">Grid</h1>
+	<h2 aria-hidden="true">API</h2>
 </hgroup>
 <section>
 	The Sugar grid is composed of one class defining a grid and several custom properties.
 </section>
-<article>
+<article aria-label="Grid documentation - api">
 	<section>
 		<h2>Classes</h2>
 		<dl style="--dl-width:10rem">

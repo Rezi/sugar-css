@@ -1,7 +1,7 @@
 <script>
 	import CardCode from '$lib/components/CardCode.svelte';
 
-	const code = `<article>
+	const code = `<article aria-label="Example card">
 	<header>
 		Header content
 	</header>
@@ -18,8 +18,8 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Card</h2>
+	<h1 aria-label="Components - Card">Components</h1>
+	<h2 aria-hidden="true">Card</h2>
 </hgroup>
 
 <section>
@@ -32,7 +32,7 @@
 	</p>
 </section>
 
-<article>
+<article aria-label="Article DOM element description">
 	<section>
 		<dl>
 			<dt><code>article</code></dt>

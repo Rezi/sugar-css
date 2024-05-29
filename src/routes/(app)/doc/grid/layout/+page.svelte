@@ -27,11 +27,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Grid</h1>
-	<h2>Layout</h2>
+	<h1 aria-label="Grid - Layout">Grid</h1>
+	<h2 aria-hidden="true">Layout</h2>
 </hgroup>
 
-<article class="colored-grid">
+<article class="colored-grid" aria-label="Grid documentation - layout">
 	<section>
 		<h2>Layout grid</h2>
 		<p>

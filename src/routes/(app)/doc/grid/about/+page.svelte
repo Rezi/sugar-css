@@ -7,11 +7,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Grid</h1>
-	<h2>About</h2>
+	<h1 aria-label="Grid - About">Grid</h1>
+	<h2 aria-hidden="true">About</h2>
 </hgroup>
 
-<article class="numbered">
+<article class="numbered" aria-label="Grid documentation - about">
 	<section>
 		<p>
 			The Sugar grid differs significantly from traditional grid systems like Bootstrap or Tailwind,
@@ -34,7 +34,7 @@
 			<li>Defined by custom properties</li>
 		</ol>
 
-		<article class="warning-card">
+		<article class="warning-card" role="presentation">
 			Beware! There is a bug in Safari that does not allow the use of <code>auto-fit</code> on
 			elements with container queries! Until the bug is fixed, there must be an additional,
 			otherwise meaningless,

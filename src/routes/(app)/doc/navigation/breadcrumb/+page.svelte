@@ -28,11 +28,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Navigation</h1>
-	<h2>Breadcrumb</h2>
+	<h1 aria-label="Navigation - Breadcrumb">Navigation</h1>
+	<h2 aria-hidden="true">Breadcrumb</h2>
 </hgroup>
 
-<article>
+<article aria-label="Breadcrumb documentation">
 	<section>
 		<p>
 			To indicate the active page, apply <code>aria-current="page"</code> to the last breadcrumb link.

@@ -115,41 +115,41 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Forms</h1>
-	<h2>Inputs</h2>
+	<h1 aria-label="Forms - Inputs">Forms</h1>
+	<h2 aria-hidden="true">Inputs</h2>
 </hgroup>
 
-<article>
+<article aria-label="Forms documentation - inputs">
 	<h2>Base Inputs</h2>
 	<CardCode code={inputsCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - selectbox">
 	<h2>Selectbox</h2>
 	<CardCode code={selectCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - non-text inputs">
 	<h2>Non-text Inputs</h2>
 	<CardCode code={otherInputsCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - date inputs">
 	<h2>Date Inputs</h2>
 	<CardCode code={dateInputsCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - radios and checkboxes">
 	<h2>Radios & Checkboxes</h2>
 	<CardCode code={radiosCheckboxesCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - input states">
 	<h2>Input states</h2>
 	<CardCode code={formStatesCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - input with button combo">
 	<h2>Input with Button</h2>
 	<section>
 		<p>
@@ -162,7 +162,7 @@
 	<CardCode code={inputButtonCode} examplePosition="top"></CardCode>
 </article>
 
-<article>
+<article aria-label="Forms documentation - complex form example">
 	<h2>Form example</h2>
 	<CardCode code={formCode} examplePosition="top"></CardCode>
 </article>

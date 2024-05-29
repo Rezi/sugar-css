@@ -18,11 +18,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Progress</h2>
+	<h1 aria-label="Components - Progress">Components</h1>
+	<h2 aria-hidden="true">Progress</h2>
 </hgroup>
 
-<article>
+<article aria-label="Usage of progress element - documentation">
 	<section>
 		The <code>progress</code> element without a <code>value</code> attribute behaves as a loader.
 		Use <code>role="presentation"</code> on the <code>progress</code> 'loader' element as it no longer

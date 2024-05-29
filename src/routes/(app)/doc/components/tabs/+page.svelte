@@ -3,7 +3,7 @@
 	let tabSelectedA = 'car';
 	let tabSelectedB = 'car';
 
-	const tabsCode = `<article>
+	const tabsCode = `<article role="presentation">
 	<h2>Tabs</h2>
 	<div role="tablist">
 		<button aria-controls="car" aria-selected="true" id="tab-car" role="tab"> 
@@ -36,7 +36,7 @@
 	<div>If there is a following element after last <code>role="tabpanel"</code> gap is added automatically.</div>
 </article>`;
 
-	const tabsArticleCode = `<article>
+	const tabsArticleCode = `<article role="presentation">
 	<div role="tablist">
 		<button aria-controls="car" aria-selected="true" id="tab-car" role="tab"> 
 			Car 
@@ -155,11 +155,11 @@
 <svelte:document on:keydown={keyDownHandler} />
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Tabs</h2>
+	<h1 aria-label="Components - Tabs">Components</h1>
+	<h2 aria-hidden="true">Tabs</h2>
 </hgroup>
 
-<article>
+<article aria-label="Tabs component documentation">
 	<section>
 		<p>
 			Properly implementing tabs requires a comprehensive set of ARIA attributes to ensure
@@ -225,7 +225,7 @@
 		</div>
 	</CardCode>
 </article>
-<article>
+<article aria-label="Tablist documentation">
 	<section>
 		If the tabs with <code>role="tablist"</code> and <code>role="tabpanel"</code> are the only
 		children of an <code>article</code>, the tabs will expand to occupy all of the article's space.

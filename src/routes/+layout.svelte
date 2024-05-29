@@ -27,8 +27,8 @@
 	}
 </script>
 
-<header aria-label="Sticky header">
-	<nav class="s-container" aria-label="Main navigation">
+<header aria-label="Page header">
+	<nav class="s-container" aria-label="Simple navigationnpm run de">
 		<menu
 			><li>
 				<a href="/" aria-label="Go to homepage"><Logo --size="2.2rem" withName={true}></Logo></a>
@@ -59,7 +59,7 @@
 
 <dialog bind:this={modalEl}>
 	<form>
-		<article>
+		<article role="presentation">
 			<header>
 				<h3>Modal title</h3>
 				<button type="submit" formmethod="dialog" aria-label="Close"></button>
@@ -84,7 +84,7 @@
 </dialog>
 
 <dialog bind:this={dialogEl}>
-	<article>
+	<article role="presentation">
 		<header>
 			<h3>Dialog title</h3>
 			<button type="submit" aria-label="Close" on:click={closeDialog}></button>

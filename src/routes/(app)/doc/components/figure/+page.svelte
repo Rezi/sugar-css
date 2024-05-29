@@ -15,11 +15,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Figure</h2>
+	<h1 aria-label="Components - Figure">Components</h1>
+	<h2 aria-hidden="true">Figure</h2>
 </hgroup>
 
-<article>
+<article aria-label="Figure and Caption DOM elements description">
 	<section>
 		<h2>Figure with caption</h2>
 		<dl>

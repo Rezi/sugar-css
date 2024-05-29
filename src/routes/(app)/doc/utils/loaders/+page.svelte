@@ -16,11 +16,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Utils</h1>
-	<h2>Loaders</h2>
+	<h1 aria-label="Utils - Loaders">Utils</h1>
+	<h2 aria-hidden="true">Loaders</h2>
 </hgroup>
 
-<article>
+<article aria-label="Loaders documentation">
 	<header>
 		Loaders are managed using the <code>aria-busy</code> attribute. You are responsible for toggling
 		it with JavaScript. Additionally, ensure users cannot submit buttons or links when they are

@@ -3,7 +3,7 @@
 	import { dialogOpenedStore, modalOpenedStore } from '$lib/stores';
 
 	const dialogCode = `<dialog open>
-	<article>
+	<article role="presentation">
 		<header>
 			<h3>Dialog title</h3>
 			<button type="button" aria-label="Close"></button>
@@ -14,7 +14,7 @@
 
 	const dialogNoJsCode = `<dialog>
 	<form>
-		<article>
+		<article role="presentation">
 			<header>
 				<h3>Modal title</h3>
 				<button 
@@ -53,8 +53,8 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Modal</h2>
+	<h1 aria-label="Components - Modal">Components</h1>
+	<h2 aria-hidden="true">Modal</h2>
 </hgroup>
 
 <section>
@@ -71,7 +71,7 @@
 	</p>
 </section>
 
-<article>
+<article aria-label="Modal window documentation">
 	<section>
 		<h2>Modal</h2>
 		<p>
@@ -101,7 +101,7 @@
 	<CardCode code={dialogNoJsCode} examplePosition={''} showExample={false}></CardCode>
 </article>
 
-<article>
+<article aria-label="Dialog window documentation">
 	<section>
 		<h2>Dialog</h2>
 

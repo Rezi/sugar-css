@@ -7,11 +7,11 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Typography</h1>
-	<h2>Inline elements</h2>
+	<h1 aria-label="Typography - Inline Elements">Typography</h1>
+	<h2 aria-hidden="true">Inline elements</h2>
 </hgroup>
 
-<article>
+<article aria-label="Inline elements documentation">
 	<dl>
 		<dt><a href="#">Link</a></dt>
 		<dd>

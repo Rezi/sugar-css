@@ -38,12 +38,12 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Components</h1>
-	<h2>Lists</h2>
+	<h1 aria-label="Components - Lists">Components</h1>
+	<h2 aria-hidden="true">Lists</h2>
 </hgroup>
 
-<article>
-	<section>
+<article aria-label="Definition list">
+	<section aria-label="Definition list DOM element description">
 		<h2>Definition list</h2>
 		<dl>
 			<dt><code>dl</code></dt>
@@ -75,7 +75,7 @@
 	</p>
 </article>
 
-<article>
+<article aria-label="Ordered, unordered and definition lists">
 	<section>
 		<h2>Ordered list</h2>
 		<dl>

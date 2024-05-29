@@ -25,8 +25,8 @@
 </svelte:head>
 
 <hgroup>
-	<h1>Navigation</h1>
-	<h2>Menu</h2>
+	<h1 aria-label="Navigation - Menu">Navigation</h1>
+	<h2 aria-hidden="true">Menu</h2>
 </hgroup>
 
 <section>
@@ -42,7 +42,7 @@
 	</p>
 </section>
 
-<article>
+<article role="presentation">
 	<h2>Nav</h2>
 
 	<section>
