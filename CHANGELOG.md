@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5
+
+- Fix: Customize online and download works now
+
 ## 0.2.4
 
 - Fix: accessibility issues in the documentation
