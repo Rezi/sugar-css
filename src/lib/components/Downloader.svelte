@@ -1,31 +1,31 @@
 <script lang="ts">
 	import { customizedCssVariables, customizationHash } from '$lib/stores';
 
-	import CSSvariables from '$lib/scss/variables.scss?inline';
-	import CSSlicense from '$lib/scss/license.scss?inline';
-	import CSScolors from '$lib/scss/colors.scss?inline';
-	import CSScore from '$lib/scss/core.scss?inline';
-	import CSSfonts from '$lib/scss/fonts.scss?inline';
-	import CSSfontSizing from '$lib/scss/font-sizing.scss?inline';
-	import CSSheadlines from '$lib/scss/headlines.scss?inline';
-	import CSSreducedMotion from '$lib/scss/reduced-motion.scss?inline';
-	import CSStable from '$lib/scss/table.scss?inline';
-	import CSStextInline from '$lib/scss/text-inline.scss?inline';
-	import CSSgrid from '$lib/scss/grid.scss?inline';
-	import CSScard from '$lib/scss/card.scss?inline';
-	import CSSlayout from '$lib/scss/layout.scss?inline';
-	import CSSmargins from '$lib/scss/margins.scss?inline';
-	import CSSforms from '$lib/scss/forms.scss?inline';
-	import CSSlists from '$lib/scss/lists.scss?inline';
-	import CSSblockquote from '$lib/scss/blockquote.scss?inline';
-	import CSSfigure from '$lib/scss/figure.scss?inline';
-	import CSShr from '$lib/scss/hr.scss?inline';
-	import CSSaccordion from '$lib/scss/accordion.scss?inline'; // needs card
-	import CSSnavigation from '$lib/scss/navigation.scss?inline';
-	import CSSdialog from '$lib/scss/dialog.scss?inline'; // needs card
-	import CSSloader from '$lib/scss/loader.scss?inline';
-	import CSStooltip from '$lib/scss/tooltip.scss?inline';
-	import CSStabs from '$lib/scss/tabs.scss?inline';
+	import CSSvariables from '$lib/scss/variables.scss?raw';
+	import CSSlicense from '$lib/scss/license.scss?raw';
+	import CSScolors from '$lib/scss/colors.scss?raw';
+	import CSScore from '$lib/scss/core.scss?raw';
+	import CSSfonts from '$lib/scss/fonts.scss?raw';
+	import CSSfontSizing from '$lib/scss/font-sizing.scss?raw';
+	import CSSheadlines from '$lib/scss/headlines.scss?raw';
+	import CSSreducedMotion from '$lib/scss/reduced-motion.scss?raw';
+	import CSStable from '$lib/scss/table.scss?raw';
+	import CSStextInline from '$lib/scss/text-inline.scss?raw';
+	import CSSgrid from '$lib/scss/grid.scss?raw';
+	import CSScard from '$lib/scss/card.scss?raw';
+	import CSSlayout from '$lib/scss/layout.scss?raw';
+	import CSSmargins from '$lib/scss/margins.scss?raw';
+	import CSSforms from '$lib/scss/forms.scss?raw';
+	import CSSlists from '$lib/scss/lists.scss?raw';
+	import CSSblockquote from '$lib/scss/blockquote.scss?raw';
+	import CSSfigure from '$lib/scss/figure.scss?raw';
+	import CSShr from '$lib/scss/hr.scss?raw';
+	import CSSaccordion from '$lib/scss/accordion.scss?raw'; // needs card
+	import CSSnavigation from '$lib/scss/navigation.scss?raw';
+	import CSSdialog from '$lib/scss/dialog.scss?raw'; // needs card
+	import CSSloader from '$lib/scss/loader.scss?raw';
+	import CSStooltip from '$lib/scss/tooltip.scss?raw';
+	import CSStabs from '$lib/scss/tabs.scss?raw';
 
 	let cssParts: string[] = ['core'];
 
