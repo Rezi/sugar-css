@@ -3,10 +3,14 @@
 */
 
 :where(:root) {
-	--s-multiplier-rounded: 1; // 0 - 4.5
-	--s-multiplier-sparsity: 1; // 0.3 - 2
-	--s-multiplier-fatness: 0; // 0 - 1
-	--s-multiplier-shadow: 1; // 0 - 2
+	/* 0 - 4.5 */
+	--s-multiplier-rounded: 1;
+	/* 0.3 - 2 */
+	--s-multiplier-sparsity: 1;
+	/* 0 - 1 */
+	--s-multiplier-fatness: 0;
+	/* 0 - 2 */
+	--s-multiplier-shadow: 1;
 
 	--s-gap-default: calc(0.75rem + (0.25rem * var(--s-multiplier-sparsity)));
 

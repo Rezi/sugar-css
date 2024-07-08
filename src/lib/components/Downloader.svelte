@@ -2,7 +2,6 @@
 	import { customizedCssVariables, customizationHash } from '$lib/stores';
 
 	import CSSvariables from '$lib/scss/variables.scss?inline';
-	import CSSlicense from '$lib/scss/license.scss?inline';
 	import CSScolors from '$lib/scss/colors.scss?inline';
 	import CSScore from '$lib/scss/core.scss?inline';
 	import CSSfonts from '$lib/scss/fonts.scss?inline';
@@ -28,6 +27,32 @@
 	import CSStabs from '$lib/scss/tabs.scss?inline';
 
 	let cssParts: string[] = ['core'];
+
+	const CSSlicense = `/* MIT License
+
+Copyright (c) 2024 Tomáš Řezáč
+
+https://github.com/Rezi/sugar-css
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ */`;
 
 	const cssPartsMap: Record<
 		string,
@@ -162,13 +187,6 @@
 			disabled: false,
 			description: 'Several styles for various accordions'
 		},
-		navigation: {
-			css: [CSSnavigation],
-			name: 'Navigation',
-			checked: false,
-			disabled: false,
-			description: 'Top navigation menu, aside navigation'
-		},
 		dialog: {
 			css: [CSSdialog],
 			require: 'card',
@@ -176,6 +194,13 @@
 			checked: false,
 			disabled: false,
 			description: 'Dialog and modal styles'
+		},
+		navigation: {
+			css: [CSSnavigation],
+			name: 'Navigation',
+			checked: false,
+			disabled: false,
+			description: 'Top navigation menu, aside navigation'
 		},
 		loader: {
 			css: [CSSloader],
@@ -249,9 +274,11 @@ in order to modify this specific build of sugar.css.
 
 		const stylesToDownload = joinCSSParts(
 			cssParts.flatMap((key) => {
-				return cssPartsMap[key].css;
+				return cssPartsMap[key].css.map((cssString) => cssString.replace('@charset "UTF-8";', ''));
 			})
 		);
+
+		console.log(CSSlicense);
 
 		const blob = new Blob([
 			joinCSSParts([CSSlicense, CSSstylesHeader, CssWithVariables, stylesToDownload])
@@ -266,7 +293,7 @@ in order to modify this specific build of sugar.css.
 
 	function customizeCss(cssToModify: string): string {
 		return Object.entries($customizedCssVariables).reduce((acc, [key, value]) => {
-			const replaceRegex = new RegExp(`${key}:.*?$`, 'gm');
+			const replaceRegex = new RegExp(`${key}:.*?;`, 'gm');
 			return acc.replace(replaceRegex, `${key}:${value};`);
 		}, cssToModify);
 	}

@@ -19,7 +19,7 @@ The whole framework is less than 7.5 kB g-zipped. Including advanced grid system
 
 -   Customize online and [download](https://sugar-css.com/customize). 
 -   install by npm and use `sugar-css/dist/index.scss`
--   build via command line `npx sugar-css` (this way grid column width can be modified)
+-   build via command line `npx sugar-css-framework` (this way grid column width can be modified)
 -   Download from a cdn   
 
 ## Usage

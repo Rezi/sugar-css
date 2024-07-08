@@ -3,12 +3,10 @@
 */
 
 :where(details summary) {
-	//list-style: none;
 	display: flex;
 	gap: 1rem;
 	align-items: center;
 	justify-content: space-between;
-	// padding-bottom: var(--sugar-spacing-list);
 	cursor: pointer;
 }
 

@@ -396,7 +396,7 @@
 	background-image: var(--sugar-icon-time);
 }
 
-// prepare inputs with black icons to be black in lightmode
+/* prepare inputs with black icons to be black in lightmode */
 :where(
 		input[type='time'],
 		input[type='datetime-local'],

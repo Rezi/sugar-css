@@ -48,7 +48,7 @@ async function readSugarScss(directory, filename) {
 		let acc = await accPromise;
 
 		if (lineImport) {
-			const importedScssFileName = lineImport.replace("@import './", '').replace("';", '');
+			const importedScssFileName = lineImport.replace("@use './", '').replace("';", '');
 
 			const importedScssFileContent = await readSugarScssImport(
 				targetDirectory,

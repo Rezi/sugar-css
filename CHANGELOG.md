@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.5
+
+- Fix: Customize online and download works again after Vite bumped
+- FIX: npx after @import to @use change
+- Various packages update
+  
+
 ## 0.2.4
 
 - Fix: accessibility issues in the documentation

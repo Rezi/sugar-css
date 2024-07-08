@@ -28,9 +28,13 @@ SOFTWARE.
 ========================================================================
 */
 :where(:root) {
+  /* 0 - 4.5 */
   --s-multiplier-rounded: 1;
+  /* 0.3 - 2 */
   --s-multiplier-sparsity: 1;
+  /* 0 - 1 */
   --s-multiplier-fatness: 0;
+  /* 0 - 2 */
   --s-multiplier-shadow: 1;
   --s-gap-default: calc(0.75rem + (0.25rem * var(--s-multiplier-sparsity)));
   --text-inline-padding-block: 0.125rem;
@@ -119,12 +123,6 @@ SOFTWARE.
   /* Table */
   --s-color-bg-header-footer: var(--s-color-bg-95-fg);
   /* Article */
-  /* 	--s-color-bg-article-footer: var(--s-color-bg-95-fg);
-  --s-color-bg-article: linear-gradient(
-  	180deg,
-  	var(--s-color-bg-article-footer),
-  	var(--s-color-bg)
-  ); */
   --s-color-bg-article-footer: var(--s-color-bg-95-fg);
   --s-color-bg-article: var(--s-color-bg);
 }
@@ -1155,6 +1153,7 @@ summary[role=button i]) {
   background-image: var(--sugar-icon-time);
 }
 
+/* prepare inputs with black icons to be black in lightmode */
 :where(input[type=time],
 input[type=datetime-local],
 input[type=date],
@@ -1623,7 +1622,7 @@ article > details:only-child > summary {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1px;
+  height: 1px; /*  so user can set min-height as well and the loader percent height still works */
 }
 
 :where([aria-busy=true i]):not(:has(progress)):before {

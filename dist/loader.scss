@@ -7,7 +7,6 @@
   */
 
 :where([aria-busy='true' i]) {
-	// cursor: progress;
 	pointer-events: none;
 }
 
@@ -15,7 +14,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 1px; // so user can set min-height as well and the loader percent height still works
+	height: 1px; /*  so user can set min-height as well and the loader percent height still works */
 }
 
 :where([aria-busy='true' i]):not(:has(progress)):before {
