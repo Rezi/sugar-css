@@ -2,6 +2,10 @@
 ========================================================================
 */
 
+:where(details summary:not([role='button' i])) {
+	font-weight: 600;
+}
+
 :where(details summary) {
 	display: flex;
 	gap: 1rem;
@@ -13,17 +17,15 @@
 :where(details:not(:last-of-type)) {
 	margin-bottom: var(--sugar-spacing-list);
 }
-:where(details[open] summary) {
-	margin-bottom: var(--sugar-spacing-list);
+
+:where(details:not(:last-of-type) summary) {
+	padding-bottom: var(--sugar-spacing-list);
 }
 
 :where(details:not([open]):not(:last-of-type) summary:not([role='button' i])) {
 	padding-bottom: var(--sugar-spacing-list);
 }
 
-:where(details[open]:not(:last-of-type):has(summary:not([role='button' i]))) {
-	padding-bottom: var(--sugar-spacing-list);
-}
 :where(details:not(:last-of-type):has(summary:not([role='button' i]))) {
 	border-bottom: var(--sugar-border-width) solid var(--s-color-separator);
 }
@@ -43,6 +45,16 @@
 
 :where(details[open] summary):after {
 	transform: rotate(45deg);
+}
+
+:where(details:not(:last-of-type):has(summary:not([role='button' i])) > :not(summary)) {
+	padding-block-end: var(--sugar-spacing-list);
+}
+:where(
+		details:last-of-type > :not(summary),
+		details:has(summary[role='button' i]) > :not(summary)
+	) {
+	padding-block-start: var(--sugar-spacing-list);
 }
 
 /* Card Accordion */
@@ -65,4 +77,20 @@ article > details:only-child > :not(summary) {
 
 article > details:only-child > summary {
 	padding: var(--s-input-block-padding) var(--s-input-padding-inline);
+}
+
+/* Animation */
+
+:where(details)::details-content {
+	interpolate-size: allow-keywords;
+	overflow: hidden;
+	block-size: 0;
+	transition:
+		block-size 0.3s,
+		content-visibility 0.3s;
+	transition-behavior: allow-discrete;
+}
+
+:where(details[open])::details-content {
+	block-size: auto;
 }

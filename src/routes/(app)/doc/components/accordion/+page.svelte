@@ -3,18 +3,18 @@
 
 	const accordionButtonCode = `<details >
 	<summary role="button" class="s-secondary">Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
-		for grins! 
+		<div>Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
+		for grins!</div>
 </details>
 <details >
 	<summary role="button" class="s-outline">Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
-		for grins! 
+		<div>Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
+		for grins!</div>
 </details>
 <details >
 	<summary role="button">Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
-		for grins!
+		<div>Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
+		for grins!</div>
 </details>`;
 
 	const accordionCardCode = `<article role="presentation">
@@ -27,13 +27,16 @@
 
 	const accordionCode = `<details open name="accordions">
 	<summary>Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
-		for grins!
+		<div>Welcome to the world of tomorrow!</div>
 </details>
 <details name="accordions">
 	<summary>Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
-		for grins! 
+		<div>Hi there!</div>
+</details>
+<details name="accordions">
+	<summary>Open for Instant Smiles, Handle With Glee!</summary>
+		<div>Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
+		for grins!</div>
 </details>`;
 </script>
 

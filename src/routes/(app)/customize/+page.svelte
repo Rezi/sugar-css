@@ -146,20 +146,26 @@
 	<section>
 		<details>
 			<summary>Open for Instant Smiles, Handle With Glee!</summary>
-			Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace for
-			grins!
+			<div>
+				Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a
+				box—brace for grins!
+			</div>
 		</details>
 		<details>
 			<summary>Open for Instant Smiles, Handle With Glee!</summary>
-			Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace for
-			grins!
+			<div>
+				Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a
+				box—brace for grins!
+			</div>
 		</details>
 	</section>
 
 	<details>
 		<summary role="button">Open for Instant Smiles, Handle With Glee!</summary>
-		Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace for
-		grins!
+		<div>
+			Unleash pure joy with surprise goodies that guarantee laughter. It's happiness in a box—brace
+			for grins!
+		</div>
 	</details>
 
 	<hr />

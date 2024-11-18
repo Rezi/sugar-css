@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+- Animation support for accordions. Supported by chrome 131 and higher.
+- Breaking: content of accordion needs to be now wrapped to an element.
+  
+
 ## 0.2.5
 
 - Fix: Customize online and download works again after Vite bumped
