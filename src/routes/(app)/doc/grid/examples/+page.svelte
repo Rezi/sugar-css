@@ -33,8 +33,8 @@
 	const gridNestedExampleCode = `<div 
 	class="s-grid" 
 	style="--span:3;--padding: 1rem; ">
-	<div class="s-grid">
-		<div>
+	<div>
+		<div class="s-grid">
 			<div>A</div>
 			<div>B</div>
 			<div>C</div>

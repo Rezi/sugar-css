@@ -198,7 +198,7 @@
 				{ name: 'Lists', url: '/doc/components/lists' },
 				{ name: 'Modal', url: '/doc/components/modal' },
 				{ name: 'Progress bar', url: '/doc/components/progress' },
-				{ name: 'Tabs', url: '/doc/components/tabs' }
+				{ name: 'Tabs', url: '/doc/components/tabs' },
 				{ name: 'Select', url: '/doc/components/select' }
 			]
 		},
