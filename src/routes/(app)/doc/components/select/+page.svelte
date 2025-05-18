@@ -2,6 +2,10 @@
 	import CardCode from '$lib/components/CardCode.svelte';
 
 	const selectCode = `<select >
+		<button>
+        <selectedcontent></selectedcontent>
+      </button>
+	  
 	<option value="1">Value 1</option>
 	<option value="2">Value 2</option>
 	<option value="3">Value 3</option>
