@@ -10,7 +10,6 @@
 </label>`;
 
 	const codeAll = `<div class="s-grid" style="--span:8">
-	<div>
 		<label>
 			Text:
 			<textarea aria-describedby="text-tooltip"></textarea>
@@ -41,7 +40,6 @@
 				Don't press me yet
 			</span>
 		</span>
-	</div>
 </div>`;
 </script>
 

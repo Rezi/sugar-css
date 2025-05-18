@@ -2,22 +2,16 @@
 	import CardCode from '$lib/components/CardCode.svelte';
 
 	const gridLayoutExampleCode = `<div class="s-grid" style="--padding: 1rem;">
-	<div>
-		<div style="--span:1;">A</div>
-		<div style="--span:2;">B</div>
-	</div>
+	<div style="--span:1;">A</div>
+	<div style="--span:2;">B</div>
 </div>
 <div class="s-grid" style="--padding: 1rem;">
-	<div>
-		<div style="--span:2;">😀</div>
-		<div style="--span:4;">😎</div>
-	</div>
+	<div style="--span:2;">😀</div>
+	<div style="--span:4;">😎</div>
 </div>
 <div class="s-grid" style="--padding: 1rem; --span:4;">
-	<div>
-		<div style="--span-6:2;">1</div>
-		<div>2</div>
-	</div>
+	<div style="--span-6:2;">1</div>
+	<div>2</div>
 </div>`;
 </script>
 
@@ -54,11 +48,11 @@
 </article>
 
 <style lang="scss">
-	:global(.colored-grid .s-grid > * > *:not(.s-grid)) {
+	:global(.colored-grid .s-grid > *:not(.s-grid)) {
 		background-color: var(--s-color-bg-85-fg);
 	}
 
-	:global(.colored-grid .s-grid .s-grid > * > *) {
+	:global(.colored-grid .s-grid .s-grid > *) {
 		background-color: var(--s-color-bg);
 	}
 </style>

@@ -2,12 +2,10 @@
 	import CardCode from '$lib/components/CardCode.svelte';
 
 	const gridSimpleExampleCode = `<div class="s-grid" style="--span:2;">
-	<div>
-		<div>A</div>
-		<div>B</div>
-		<div>C</div>
-		<div>D</div>
-	</div>
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+	<div>D</div>
 </div>`;
 
 	const gridAdvanceExampleCode = `<div 
@@ -16,52 +14,40 @@
 	--span:2; 
 	--padding: 1rem; 
 	--gap:0.25rem;">
-	<div>
-		<div style="--span-3:1;">A</div>
-		<div style="--span-4:3;">B</div>
-		<div style="--span:3;">C</div>
-	</div>
+	<div style="--span-3:1;">A</div>
+	<div style="--span-4:3;">B</div>
+	<div style="--span:3;">C</div>
 </div>`;
 
 	const gridInheritanceExampleCode = `<div class="s-grid" style="--span:5;--span-6:2;">
-	<div>
-		<div>A</div>
-		<div>B</div>
-		<div>C</div>
-	</div>
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
 </div>`;
 
 	const gridFixedExampleCode = `<div class="s-grid s-fixed">
-	<div>
-		<div>A</div>
-		<div>B</div>
-	</div>
+	<div>A</div>
+	<div>B</div>
 </div>`;
 
 	const gridNestedExampleCode = `<div 
 	class="s-grid" 
 	style="--span:3;--padding: 1rem; ">
-	<div>
+	<div class="s-grid">
 		<div>
-			<div class="s-grid">
-				<div>
-					<div>A</div>
-					<div>B</div>
-					<div>C</div>
-				</div>
-			</div>
+			<div>A</div>
+			<div>B</div>
+			<div>C</div>
 		</div>
-		<div>B</div>
-		<div>C</div>
 	</div>
+	<div>B</div>
+	<div>C</div>
 	
 </div>`;
 
 	const gridOffsetExampleCode = `<div class="s-grid" style="--padding: 1rem;">
-	<div>
-		<div style="--span:1;">A</div>
-		<div style="--span:1;--offset:1;">B</div>
-	</div>
+	<div style="--span:1;">A</div>
+	<div style="--span:1;--offset:1;">B</div>
 </div>`;
 </script>
 
@@ -183,11 +169,11 @@
 </article>
 
 <style lang="scss">
-	:global(.colored-grid .s-grid > * > *:not(.s-grid)) {
+	:global(.colored-grid .s-grid > *:not(.s-grid)) {
 		background-color: var(--s-color-bg-85-fg);
 	}
 
-	:global(.colored-grid .s-grid .s-grid > * > *) {
+	:global(.colored-grid .s-grid .s-grid > *) {
 		background-color: var(--s-color-bg);
 	}
 </style>

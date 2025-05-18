@@ -210,7 +210,7 @@
 
 <div class="controls">
 	<div class="s-grid" style="--span:8; --gap:0.5rem;">
-		<div>
+	
 			<fieldset>
 				<legend>Theme: {activeTheme}</legend>
 				<div class="theme-headline">
@@ -255,7 +255,7 @@
 				</div>
 
 				<div class="s-grid">
-					<div>
+					
 						<label>
 							Foreground<small> {$customizationThemeStore[activeTheme].fgColor}</small>
 							<input type="color" bind:value={$customizationThemeStore[activeTheme].fgColor} />
@@ -264,9 +264,7 @@
 							Background<small> {$customizationThemeStore[activeTheme].bgColor}</small>
 							<input type="color" bind:value={$customizationThemeStore[activeTheme].bgColor} />
 						</label>
-					</div>
-
-					<div>
+					
 						<label>
 							Primary <small>{$customizationThemeStore[activeTheme].primaryColor}</small>
 							<input type="color" bind:value={$customizationThemeStore[activeTheme].primaryColor} />
@@ -279,7 +277,7 @@
 								bind:value={$customizationThemeStore[activeTheme]['primary-contrast']}
 							/></label
 						>
-					</div>
+					
 				</div>
 			</fieldset>
 
@@ -313,7 +311,7 @@
 			<div>
 				<button on:click={reset}>Reset</button>
 			</div>
-		</div>
+		
 	</div>
 </div>
 

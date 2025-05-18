@@ -39,7 +39,7 @@
 	border: solid currentColor;
 	border-width: 0 0 var(--sugar-border-width-plus) var(--sugar-border-width-plus);
 	transform: rotate(-45deg) translateY(-30%);
-	transition: transform 0.3s;
+	transition: transform var(--animation-duraion);
 	flex-shrink: 0;
 }
 
@@ -61,16 +61,22 @@
 
 article:has(> details:only-child) {
 	padding: 0;
-	margin-bottom: var(--sugar-spacing-list);
 }
+
 article > details:only-child {
 	margin: calc(var(--sugar-border-width) * -1);
 }
+
 article:has(> details:only-child) > details[open] > summary {
 	margin: 0;
 	border-end-end-radius: 0;
 	border-end-start-radius: 0;
 }
+
+article:has(> details:only-child) > details > summary {
+	transition: border-radius var(--animation-duraion);
+}
+
 article > details:only-child > :not(summary) {
 	padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 }
@@ -81,13 +87,17 @@ article > details:only-child > summary {
 
 /* Animation */
 
+:where(details) {
+	--animation-duraion: 0.3s;
+}
+
 :where(details)::details-content {
 	interpolate-size: allow-keywords;
 	overflow: hidden;
 	block-size: 0;
 	transition:
-		block-size 0.3s,
-		content-visibility 0.3s;
+		block-size var(--animation-duraion),
+		content-visibility var(--animation-duraion);
 	transition-behavior: allow-discrete;
 }
 

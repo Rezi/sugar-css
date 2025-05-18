@@ -1,0 +1,41 @@
+select {
+	appearance: base-select;
+	/* style the 'button' */
+
+	&::picker(select) {
+		appearance: base-select;
+		/* style the 'listbox' */
+	}
+
+	&::picker-icon {
+		/* style the 'button' icon */
+	}
+
+	&:not(:open) {
+		/* style the 'button' when closed */
+
+		&::picker(select) {
+			/* style the 'listbox' when closed */
+		}
+	}
+
+	&:open {
+		/* style the 'button' when open */
+
+		&::picker(select) {
+			/* style the 'listbox' when open */
+		}
+	}
+
+	& option {
+		/* style the options */
+
+		&::checkmark {
+			/* style the checkmark on the checked option */
+		}
+
+		&:checked {
+			/* style the checked option */
+		}
+	}
+}

@@ -104,5 +104,5 @@
 		article accordion. If you wrap the content of the <code>details</code> (excluding
 		<code>summary</code>) into an element, padding is applied to it automatically.
 	</section>
-	<CardCode code={accordionCardCode} examplePosition="top" card={false}></CardCode>
+	<CardCode code={accordionCardCode} examplePosition="top"></CardCode>
 </article>

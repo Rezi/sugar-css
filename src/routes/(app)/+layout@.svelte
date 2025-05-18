@@ -191,14 +191,15 @@
 			isExpanded: false,
 			links: [
 				{ name: 'Accordion', url: '/doc/components/accordion' },
-				{ name: 'Card', url: '/doc/components/card' },
 				{ name: 'Block Quote', url: '/doc/components/block-quote' },
+				{ name: 'Card', url: '/doc/components/card' },
 				{ name: 'Figure', url: '/doc/components/figure' },
 				{ name: 'Horizontal rule', url: '/doc/components/horizontal-rule' },
 				{ name: 'Lists', url: '/doc/components/lists' },
 				{ name: 'Modal', url: '/doc/components/modal' },
 				{ name: 'Progress bar', url: '/doc/components/progress' },
 				{ name: 'Tabs', url: '/doc/components/tabs' }
+				{ name: 'Select', url: '/doc/components/select' }
 			]
 		},
 		{
@@ -237,63 +238,61 @@
 <svelte:window bind:innerWidth={docWidth} />
 
 <div class="s-grid">
-	<div>
-		<aside style="--span:9;--span-11:2;" bind:clientWidth={asideWidth}>
-			{#if collapsibleMenu}
-				<button
-					class="menu-button"
-					aria-haspopup="true"
-					aria-expanded={menuOpened ? 'true' : 'false'}
-					on:click={() => {
-						menuOpened = !menuOpened;
-					}}
-					>Documentation
+	<aside style="--span:9;--span-11:2;" bind:clientWidth={asideWidth}>
+		{#if collapsibleMenu}
+			<button
+				class="menu-button"
+				aria-haspopup="true"
+				aria-expanded={menuOpened ? 'true' : 'false'}
+				on:click={() => {
+					menuOpened = !menuOpened;
+				}}
+				>Documentation
 
-					<span class="burger"><span></span></span></button
-				>
-			{/if}
-
-			<nav
-				aria-label="Documentation navigation"
-				class:shown={!collapsibleMenu || menuOpened}
-				inert={collapsibleMenu && !menuOpened}
+				<span class="burger"><span></span></span></button
 			>
-				<menu id="side-navigation">
-					{#each menuItems as menu}
-						<li style={menu.newBlock ? 'margin-top:1rem;' : ''}>
-							{#if menu.links}
-								<button
-									aria-haspopup="true"
-									aria-expanded={menu.isExpanded}
-									aria-controls={menu.key}
-									on:pointerdown={() => toggleMenu(menu.key)}>{menu.headline}</button
-								>
-								<ul hidden={!menu.isExpanded} id={menu.key}>
-									{#each menu.links as link}
-										<li>
-											<a
-												href={link.url}
-												on:click={() => {
-													menuOpened = false;
-												}}>{link.name}</a
-											>
-										</li>{/each}
-								</ul>
-							{:else}
-								<a
-									href={menu.url}
-									on:click={() => {
-										menuOpened = false;
-									}}>{menu.headline}</a
-								>
-							{/if}
-						</li>
-					{/each}
-				</menu>
-			</nav>
-		</aside>
-		<main style="--span:9;" aria-label="Documentation content"><slot /></main>
-	</div>
+		{/if}
+
+		<nav
+			aria-label="Documentation navigation"
+			class:shown={!collapsibleMenu || menuOpened}
+			inert={collapsibleMenu && !menuOpened}
+		>
+			<menu id="side-navigation">
+				{#each menuItems as menu}
+					<li style={menu.newBlock ? 'margin-top:1rem;' : ''}>
+						{#if menu.links}
+							<button
+								aria-haspopup="true"
+								aria-expanded={menu.isExpanded}
+								aria-controls={menu.key}
+								on:pointerdown={() => toggleMenu(menu.key)}>{menu.headline}</button
+							>
+							<ul hidden={!menu.isExpanded} id={menu.key}>
+								{#each menu.links as link}
+									<li>
+										<a
+											href={link.url}
+											on:click={() => {
+												menuOpened = false;
+											}}>{link.name}</a
+										>
+									</li>{/each}
+							</ul>
+						{:else}
+							<a
+								href={menu.url}
+								on:click={() => {
+									menuOpened = false;
+								}}>{menu.headline}</a
+							>
+						{/if}
+					</li>
+				{/each}
+			</menu>
+		</nav>
+	</aside>
+	<main style="--span:9;" aria-label="Documentation content"><slot /></main>
 </div>
 
 <style lang="scss">

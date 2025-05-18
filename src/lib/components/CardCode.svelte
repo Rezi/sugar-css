@@ -120,7 +120,7 @@
 	@import 'highlight.js/styles/atom-one-dark.css';
 
 	.hljs {
-		margin: 0 calc(-1 * var(--sugar-spacing-inline)) calc(-1 * var(--sugar-spacing-block));
+		margin: 0 calc(var(--sugar-spacing-inline) * -1) calc(var(--sugar-spacing-block) * -1);
 		padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 		overflow-x: auto;
 	}
@@ -139,13 +139,13 @@
 	}
 
 	:global(article header + .card-code) .hljs {
-		margin: calc(-1 * var(--sugar-spacing-block)) calc(-1 * var(--sugar-spacing-inline));
+		margin: calc(var(--sugar-spacing-block) * -1) calc(var(--sugar-spacing-inline) * -1);
 		padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 	}
 
 	:global(.card-code) .hljs {
 		margin-block: 0;
-		margin-inline: calc(-1 * var(--sugar-spacing-inline));
+		margin-inline: calc(var(--sugar-spacing-inline) * -1);
 		padding: var(--sugar-spacing-block) var(--sugar-spacing-inline);
 	}
 

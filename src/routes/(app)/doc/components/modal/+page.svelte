@@ -30,16 +30,14 @@
 			<footer>
 				<div class="s-grid" style="--span:3;">
 					<div>
-						<div>
-							<button 
-								formmethod="dialog" 
-								class="s-secondary" 
-								type="submit">
-								Cancel
-							</button>
-						</div>
-						<div><button type="submit">Submit</button></div>
+						<button 
+							formmethod="dialog" 
+							class="s-secondary" 
+							type="submit">
+							Cancel
+						</button>
 					</div>
+					<div><button type="submit">Submit</button></div>
 				</div>
 			</footer>
 		</article>

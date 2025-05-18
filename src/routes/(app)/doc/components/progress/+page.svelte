@@ -1,13 +1,11 @@
 <script>
 	import CardCode from '$lib/components/CardCode.svelte';
-	const progressCode = `<div style="--span:6;" class="s-grid">
-	<div>				
-		<div>
-			<label><progress value=".7" max="1">70 %</progress></label>
-		</div>
-		<div aria-busy="true" inert>
-			<progress role="presentation" ></progress>
-		</div>
+	const progressCode = `<div style="--span:6;" class="s-grid">			
+	<div>
+		<label><progress value=".7" max="1">70 %</progress></label>
+	</div>
+	<div aria-busy="true" inert>
+		<progress role="presentation" ></progress>
 	</div>
 </div>`;
 </script>

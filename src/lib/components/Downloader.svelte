@@ -300,35 +300,31 @@ in order to modify this specific build of sugar.css.
 </script>
 
 <section class="s-grid" style="--span:2;">
-	<div>
-		{#each Object.entries(cssPartsMap) as section}
-			<label
-				><input
-					bind:group={cssParts}
-					value={section[0]}
-					type="checkbox"
-					checked={section[1].checked}
-					disabled={section[1].disabled}
-					aria-describedby="{section[0]}-tooltip"
-				/>
-				{section[1].name}
-				<span role="tooltip" id="{section[0]}-tooltip">
-					{@html section[1].description}
-				</span>
-			</label>
-		{/each}
-	</div>
+	{#each Object.entries(cssPartsMap) as section}
+		<label
+			><input
+				bind:group={cssParts}
+				value={section[0]}
+				type="checkbox"
+				checked={section[1].checked}
+				disabled={section[1].disabled}
+				aria-describedby="{section[0]}-tooltip"
+			/>
+			{section[1].name}
+			<span role="tooltip" id="{section[0]}-tooltip">
+				{@html section[1].description}
+			</span>
+		</label>
+	{/each}
 </section>
 <section>
 	<label><input bind:checked={checkedAll} type="checkbox" /> <strong>Select All</strong></label>
 </section>
 <hr />
 <section class="s-grid" style="--span:3;">
-	<div>
-		<label>
-			<input type="checkbox" bind:checked={includeCustomColors} />Include custom colors and settings</label
-		>
+	<label>
+		<input type="checkbox" bind:checked={includeCustomColors} />Include custom colors and settings</label
+	>
 
-		<div><button on:click={triggerDownload}>Download</button></div>
-	</div>
+	<div><button on:click={triggerDownload}>Download</button></div>
 </section>

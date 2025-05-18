@@ -5,7 +5,7 @@
 $sugar-column-width: 5rem;
 $grid-columns-count: 12;
 
-:where(*:has(> .s-grid > *)) {
+:where(*:has(> .s-grid)) {
 	/* This is a fix for negative margin-block of the grid, 
 	which could be visible when background is applied to grid's wrapper */
 	padding-block-start: 0.02px;
@@ -24,21 +24,18 @@ $grid-columns-count: 12;
 		--offset-#{$i}: initial;
 	}
 
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
 	container-type: inline-size;
 	container-name: s-grid;
 	margin: calc(var(--gap-half) * -1);
 }
 
-:where(.s-grid > *) {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
-}
-
-:where(.s-grid.s-fixed > *) {
+:where(.s-grid.s-fixed) {
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
 
-:where(.s-grid > * > *) {
+:where(.s-grid > *) {
 	--max-span: 1;
 	--span-1f: var(--span);
 	--offset-1f: var(--offset);
@@ -59,7 +56,7 @@ $grid-columns-count: 12;
 
 @for $i from 2 through $grid-columns-count {
 	@container s-grid (min-width: #{$i * $sugar-column-width}) {
-		:where(.s-grid > * > *) {
+		:where(.s-grid > *) {
 			--max-span: #{$i};
 			--span-#{$i}f: var(--span-#{$i}, var(--span-#{$i - 1}f));
 			--offset-#{$i}f: var(--offset-#{$i}, var(--offset-#{$i - 1}f));

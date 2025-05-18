@@ -2,45 +2,41 @@
 	import CardCode from '$lib/components/CardCode.svelte';
 
 	const formCode = `<form style="--span:3;" class="s-grid">
-	<div>
-		<label>
-			Name
-			<input placeholder="Name" type="text" />
-		</label>
-		<label>
-			Email
-			<input type="email"  placeholder="Email" />
-		</label>
-		<div style="--span-6:6;">
-			<button>Submit</button>
-		</div>
-	</div>	
+	<label>
+		Name
+		<input placeholder="Name" type="text" />
+	</label>
+	<label>
+		Email
+		<input type="email"  placeholder="Email" />
+	</label>
+	<div style="--span-6:6;">
+		<button>Submit</button>
+	</div>
 </form>
 `;
 
 	const formStatesCode = `<form style="--span:3;" class="s-grid">
-	<div>
-		<label>
-			<input type="text" placeholder="Valid" aria-invalid="false" />
-		</label>
-		<label>
-			<input type="text" placeholder="Invalid" aria-invalid="true" />
-		</label>
-		<label>
-			<input type="text" placeholder="Disabled" disabled />
-		</label>
-		<label>
-			<input type="text" value="Readonly" readonly />
-		</label>
-		<label>
-			<textarea placeholder="Valid" aria-invalid="false" >
-			</textarea>
-		</label>
-		<label>
-			<textarea placeholder="Valid" aria-invalid="true" >
-			</textarea>
-		</label>
-	</div>
+	<label>
+		<input type="text" placeholder="Valid" aria-invalid="false" />
+	</label>
+	<label>
+		<input type="text" placeholder="Invalid" aria-invalid="true" />
+	</label>
+	<label>
+		<input type="text" placeholder="Disabled" disabled />
+	</label>
+	<label>
+		<input type="text" value="Readonly" readonly />
+	</label>
+	<label>
+		<textarea placeholder="Valid" aria-invalid="false" >
+		</textarea>
+	</label>
+	<label>
+		<textarea placeholder="Valid" aria-invalid="true" >
+		</textarea>
+	</label>
 </form>`;
 
 	const inputButtonCode = `<search>
@@ -49,36 +45,32 @@
 </search>`;
 
 	const dateInputsCode = `<div style="--span:6;" class="s-grid">
-	<div>
-		<label>Date<input type="date" /></label>
-		<label>Datetime local<input type="datetime-local" /></label>
-		<label>Month<input type="month" /></label>
-		<label>Time<input type="time" /></label>
-		<label>Week<input type="week" /></label>
-	</div>
+	<label>Date<input type="date" /></label>
+	<label>Datetime local<input type="datetime-local" /></label>
+	<label>Month<input type="month" /></label>
+	<label>Time<input type="time" /></label>
+	<label>Week<input type="week" /></label>
 </div>`;
 
 	const radiosCheckboxesCode = `<div style="--span:6;" class="s-grid">
-	<div>
-		<label>
-			<input type="radio" name="color" value="red" />
-			Red
-		</label>
-		<label>
-			<input type="radio" name="color" value="blue" />
-			Blue
-		</label>
-		<label>
-			<input type="radio" name="color" value="pink" disabled />
-			Pink
-		</label>
-		<label>
-			<input type="checkbox" role="switch" />
-			Switch Checkbox
-		</label>
-		<label><input type="checkbox" />Checkbox</label>
-		<label><input type="checkbox" disabled />Disabled Checkbox</label>
-	</div>
+	<label>
+		<input type="radio" name="color" value="red" />
+		Red
+	</label>
+	<label>
+		<input type="radio" name="color" value="blue" />
+		Blue
+	</label>
+	<label>
+		<input type="radio" name="color" value="pink" disabled />
+		Pink
+	</label>
+	<label>
+		<input type="checkbox" role="switch" />
+		Switch Checkbox
+	</label>
+	<label><input type="checkbox" />Checkbox</label>
+	<label><input type="checkbox" disabled />Disabled Checkbox</label>
 </div>`;
 
 	const selectCode = `<select>
@@ -88,24 +80,20 @@
 </select>`;
 
 	const inputsCode = `<div style="--span:6;" class="s-grid">
-	<div>
-		<label>Text<input type="text" /></label>		
-		<label>Number<input type="number" /></label>			
-		<label>Password<input type="password" /></label>
-		<label>Email<input type="email" /></label>
-		<label>Search<input type="search" /></label>
-		<label>Tel<input type="tel" /></label>
-		<label>Url<input type="url" /></label>
-	</div>
+	<label>Text<input type="text" /></label>		
+	<label>Number<input type="number" /></label>			
+	<label>Password<input type="password" /></label>
+	<label>Email<input type="email" /></label>
+	<label>Search<input type="search" /></label>
+	<label>Tel<input type="tel" /></label>
+	<label>Url<input type="url" /></label>
 </div>`;
 
 	const otherInputsCode = `<div style="--span:6;" class="s-grid">
-	<div>	
-		<label>Color<input type="color" /></label>
-		<label>File<input type="file" /></label>
-		<label>Hidden<input type="hidden" /></label>
-		<label>Range<input type="range" min="0" max="100" /></label>
-	</div>
+	<label>Color<input type="color" /></label>
+	<label>File<input type="file" /></label>
+	<label>Hidden<input type="hidden" /></label>
+	<label>Range<input type="range" min="0" max="100" /></label>
 </div>`;
 </script>
 

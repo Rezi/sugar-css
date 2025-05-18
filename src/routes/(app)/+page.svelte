@@ -34,25 +34,23 @@
 <hr />
 <section class="s-grid" style="--span:8;--span-9:3;--gap:2rem;">
 	<div>
-		<div>
-			<h3>Semantic</h3>
-			<p>
-				Except 7 classes, all styles are applied based on <strong>semantic</strong> HTML and aria
-				attributes. This way, <strong>accessible</strong> and easy to read HTML is encouraged.
-			</p>
-		</div>
-		<div>
-			<h3>Customizable</h3>
-			<p>You can easily adjust look and feel of your very own build of Sugar.css</p>
-			<p><a href="customize">Customize your Sugar.css</a></p>
-		</div>
-		<div>
-			<h3>Lightweight</h3>
-			<p>
-				Whole solution is
-				<strong>7.5 kB</strong> g-zipped. Including advanced grid system and custom properties to customize.
-			</p>
-		</div>
+		<h3>Semantic</h3>
+		<p>
+			Except 7 classes, all styles are applied based on <strong>semantic</strong> HTML and aria
+			attributes. This way, <strong>accessible</strong> and easy to read HTML is encouraged.
+		</p>
+	</div>
+	<div>
+		<h3>Customizable</h3>
+		<p>You can easily adjust look and feel of your very own build of Sugar.css</p>
+		<p><a href="customize">Customize your Sugar.css</a></p>
+	</div>
+	<div>
+		<h3>Lightweight</h3>
+		<p>
+			Whole solution is
+			<strong>7.5 kB</strong> g-zipped. Including advanced grid system and custom properties to customize.
+		</p>
 	</div>
 </section>
 <hr />

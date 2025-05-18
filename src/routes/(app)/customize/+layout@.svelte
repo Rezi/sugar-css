@@ -26,28 +26,26 @@
 			style={$customizationLoadedStore ? 'display:none' : ''}
 		></div>
 		<div style={!$customizationLoadedStore ? 'display:none' : ''}>
-			<div>
-				<article aria-label="Download section">
-					<details bind:open={accordions.download}>
-						<summary role="button">Download CSS (customized)</summary>
-						<div inert={!accordions.download}>
-							<Downloader></Downloader>
-						</div>
-					</details>
-				</article>
-				<article aria-label="Import Export section">
-					<details bind:open={accordions.import}>
-						<summary role="button">Import / Export</summary>
-						<div inert={!accordions.import}>
-							<EncoderDecoder></EncoderDecoder>
-						</div>
-					</details>
-				</article>
+			<article aria-label="Download section">
+				<details bind:open={accordions.download}>
+					<summary role="button">Download CSS (customized)</summary>
+					<div inert={!accordions.download}>
+						<Downloader></Downloader>
+					</div>
+				</details>
+			</article>
+			<article aria-label="Import Export section">
+				<details bind:open={accordions.import}>
+					<summary role="button">Import / Export</summary>
+					<div inert={!accordions.import}>
+						<EncoderDecoder></EncoderDecoder>
+					</div>
+				</details>
+			</article>
 
-				<CustomControls></CustomControls>
-			</div>
-			<div><slot /></div>
+			<CustomControls></CustomControls>
 		</div>
+		<div style={!$customizationLoadedStore ? 'display:none' : ''}><slot /></div>
 	</div>
 </main>
 

@@ -375,34 +375,27 @@
 					</div>
 
 					<div class="s-grid">
-						<div>
-							<label>
-								Foreground<small> {$customizationThemeStore[activeTheme].fgColor}</small>
-								<input type="color" bind:value={$customizationThemeStore[activeTheme].fgColor} />
-							</label>
-							<label>
-								Background<small> {$customizationThemeStore[activeTheme].bgColor}</small>
-								<input type="color" bind:value={$customizationThemeStore[activeTheme].bgColor} />
-							</label>
-						</div>
+						<label>
+							Foreground<small> {$customizationThemeStore[activeTheme].fgColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].fgColor} />
+						</label>
+						<label>
+							Background<small> {$customizationThemeStore[activeTheme].bgColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].bgColor} />
+						</label>
 
-						<div>
-							<label>
-								Primary <small>{$customizationThemeStore[activeTheme].primaryColor}</small>
-								<input
-									type="color"
-									bind:value={$customizationThemeStore[activeTheme].primaryColor}
-								/>
-							</label>
+						<label>
+							Primary <small>{$customizationThemeStore[activeTheme].primaryColor}</small>
+							<input type="color" bind:value={$customizationThemeStore[activeTheme].primaryColor} />
+						</label>
 
-							<label
-								>Contrast <small>{$customizationThemeStore[activeTheme]['primary-contrast']}</small
-								><input
-									type="color"
-									bind:value={$customizationThemeStore[activeTheme]['primary-contrast']}
-								/></label
-							>
-						</div>
+						<label
+							>Contrast <small>{$customizationThemeStore[activeTheme]['primary-contrast']}</small
+							><input
+								type="color"
+								bind:value={$customizationThemeStore[activeTheme]['primary-contrast']}
+							/></label
+						>
 					</div>
 				</section>
 				<Accessibility></Accessibility>
@@ -410,63 +403,49 @@
 			{#if tab.key === 'base'}
 				<div class="s-grid" style="--span:6">
 					<div>
-						<div>
-							<label>
-								Roundness: {Number($customizationStore.roundness).toFixed(2)}
-								<input
-									type="range"
-									min={rangeMin}
-									max={rangeMax}
-									bind:value={rangeRoundnessValue}
-								/>
-							</label>
-						</div>
-						<div>
-							<label>
-								Sparsity: {Number($customizationStore.sparsity).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeSparsityValue} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Fatness: {Number($customizationStore.fatness).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeFatnessValue} />
-							</label>
-						</div>
-						<div>
-							<label>
-								Shadow: {Number($customizationStore.shadow).toFixed(2)}
-								<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeShadowValue} />
-							</label>
-						</div>
+						<label>
+							Roundness: {Number($customizationStore.roundness).toFixed(2)}
+							<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeRoundnessValue} />
+						</label>
+					</div>
+					<div>
+						<label>
+							Sparsity: {Number($customizationStore.sparsity).toFixed(2)}
+							<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeSparsityValue} />
+						</label>
+					</div>
+					<div>
+						<label>
+							Fatness: {Number($customizationStore.fatness).toFixed(2)}
+							<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeFatnessValue} />
+						</label>
+					</div>
+					<div>
+						<label>
+							Shadow: {Number($customizationStore.shadow).toFixed(2)}
+							<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeShadowValue} />
+						</label>
 					</div>
 				</div>{/if}
 			{#if tab.key === 'typography'}
 				<div class="s-grid" style="--span:6">
 					<div>
-						<div>
-							<label>
-								Font Family <a target="_blank" href="https://modernfontstacks.com/?stack=system-ui"
-									>(more on fonts)</a
-								>
-								<select name="" id="" bind:value={fontFamilyValue}>
-									{#each fontFamilies as ff}
-										<option value={ff.value}>{ff.title}</option>
-									{/each}
-								</select>
-							</label>
-						</div>
-						<div>
-							<label>
-								Line Height: {Number($customizationStore.lineHeight).toFixed(2)}
-								<input
-									type="range"
-									min={rangeMin}
-									max={rangeMax}
-									bind:value={rangeLineHeightValue}
-								/>
-							</label>
-						</div>
+						<label>
+							Font Family <a target="_blank" href="https://modernfontstacks.com/?stack=system-ui"
+								>(more on fonts)</a
+							>
+							<select name="" id="" bind:value={fontFamilyValue}>
+								{#each fontFamilies as ff}
+									<option value={ff.value}>{ff.title}</option>
+								{/each}
+							</select>
+						</label>
+					</div>
+					<div>
+						<label>
+							Line Height: {Number($customizationStore.lineHeight).toFixed(2)}
+							<input type="range" min={rangeMin} max={rangeMax} bind:value={rangeLineHeightValue} />
+						</label>
 					</div>
 				</div>
 			{/if}
