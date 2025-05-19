@@ -35,7 +35,7 @@
 	margin-top: calc(var(--fieldset-padding) + var(--legend-height));
 }
 
-:where(legend) {
+:where(fieldset > legend) {
 	/* color: var(--s-color-primary-80-fg);
 	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline); */
 
@@ -102,16 +102,16 @@
  */
 
 :where(
-		button,
-		input,
-		select,
-		textarea,
-		[type='button' i],
-		[type='reset' i],
-		[type='submit' i],
-		[role='button' i],
-		summary[role='button' i]
-	) {
+	button,
+	input,
+	select,
+	textarea,
+	[type='button' i],
+	[type='reset' i],
+	[type='submit' i],
+	[role='button' i],
+	summary[role='button' i]
+) {
 	background-color: var(--s-color-bg);
 	border: var(--sugar-border-width) solid var(--s-color-input-border); /* 1 */
 	color: inherit; /* 1 */
@@ -148,14 +148,14 @@
 
 :where(input, textarea):where([aria-invalid]),
 :where(
-		select,
-		input[type='datetime-local'],
-		input[type='date'],
-		input[type='month'],
-		input[type='week'],
-		input[type='time'],
-		input[type='search']
-	) {
+	select,
+	input[type='datetime-local'],
+	input[type='date'],
+	input[type='month'],
+	input[type='week'],
+	input[type='time'],
+	input[type='search']
+) {
 	-webkit-appearance: none;
 	appearance: none;
 	background-position: center right var(--s-input-padding-inline);
@@ -186,14 +186,104 @@
 	background-image: none;
 }
 
+optgroup > legend {
+	padding: var(--s-option-padding-block) var(--s-option-padding-inline);
+	font-weight: bold;
+}
+
+:where(select:has(> button)) {
+	appearance: base-select;
+	/* style the 'button' */
+
+	selectedcontent {
+		display: flex;
+		gap: var(--s-input-gap);
+	}
+
+	button {
+		justify-content: start;
+		border: none;
+		padding: 0;
+
+		svg {
+			height: 1.5rem;
+			width: auto;
+		}
+	}
+
+	&::picker(select) {
+		appearance: base-select;
+		/* style the 'listbox' */
+
+		background-color: var(--s-color-bg);
+		color: var(--s-color-fg);
+		border-radius: var(--s-input-border-radius);
+		margin-block: calc(var(--sugar-spacing-block) * 0.1);
+		box-shadow: 0 0 calc(0.75rem * var(--s-multiplier-shadow))
+			color-mix(in srgb, var(--s-color-fg) 32%, transparent);
+	}
+
+	&::picker-icon {
+		/* style the 'button' default chevron icon */
+		display: none;
+	}
+
+	&:not(:open) {
+		/* style the 'button' when closed */
+
+		&::picker(select) {
+			/* style the 'listbox' when closed */
+		}
+	}
+
+	&:open {
+		/* style the 'button' when open */
+
+		&::picker(select) {
+			/* style the 'listbox' when open */
+		}
+	}
+
+	& option {
+		padding: var(--s-option-padding-block) var(--s-option-padding-inline);
+		line-height: 1;
+		display: flex;
+		gap: var(--s-input-gap);
+
+		& > svg {
+			height: 1.5rem;
+			width: auto;
+		}
+
+		&:hover {
+			background-color: var(--s-color-bg-95-fg);
+		}
+
+		&::checkmark {
+			/* style the checkmark on the checked option in the listbox */
+
+			order: 1;
+			margin-left: auto;
+			line-height: 1;
+			content: var(--sugar-icon-checkmark);
+			mix-blend-mode: difference;
+		}
+
+		&:checked {
+			background-color: var(--s-color-bg-85-fg);
+			/* style the checked option */
+		}
+	}
+}
+
 :where(
-		button,
-		[type='button' i],
-		[type='reset' i],
-		[type='submit' i],
-		[role='button' i],
-		summary[role='button' i]
-	) {
+	button:not(select > button),
+	[type='button' i],
+	[type='reset' i],
+	[type='submit' i],
+	[role='button' i],
+	summary[role='button' i]
+) {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -398,13 +488,13 @@
 
 /* prepare inputs with black icons to be black in lightmode */
 :where(
-		input[type='time'],
-		input[type='datetime-local'],
-		input[type='date'],
-		input[type='month'],
-		input[type='week'],
-		select
-	) {
+	input[type='time'],
+	input[type='datetime-local'],
+	input[type='date'],
+	input[type='month'],
+	input[type='week'],
+	select
+) {
 	background-blend-mode: difference;
 }
 
@@ -425,15 +515,12 @@ _::-webkit-full-page-media,
 /* input button combo */
 
 :where(
-		:has(> input:not([type='radio'], [type='checkbox']):first-child:nth-last-child(2)):has(
-				> :where(
-						button,
-						[type='button' i],
-						[type='reset' i],
-						[type='submit' i]
-					):last-child:nth-child(2)
-			)
-	) {
+	:has(> input:not([type='radio'], [type='checkbox']):first-child:nth-last-child(2)):has(
+			> :where(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child:nth-child(
+					2
+				)
+		)
+) {
 	display: flex;
 
 	:first-child {
