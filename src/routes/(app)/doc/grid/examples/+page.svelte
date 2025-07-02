@@ -25,9 +25,16 @@
 	<div>C</div>
 </div>`;
 
-	const gridFixedExampleCode = `<div class="s-grid s-fixed">
+	const gridFixedExampleCode = `<div class="s-grid s-fixed" style="--span:2;">
 	<div>A</div>
 	<div>B</div>
+	<div>C</div>
+</div>`;
+
+	const gridAutoExampleCode = `<div class="s-grid s-auto" style="--span:2;">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
 </div>`;
 
 	const gridNestedExampleCode = `<div 
@@ -157,6 +164,40 @@
 	</section>
 
 	<CardCode code={gridFixedExampleCode} resizable={true}></CardCode>
+	<p><em>You can resize the card above by the bottom-right handle</em></p>
+
+	<hr />
+
+	<section>
+		<a id="auto-columns"></a>
+		<h2>Auto columns</h2>
+
+		<p>
+			Auto columns are best of both world. It behaves like <code>.s-fixed</code> (which is based on
+			auto-fill feature) but has one major advantage. With <code>.s-fixed</code>, in scenario where
+			there are 5 columns available and each of your items spans across 2 columns, items rendering
+			seems to be OK, until one reach second row. Then there is one empty column on right side (it
+			would collapse when auto-fit is used, but not with auto-fill).
+			<code>.s-auto</code> use some insane css trickery to mimic <code>auto-fit</code> behavior with
+			collapsing empty columns but keeps <code>auto-fill</code> (fixed column widths) as long as cells
+			are laid to first row.
+		</p>
+		<p>
+			Try to scale the <code>.s-auto</code> grid container below to 5 columns available, then try to
+			do the same with the <code>.s-fixed</code>
+			example above, you will see the difference!
+		</p>
+		<p>
+			In most cases <code>.s-auto</code> has preferable behavior compared to <code>.s-fixed</code>,
+			but, it uses view timeline animations, overflow: auto, position: relative, custom inline font
+			and pseudo elements to work, so it can be easy to break!
+		</p>
+		<p>
+			<mark>Beware this feature does work only in chrome now!</mark>
+		</p>
+	</section>
+
+	<CardCode code={gridAutoExampleCode} resizable={true}></CardCode>
 	<p><em>You can resize the card above by the bottom-right handle</em></p>
 
 	<hr />

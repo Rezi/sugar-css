@@ -20,19 +20,8 @@
 			<dt><code>.s-grid</code></dt>
 			<dd>
 				<p>
-					Defines a grid container and a media query container. Unfortunately, due to a
-					<a
-						href="https://bugs.webkit.org/show_bug.cgi?id=267525"
-						aria-label="Safari bug report related to grid implementation">bug in Safari</a
-					>, an additional
-					<code>div</code>
-					inside <code>.s-grid</code> is necessary. This class currently defines only a container
-					query, while the nested <code>div</code> defines a grid container with:
+					Defines a grid container and a media query container with:
 					<code>grid-template-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));</code>
-				</p>
-				<p>
-					Once the Safari bug is resolved, a new version of sugar.css will be introduced, and the
-					nested <code>div</code> will be removed.
 				</p>
 			</dd>
 
@@ -42,6 +31,21 @@
 					Can be used together with <code>.s-grid</code>. When used, grid columns do not consume
 					remaining space if there are fewer columns than possible. Useful for wide grids with a
 					small number of columns.
+				</p>
+			</dd>
+
+			<dt><code>.s-auto</code></dt>
+			<dd>
+				<p>
+					Works like regular <code>.s-grid</code> once cells start filling second row of the grid (behavior
+					under which empty columns are collapsed).
+				</p>
+				<p>
+					Works like <code>.s-fixed</code> as long cells only fill the first row.
+				</p>
+				<p>
+					<mark>Experimental! Only works in chrome</mark> See
+					<a href="/doc/grid/examples#auto-columns">examples</a> section for more info.
 				</p>
 			</dd>
 		</dl>
