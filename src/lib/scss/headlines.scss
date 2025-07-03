@@ -2,39 +2,46 @@
 ========================================================================
 */
 
-:where(h1, h2, h3, h4, h5, h6) {
-	font-weight: 700;
-	margin: 0 0 calc(1em * var(--s-multiplier-sparsity));
-	text-wrap: balance;
-}
+@layer sugar {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 700;
+		margin: 0 0 calc(1em * var(--s-multiplier-sparsity));
+		text-wrap: balance;
+	}
 
-:where(h1) {
-	font-size: 2rem;
-}
-:where(h2) {
-	font-size: 1.75rem;
-}
-:where(h3) {
-	font-size: 1.375rem;
-}
-:where(h4) {
-	font-size: 1.125rem;
-}
-:where(h5) {
-	font-size: 1rem;
-}
-:where(h6) {
-	font-size: 1rem;
-}
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.75rem;
+	}
+	h3 {
+		font-size: 1.375rem;
+	}
+	h4 {
+		font-size: 1.125rem;
+	}
+	h5 {
+		font-size: 1rem;
+	}
+	h6 {
+		font-size: 1rem;
+	}
 
-:where(hgroup) {
-	margin-bottom: calc(var(--sugar-spacing-block) * var(--s-multiplier-sparsity));
-}
+	hgroup {
+		margin-bottom: calc(var(--sugar-spacing-block) * var(--s-multiplier-sparsity));
+	}
 
-:where(hgroup > *) {
-	margin-bottom: 0;
-}
-:where(hgroup > :not(:first-child)) {
-	color: var(--s-color-fg-65-bg);
-	font-weight: normal;
+	hgroup > * {
+		margin-bottom: 0;
+	}
+	hgroup > :not(:first-child) {
+		color: var(--s-color-fg-65-bg);
+		font-weight: normal;
+	}
 }

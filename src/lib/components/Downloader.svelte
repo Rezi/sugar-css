@@ -270,6 +270,7 @@ https://sugar-css.com/customize?seed=${$customizationHash}
 in order to modify this specific build of sugar.css.
 */
 
+@layer sugar;
 `;
 
 		const stylesToDownload = joinCSSParts(

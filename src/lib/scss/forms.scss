@@ -2,106 +2,111 @@
 ========================================================================
 */
 
-/**
+@layer sugar {
+	/**
   * Remove the margin on controls in Safari.
   */
 
-:where(button, input, select) {
-	margin: 0;
-}
+	button,
+	input,
+	select {
+		margin: 0;
+	}
 
-/**
+	/**
     * Correct the inability to style buttons in iOS and Safari.
     */
 
-:where(button, [type='button' i], [type='reset' i], [type='submit' i]) {
-	-webkit-appearance: button;
-}
+	button,
+	[type='button' i],
+	[type='reset' i],
+	[type='submit' i] {
+		-webkit-appearance: button;
+	}
 
-/**
+	/**
     * Change the inconsistent appearance in all browsers (opinionated).
     */
 
-:where(fieldset) {
-	--fieldset-radius: calc(var(--s-input-border-radius) * 1.5);
-	--fieldset-padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
-	border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
-	border-radius: var(--fieldset-radius);
-	padding: var(--fieldset-padding);
-}
+	fieldset {
+		--fieldset-radius: calc(var(--s-input-border-radius) * 1.5);
+		--fieldset-padding: calc(0.5rem + (var(--sugar-spacing-inline) * 0.375));
+		border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+		border-radius: var(--fieldset-radius);
+		padding: var(--fieldset-padding);
+	}
 
-:where(fieldset:has(> legend)) {
-	--legend-height: calc((var(--s-input-block-padding) / 2) + (0.5rem * var(--s-line-height)));
-	margin-top: calc(var(--fieldset-padding) + var(--legend-height));
-}
+	fieldset:has(> legend) {
+		--legend-height: calc((var(--s-input-block-padding) / 2) + (0.5rem * var(--s-line-height)));
+		margin-top: calc(var(--fieldset-padding) + var(--legend-height));
+	}
 
-:where(fieldset > legend) {
-	/* color: var(--s-color-primary-80-fg);
+	fieldset > legend {
+		/* color: var(--s-color-primary-80-fg);
 	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline); */
 
-	color: var(--s-color-primary-80-fg);
-	padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline);
-	border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
-	border-bottom: 0;
-	translate: 0 calc(var(--sugar-border-width) / 2 - 50%);
-	line-height: 0;
-	padding-top: var(--legend-height);
-	border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
-	margin-inline-start: var(--s-input-border-radius);
-}
+		color: var(--s-color-primary-80-fg);
+		padding: calc(var(--s-input-block-padding) / 2) var(--s-input-padding-inline);
+		border: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
+		border-bottom: 0;
+		translate: 0 calc(var(--sugar-border-width) / 2 - 50%);
+		line-height: 0;
+		padding-top: var(--legend-height);
+		border-radius: calc(var(--fieldset-radius) * 0.5) calc(var(--fieldset-radius) * 0.5) 0 0;
+		margin-inline-start: var(--s-input-border-radius);
+	}
 
-/**
+	/**
     * 1. Remove the margin in Firefox and Safari.
     * 3. Change the resize direction in all browsers (opinionated).
     */
 
-:where(textarea) {
-	margin: 0; /* 1 */
-	resize: vertical; /* 3 */
-}
+	textarea {
+		margin: 0; /* 1 */
+		resize: vertical; /* 3 */
+	}
 
-/**
+	/**
     * Correct the cursor style of increment and decrement buttons in Safari.
     */
 
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-	height: auto;
-}
+	::-webkit-inner-spin-button,
+	::-webkit-outer-spin-button {
+		height: auto;
+	}
 
-/**
+	/**
     * Correct the text style of placeholders in Chrome, Edge, and Safari.
     */
 
-::-webkit-input-placeholder {
-	color: inherit;
-	opacity: 0.54;
-}
+	::-webkit-input-placeholder {
+		color: inherit;
+		opacity: 0.54;
+	}
 
-/**
+	/**
     * Remove the inner padding in Chrome, Edge, and Safari on macOS.
     */
 
-::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
+	::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
 
-/**
+	/**
     * 1. Correct the inability to style upload buttons in iOS and Safari.
     * 2. Change font properties to `inherit` in Safari.
     */
 
-::-webkit-file-upload-button {
-	-webkit-appearance: button; /* 1 */
-	font: inherit; /* 2 */
-}
+	::-webkit-file-upload-button {
+		-webkit-appearance: button; /* 1 */
+		font: inherit; /* 2 */
+	}
 
-/**
+	/**
  * 1. Change the inconsistent appearance in all browsers (opinionated).
  * 2. Add typography inheritance in all browsers (opinionated).
  */
 
-:where(
 	button,
 	input,
 	select,
@@ -110,577 +115,581 @@
 	[type='reset' i],
 	[type='submit' i],
 	[role='button' i],
-	summary[role='button' i]
-) {
-	background-color: var(--s-color-bg);
-	border: var(--sugar-border-width) solid var(--s-color-input-border); /* 1 */
-	color: inherit; /* 1 */
-	font: inherit; /* 2 */
-	letter-spacing: inherit; /* 2 */
-	word-spacing: inherit; /* 2 */
-	padding: var(--s-input-block-padding) var(--s-input-padding-inline); /* 1 */
-	border-radius: var(--s-input-border-radius);
-}
+	summary[role='button' i] {
+		background-color: var(--s-color-bg);
+		border: var(--sugar-border-width) solid var(--s-color-input-border); /* 1 */
+		color: inherit; /* 1 */
+		font: inherit; /* 2 */
+		letter-spacing: inherit; /* 2 */
+		word-spacing: inherit; /* 2 */
+		padding: var(--s-input-block-padding) var(--s-input-padding-inline); /* 1 */
+		border-radius: var(--s-input-border-radius);
+	}
 
-:where([role='button' i]:not(summary)) {
-	display: inline-block;
-	text-align: center;
-}
+	[role='button' i]:not(summary) {
+		display: inline-block;
+		text-align: center;
+	}
 
-:where(input:not([type='checkbox'], [type='radio']), select, textarea, button) {
-	width: 100%;
-}
+	input:not([type='checkbox'], [type='radio']),
+	select,
+	textarea,
+	button {
+		width: 100%;
+	}
 
-:where(
-		button,
-		input,
-		select,
-		textarea,
-		[role='button' i],
-		[type='reset' i],
-		[type='submit' i]
-	):disabled {
-	background-color: var(--s-color-bg-85-fg);
-}
-:where(button, [role='button' i], [type='reset' i], [type='submit' i]):disabled {
-	border-color: var(--s-color-bg-85-fg);
-}
+	:is(button, input, select, textarea, [role='button' i], [type='reset' i], [type='submit' i])
+		:disabled {
+		background-color: var(--s-color-bg-85-fg);
+	}
+	:is(button, [role='button' i], [type='reset' i], [type='submit' i]):disabled {
+		border-color: var(--s-color-bg-85-fg);
+	}
 
-:where(input, textarea):where([aria-invalid]),
-:where(
+	:is(input, textarea):is([aria-invalid]),
 	select,
 	input[type='datetime-local'],
 	input[type='date'],
 	input[type='month'],
 	input[type='week'],
 	input[type='time'],
-	input[type='search']
-) {
-	-webkit-appearance: none;
-	appearance: none;
-	background-position: center right var(--s-input-padding-inline);
-	background-size: 1.2rem;
-	background-repeat: no-repeat;
-	padding-right: 2.5rem;
-}
+	input[type='search'] {
+		-webkit-appearance: none;
+		appearance: none;
+		background-position: center right var(--s-input-padding-inline);
+		background-size: 1.2rem;
+		background-repeat: no-repeat;
+		padding-right: 2.5rem;
+	}
 
-:where(input, textarea):where([aria-invalid='true']) {
-	background-image: var(--sugar-icon-invalid);
-	border-color: var(--s-color-negative);
-}
-:where(input, textarea):where([aria-invalid='false']) {
-	background-image: var(--sugar-icon-valid);
-	border-color: var(--s-color-positive);
-}
+	:is(input, textarea):is([aria-invalid='true']) {
+		background-image: var(--sugar-icon-invalid);
+		border-color: var(--s-color-negative);
+	}
+	:is(input, textarea):is([aria-invalid='false']) {
+		background-image: var(--sugar-icon-valid);
+		border-color: var(--s-color-positive);
+	}
 
-/**
+	/**
    * Change the inconsistent appearance in all browsers (opinionated).
    */
 
-:where(select) {
-	background-size: 1rem;
-	background-image: var(--sugar-chevron);
-}
-
-:where(select[multiple]) {
-	background-image: none;
-}
-
-optgroup > legend {
-	padding: var(--s-option-padding-block) var(--s-option-padding-inline);
-	font-weight: bold;
-}
-
-:where(select:has(> button)) {
-	appearance: base-select;
-	/* style the 'button' */
-
-	selectedcontent {
-		display: flex;
-		gap: var(--s-input-gap);
+	select {
+		background-size: 1rem;
+		background-image: var(--sugar-chevron);
 	}
 
-	button {
-		justify-content: start;
-		border: none;
-		padding: 0;
-
-		svg {
-			height: 1.5rem;
-			width: auto;
-		}
+	select[multiple] {
+		background-image: none;
 	}
 
-	&::picker(select) {
+	optgroup > legend {
+		padding: var(--s-option-padding-block) var(--s-option-padding-inline);
+		font-weight: bold;
+	}
+
+	select:has(> button) {
 		appearance: base-select;
-		/* style the 'listbox' */
+		/* style the 'button' */
 
-		background-color: var(--s-color-bg);
-		color: var(--s-color-fg);
-		border-radius: var(--s-input-border-radius);
-		margin-block: calc(var(--sugar-spacing-block) * 0.1);
-		box-shadow: 0 0 calc(0.75rem * var(--s-multiplier-shadow))
-			color-mix(in srgb, var(--s-color-fg) 32%, transparent);
-	}
+		selectedcontent {
+			display: flex;
+			gap: var(--s-input-gap);
+		}
 
-	&::picker-icon {
-		/* style the 'button' default chevron icon */
-		display: none;
-	}
+		button {
+			justify-content: start;
+			border: none;
+			padding: 0;
 
-	&:not(:open) {
-		/* style the 'button' when closed */
+			svg {
+				height: 1.5rem;
+				width: auto;
+			}
+		}
 
 		&::picker(select) {
-			/* style the 'listbox' when closed */
+			appearance: base-select;
+			/* style the 'listbox' */
+
+			background-color: var(--s-color-bg);
+			color: var(--s-color-fg);
+			border-radius: var(--s-input-border-radius);
+			margin-block: calc(var(--sugar-spacing-block) * 0.1);
+			box-shadow: 0 0 calc(0.75rem * var(--s-multiplier-shadow))
+				color-mix(in srgb, var(--s-color-fg) 32%, transparent);
+		}
+
+		&::picker-icon {
+			/* style the 'button' default chevron icon */
+			display: none;
+		}
+
+		/* 	&:not(:open) {
+		// style the 'button' when closed 
+
+		&::picker(select) {
+			// style the 'listbox' when closed 
 		}
 	}
 
 	&:open {
-		/* style the 'button' when open */
+		// style the 'button' when open 
 
 		&::picker(select) {
-			/* style the 'listbox' when open */
+			// style the 'listbox' when open 
 		}
 	}
-
-	& option {
-		padding: var(--s-option-padding-block) var(--s-option-padding-inline);
-		line-height: 1;
-		display: flex;
-		gap: var(--s-input-gap);
-
-		& > svg {
-			height: 1.5rem;
-			width: auto;
-		}
-
-		&:hover {
-			background-color: var(--s-color-bg-95-fg);
-		}
-
-		&::checkmark {
-			/* style the checkmark on the checked option in the listbox */
-
-			order: 1;
-			margin-left: auto;
+ */
+		& option {
+			padding: var(--s-option-padding-block) var(--s-option-padding-inline);
 			line-height: 1;
-			content: var(--sugar-icon-checkmark);
-			mix-blend-mode: difference;
-		}
+			display: flex;
+			gap: var(--s-input-gap);
 
-		&:checked {
-			background-color: var(--s-color-bg-85-fg);
-			/* style the checked option */
+			& > svg {
+				height: 1.5rem;
+				width: auto;
+			}
+
+			&:hover {
+				background-color: var(--s-color-bg-95-fg);
+			}
+
+			&::checkmark {
+				/* style the checkmark on the checked option in the listbox */
+
+				order: 1;
+				margin-left: auto;
+				line-height: 1;
+				content: var(--sugar-icon-checkmark);
+				mix-blend-mode: difference;
+			}
+
+			&:checked {
+				background-color: var(--s-color-bg-85-fg);
+				/* style the checked option */
+			}
 		}
 	}
-}
 
-:where(
 	button:not(select > button),
 	[type='button' i],
 	[type='reset' i],
 	[type='submit' i],
 	[role='button' i],
-	summary[role='button' i]
-) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--s-color-primary);
-	color: var(--s-color-primary-contrast);
-	border: var(--sugar-border-width) solid var(--s-color-primary);
-	cursor: pointer;
-	transition: background-color 0.25s;
-}
+	summary[role='button' i] {
+		display: flex;
+		align-items: center;
+		background-color: var(--s-color-primary);
+		color: var(--s-color-primary-contrast);
+		border: var(--sugar-border-width) solid var(--s-color-primary);
+		cursor: pointer;
+		transition: background-color 0.25s;
+	}
 
-:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
-		.s-outline
-	) {
-	background-color: var(--s-color-primary-contrast);
-	color: var(--s-color-primary);
-	border: var(--sugar-border-width) solid var(--s-color-primary);
-}
+	button:not(select > button),
+	[type='button' i],
+	[type='reset' i],
+	[type='submit' i],
+	[role='button' i]:not(summary) {
+		justify-content: center;
+	}
 
-:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
-		:hover
-	) {
-	background-color: var(--s-color-primary-80-fg);
-	border-color: var(--s-color-primary-80-fg);
-	color: var(--s-color-primary-contrast);
-}
+	:is(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):is(
+			.s-outline
+		) {
+		background-color: var(--s-color-primary-contrast);
+		color: var(--s-color-primary);
+		border: var(--sugar-border-width) solid var(--s-color-primary);
+	}
 
-:where(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):where(
-		.s-secondary
-	) {
-	filter: saturate(0.5);
-}
+	:is(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):is(
+			:hover
+		) {
+		background-color: var(--s-color-primary-80-fg);
+		border-color: var(--s-color-primary-80-fg);
+		color: var(--s-color-primary-contrast);
+	}
 
-/* File input */
+	:is(button, [type='button' i], [type='reset' i], [type='submit' i], [role='button' i]):is(
+			.s-secondary
+		) {
+		filter: saturate(0.5);
+	}
 
-:where([type='file' i]) {
-	padding: calc(var(--s-input-block-padding) / 2);
-	display: flex;
-	align-items: center;
-}
+	/* File input */
 
-::file-selector-button {
-	height: 100%;
-	margin-inline-end: 1rem;
-	border-radius: calc(var(--s-input-border-radius) * 0.8);
-	border: var(--sugar-border-width) solid;
-	padding-inline: var(--s-input-padding-inline);
-	line-height: 0;
-	background-color: var(--s-color-bg);
-	color: var(--s-color-fg);
-}
+	[type='file' i] {
+		padding: calc(var(--s-input-block-padding) / 2);
+		display: flex;
+		align-items: center;
+	}
 
-/* Color input */
+	::file-selector-button {
+		height: 100%;
+		margin-inline-end: 1rem;
+		border-radius: calc(var(--s-input-border-radius) * 0.8);
+		border: var(--sugar-border-width) solid;
+		padding-inline: var(--s-input-padding-inline);
+		line-height: 0;
+		background-color: var(--s-color-bg);
+		color: var(--s-color-fg);
+	}
 
-:where(input[type='color' i]) {
-	padding: calc(var(--s-input-block-padding) / 2);
-}
+	/* Color input */
 
-::-webkit-color-swatch-wrapper {
-	padding: 0;
-}
+	input[type='color' i] {
+		padding: calc(var(--s-input-block-padding) / 2);
+	}
 
-::-webkit-color-swatch {
-	border-radius: calc(var(--s-input-border-radius) * 0.8);
-}
-::-moz-color-swatch {
-	border-radius: calc(var(--s-input-border-radius) * 0.8);
-}
+	::-webkit-color-swatch-wrapper {
+		padding: 0;
+	}
 
-:where(input[type='file' i], [type='color' i]) {
-	height: calc(
-		var(--s-input-block-padding) * 2 + var(--s-line-height) * 1rem + (2 * var(--sugar-border-width))
-	);
-	box-sizing: border-box;
-}
+	::-webkit-color-swatch {
+		border-radius: calc(var(--s-input-border-radius) * 0.8);
+	}
+	::-moz-color-swatch {
+		border-radius: calc(var(--s-input-border-radius) * 0.8);
+	}
 
-:where(label) {
-	display: block;
-}
+	input[type='file' i],
+	[type='color' i] {
+		height: calc(
+			var(--s-input-block-padding) * 2 + var(--s-line-height) * 1rem +
+				(2 * var(--sugar-border-width))
+		);
+		box-sizing: border-box;
+	}
 
-:where(label) > :where(input, select, textarea, progress),
-:where(label) + :where(input, select, textarea, progress) {
-	margin-top: calc(var(--s-input-block-padding) / 3);
-}
+	label {
+		display: block;
+	}
 
-/**
+	label > :is(input, select, textarea, progress),
+	label + :is(input, select, textarea, progress) {
+		margin-top: calc(var(--s-input-block-padding) / 3);
+	}
+
+	/**
    * Progress
 
     * Add the correct vertical alignment in Chrome, Edge, and Firefox.
     */
 
-:where(progress) {
-	--sugar-progress-radius: calc(var(--sugar-progress-height) / 2);
+	progress {
+		--sugar-progress-radius: calc(var(--sugar-progress-height) / 2);
 
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	width: 100%;
-	overflow: hidden;
-	display: inline-block;
-	vertical-align: baseline;
-	height: var(--sugar-progress-height);
-	border-radius: var(--sugar-progress-radius);
-	background-color: var(--s-color-bg-85-fg-primary);
-	border: 0;
-}
-
-:where(progress)::-webkit-progress-bar {
-	background: none;
-}
-
-:where(progress):indeterminate::-moz-progress-bar {
-	background: none;
-}
-
-:where(progress)::-webkit-progress-value {
-	background-color: var(--s-color-primary);
-}
-
-:where(progress)::-moz-progress-bar {
-	background-color: var(--s-color-primary);
-}
-
-:where(progress):indeterminate {
-	background: var(--s-color-bg-85-fg-primary)
-		linear-gradient(to right, var(--s-color-primary) 20%, var(--s-color-bg-85-fg-primary) 20%)
-		left/200% no-repeat;
-	animation: progress-bar 1.3s infinite;
-}
-
-@keyframes progress-bar {
-	0% {
-		background-position: 40% 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: baseline;
+		height: var(--sugar-progress-height);
+		border-radius: var(--sugar-progress-radius);
+		background-color: var(--s-color-bg-85-fg-primary);
+		border: 0;
 	}
-	100% {
-		background-position: -100% 0;
+
+	progress::-webkit-progress-bar {
+		background: none;
 	}
-}
 
-/* Radios and checkboxes */
+	progress:indeterminate::-moz-progress-bar {
+		background: none;
+	}
 
-:where(input[type='radio'], input[type='checkbox']) {
-	appearance: none;
-	vertical-align: middle;
-	border-radius: 50%;
-	width: var(--sugar-check-radio-size);
-	height: var(--sugar-check-radio-size);
-	border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
-	transition: 0.2s all linear;
-	margin: 0;
-	margin-inline-end: var(--s-input-block-padding);
-	padding: 0;
-	cursor: pointer;
-	flex-shrink: 0;
-}
+	progress::-webkit-progress-value {
+		background-color: var(--s-color-primary);
+	}
 
-:where(label:has(input[type='radio'], input[type='checkbox'])) {
-	display: flex;
-	align-items: center;
-}
+	progress::-moz-progress-bar {
+		background-color: var(--s-color-primary);
+	}
 
-:where(input[type='radio']):checked {
-	border: var(--sugar-check-radio-border-size) solid var(--s-color-primary);
-}
+	progress:indeterminate {
+		background: var(--s-color-bg-85-fg-primary)
+			linear-gradient(to right, var(--s-color-primary) 20%, var(--s-color-bg-85-fg-primary) 20%)
+			left/200% no-repeat;
+		animation: progress-bar 1.3s infinite;
+	}
 
-:where(input[type='checkbox']:not([role='switch' i])) {
-	border-radius: var(--s-checkbox-radius);
-	display: grid;
-	place-content: center;
-}
+	@keyframes progress-bar {
+		0% {
+			background-position: 40% 0;
+		}
+		100% {
+			background-position: -100% 0;
+		}
+	}
 
-:where(input[type='checkbox']:not([role='switch' i]))::before {
-	content: '';
-	width: calc(var(--sugar-check-radio-size) / 1.6);
-	height: calc(var(--sugar-check-radio-size) / 1.6);
-	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-	transform: scale(0);
-	transform-origin: bottom left;
-	transition: 0.1s transform ease-in-out;
-	background-color: var(--s-color-primary);
-}
+	/* Radios and checkboxes */
 
-:where(input[type='checkbox']:not([role='switch' i])):checked::before {
-	transform: scale(1);
-}
+	input[type='radio'],
+	input[type='checkbox'] {
+		appearance: none;
+		vertical-align: middle;
+		border-radius: 50%;
+		width: var(--sugar-check-radio-size);
+		height: var(--sugar-check-radio-size);
+		border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
+		transition: 0.2s all linear;
+		margin: 0;
+		margin-inline-end: var(--s-input-block-padding);
+		padding: 0;
+		cursor: pointer;
+		flex-shrink: 0;
+	}
 
-:where(input[type='checkbox']):focus {
-	outline: 2px solid -webkit-focus-ring-color;
-	outline-offset: var(--s-focus-offset);
-}
+	label:has(input[type='radio'], input[type='checkbox']) {
+		display: flex;
+		align-items: center;
+	}
 
-:where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
-	padding-inline-end: var(--s-input-padding-inline);
-}
+	input[type='radio']:checked {
+		border: var(--sugar-check-radio-border-size) solid var(--s-color-primary);
+	}
 
-:where(input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week']) {
-	background-image: var(--sugar-icon-date);
-}
+	input[type='checkbox']:not([role='switch' i]) {
+		border-radius: var(--s-checkbox-radius);
+		display: grid;
+		place-content: center;
+	}
 
-:where(input[type='time']) {
-	background-image: var(--sugar-icon-time);
-}
+	input[type='checkbox']:not([role='switch' i])::before {
+		content: '';
+		width: calc(var(--sugar-check-radio-size) / 1.6);
+		height: calc(var(--sugar-check-radio-size) / 1.6);
+		clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+		transform: scale(0);
+		transform-origin: bottom left;
+		transition: 0.1s transform ease-in-out;
+		background-color: var(--s-color-primary);
+	}
 
-/* prepare inputs with black icons to be black in lightmode */
-:where(
+	input[type='checkbox']:not([role='switch' i]):checked::before {
+		transform: scale(1);
+	}
+
+	input[type='checkbox']:focus {
+		outline: 2px solid -webkit-focus-ring-color;
+		outline-offset: var(--s-focus-offset);
+	}
+
+	input[type='datetime-local'],
+	input[type='date'],
+	input[type='month'],
+	input[type='week'] {
+		padding-inline-end: var(--s-input-padding-inline);
+	}
+
+	input[type='datetime-local'],
+	input[type='date'],
+	input[type='month'],
+	input[type='week'] {
+		background-image: var(--sugar-icon-date);
+	}
+
+	input[type='time'] {
+		background-image: var(--sugar-icon-time);
+	}
+
+	/* prepare inputs with black icons to be black in lightmode */
+
 	input[type='time'],
 	input[type='datetime-local'],
 	input[type='date'],
 	input[type='month'],
 	input[type='week'],
-	select
-) {
-	background-blend-mode: difference;
-}
+	select {
+		background-blend-mode: difference;
+	}
 
-:where(input[type='search' i]) {
-	background-image: var(--sugar-icon-search);
-	-webkit-appearance: textfield; /* 1 */
-}
+	input[type='search' i] {
+		background-image: var(--sugar-icon-search);
+		-webkit-appearance: textfield; /* 1 */
+	}
 
-/**
+	/**
     * Correct the outline style in Safari.
     */
 
-_::-webkit-full-page-media,
-:where(input[type='search' i]) {
-	outline-offset: var(--s-focus-offset-negative); /* 2 */
-}
+	_::-webkit-full-page-media,
+	input[type='search' i] {
+		outline-offset: var(--s-focus-offset-negative); /* 2 */
+	}
 
-/* input button combo */
+	/* input button combo */
 
-:where(
 	:has(> input:not([type='radio'], [type='checkbox']):first-child:nth-last-child(2)):has(
-			> :where(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child:nth-child(
-					2
-				)
-		)
-) {
-	display: flex;
+			> :is(button, [type='button' i], [type='reset' i], [type='submit' i]):last-child:nth-child(2)
+		) {
+		display: flex;
 
-	:first-child {
-		border-radius: 0;
-		border-start-start-radius: var(--s-input-border-radius);
-		border-end-start-radius: var(--s-input-border-radius);
-		border-inline-end: 0;
+		:first-child {
+			border-radius: 0;
+			border-start-start-radius: var(--s-input-border-radius);
+			border-end-start-radius: var(--s-input-border-radius);
+			border-inline-end: 0;
+		}
+
+		:last-child {
+			max-width: min-content;
+			white-space: nowrap;
+			border-radius: 0;
+			border-start-end-radius: var(--s-input-border-radius);
+			border-end-end-radius: var(--s-input-border-radius);
+		}
 	}
 
-	:last-child {
-		max-width: min-content;
-		white-space: nowrap;
-		border-radius: 0;
-		border-start-end-radius: var(--s-input-border-radius);
-		border-end-end-radius: var(--s-input-border-radius);
+	/* base for unifying input indicators */
+
+	:is(
+			input[type='datetime-local'],
+			input[type='date'],
+			input[type='month'],
+			input[type='week'],
+			input[type='time']
+		)::-webkit-calendar-picker-indicator {
+		opacity: 0;
 	}
-}
 
-/* base for unifying input indicators */
-
-:where(
-		input[type='datetime-local'],
-		input[type='date'],
-		input[type='month'],
-		input[type='week'],
-		input[type='time']
-	)::-webkit-calendar-picker-indicator {
-	opacity: 0;
-}
-
-/* Avoid custom icons for mozilla as it is buggy */
-@-moz-document url-prefix() {
-	[type='date'],
-	[type='datetime-local'],
-	[type='month'],
-	[type='time'],
-	[type='week'] {
-		background-image: none !important;
+	/* Avoid custom icons for mozilla as it is buggy */
+	@-moz-document url-prefix() {
+		[type='date'],
+		[type='datetime-local'],
+		[type='month'],
+		[type='time'],
+		[type='week'] {
+			background-image: none !important;
+		}
 	}
-}
 
-/* Range slider */
+	/* Range slider */
 
-:where(input[type='range' i]) {
-	--c: var(--s-color-primary);
-	--g: 0.25rem; /* the gap */
-	--l: var(--sugar-range-height); /* line thickness*/
-	--s: var(--sugar-check-radio-size); /* thumb size*/
+	input[type='range' i] {
+		--c: var(--s-color-primary);
+		--g: 0.25rem; /* the gap */
+		--l: var(--sugar-range-height); /* line thickness*/
+		--s: var(--sugar-check-radio-size); /* thumb size*/
 
-	border-width: 0;
-	padding: 0;
-	width: 100%;
-	height: var(--s);
+		border-width: 0;
+		padding: 0;
+		width: 100%;
+		height: var(--s);
 
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	background: none;
-	cursor: pointer;
-	overflow: hidden;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: none;
+		cursor: pointer;
+		overflow: hidden;
 
-	--polygon: polygon(
-		0 calc(50% + var(--l) / 2),
-		-100vw calc(50% + var(--l) / 2),
-		-100vw calc(50% - var(--l) / 2),
-		0 calc(50% - var(--l) / 2),
-		0 0,
-		100% 0,
-		100% calc(50% - var(--l) / 2),
-		100vw calc(50% - var(--l) / 2),
-		100vw calc(50% + var(--l) / 2),
-		100% calc(50% + var(--l) / 2),
-		100% 100%,
-		0 100%
-	);
-}
-:where(input):focus-visible,
-:where(input):hover {
-	--c: var(--s-color-primary-80-fg);
-}
-:where(input):active,
-:where(input):focus-visible {
-	--_b: var(--s);
-}
+		--polygon: polygon(
+			0 calc(50% + var(--l) / 2),
+			-100vw calc(50% + var(--l) / 2),
+			-100vw calc(50% - var(--l) / 2),
+			0 calc(50% - var(--l) / 2),
+			0 0,
+			100% 0,
+			100% calc(50% - var(--l) / 2),
+			100vw calc(50% - var(--l) / 2),
+			100vw calc(50% + var(--l) / 2),
+			100% calc(50% + var(--l) / 2),
+			100% 100%,
+			0 100%
+		);
+	}
+	input:focus-visible,
+	input:hover {
+		--c: var(--s-color-primary-80-fg);
+	}
+	input:active,
+	input:focus-visible {
+		--_b: var(--s);
+	}
 
-:where(input[type='range' i])::-webkit-slider-thumb {
-	height: var(--s);
-	aspect-ratio: 1;
-	border-radius: 50%;
-	box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
-	border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0 100vw/0
-		calc(100vw + var(--g));
-	clip-path: var(--polygon);
-	-webkit-appearance: none;
-	appearance: none;
-	transition: 0.3s;
-}
+	input[type='range' i]::-webkit-slider-thumb {
+		height: var(--s);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
+		border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0
+			100vw/0 calc(100vw + var(--g));
+		clip-path: var(--polygon);
+		-webkit-appearance: none;
+		appearance: none;
+		transition: 0.3s;
+	}
 
-:where(input[type='range'])::-moz-range-thumb {
-	height: var(--s);
-	width: var(--s);
-	background: none;
-	border-radius: 50%;
-	box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
-	border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0 100vw/0
-		calc(100vw + var(--g));
-	clip-path: var(--polygon);
-	-moz-appearance: none;
-	appearance: none;
-	transition: 0.3s;
-}
+	input[type='range']::-moz-range-thumb {
+		height: var(--s);
+		width: var(--s);
+		background: none;
+		border-radius: 50%;
+		box-shadow: 0 0 0 var(--_b, var(--sugar-check-radio-border-size)) inset var(--c);
+		border-image: linear-gradient(90deg, var(--c) 50%, var(--s-color-bg-85-fg-primary) 0) 1/0
+			100vw/0 calc(100vw + var(--g));
+		clip-path: var(--polygon);
+		-moz-appearance: none;
+		appearance: none;
+		transition: 0.3s;
+	}
 
-/*
+	/*
   * Change the cursor on disabled, not-editable, or otherwise
   * inoperable elements in all browsers (opinionated).
   */
 
-:where([aria-disabled='true' i], [disabled]) {
-	cursor: not-allowed;
-}
+	[aria-disabled='true' i],
+	[disabled] {
+		cursor: not-allowed;
+	}
 
-/* Checkbox switch */
+	/* Checkbox switch */
 
-:where(input[type='checkbox' i][role='switch' i]) {
-	--dot-gap: 0.15rem;
-	--dot-size: calc(
-		var(--sugar-check-radio-size) - 2 * (var(--dot-gap) + var(--sugar-border-width-plus))
-	);
-	--switch-width: calc(var(--sugar-check-radio-size) * 2);
-	--dot-move: calc(var(--switch-width) - var(--sugar-check-radio-size));
-	height: var(--sugar-check-radio-size);
-	width: var(--switch-width);
-	border-radius: calc(var(--sugar-check-radio-size) / 2);
-	border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
-	position: relative;
-	background-color: var(--s-color-primary-contrast);
-	display: flex;
-	justify-content: left;
-}
+	input[type='checkbox' i][role='switch' i] {
+		--dot-gap: 0.15rem;
+		--dot-size: calc(
+			var(--sugar-check-radio-size) - 2 * (var(--dot-gap) + var(--sugar-border-width-plus))
+		);
+		--switch-width: calc(var(--sugar-check-radio-size) * 2);
+		--dot-move: calc(var(--switch-width) - var(--sugar-check-radio-size));
+		height: var(--sugar-check-radio-size);
+		width: var(--switch-width);
+		border-radius: calc(var(--sugar-check-radio-size) / 2);
+		border: var(--sugar-border-width-plus) solid var(--s-color-input-border);
+		position: relative;
+		background-color: var(--s-color-primary-contrast);
+		display: flex;
+		justify-content: left;
+	}
 
-:where(input[type='checkbox' i][role='switch' i])::before {
-	content: '';
-	display: block;
-	position: absolute;
-	transform: translateX(var(--dot-gap));
-	top: var(--dot-gap);
-	height: var(--dot-size);
-	width: var(--dot-size);
-	border-radius: 50%;
-	background-color: var(--s-color-primary);
-	transition:
-		transform 0.3s,
-		background-color 0.3s;
-}
+	input[type='checkbox' i][role='switch' i]::before {
+		content: '';
+		display: block;
+		position: absolute;
+		transform: translateX(var(--dot-gap));
+		top: var(--dot-gap);
+		height: var(--dot-size);
+		width: var(--dot-size);
+		border-radius: 50%;
+		background-color: var(--s-color-primary);
+		transition:
+			transform 0.3s,
+			background-color 0.3s;
+	}
 
-:where(input[type='checkbox' i][role='switch' i]:checked)::before {
-	transform: translateX(calc(var(--dot-gap) + var(--dot-move)));
-	background-color: var(--s-color-primary-contrast);
-}
+	input[type='checkbox' i][role='switch' i]:checked::before {
+		transform: translateX(calc(var(--dot-gap) + var(--dot-move)));
+		background-color: var(--s-color-primary-contrast);
+	}
 
-:where(input[type='checkbox' i][role='switch' i]:checked) {
-	background-color: var(--s-color-primary);
+	input[type='checkbox' i][role='switch' i]:checked {
+		background-color: var(--s-color-primary);
+	}
 }

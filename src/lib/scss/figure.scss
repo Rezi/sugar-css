@@ -2,13 +2,15 @@
 ========================================================================
 */
 
-:where(figure) {
-	margin: 0;
-}
+@layer sugar {
+	figure {
+		margin: 0;
+	}
 
-:where(figcaption) {
-	text-transform: uppercase;
-	color: var(--s-color-fg-65-bg);
-	font-size: 0.75rem;
-	padding-top: 0.2rem;
+	figcaption {
+		text-transform: uppercase;
+		color: var(--s-color-fg-65-bg);
+		font-size: 0.75rem;
+		padding-top: 0.2rem;
+	}
 }

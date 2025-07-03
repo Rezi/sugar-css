@@ -1,3 +1,4 @@
+@use 'sass:math';
 /* GRID
 ========================================================================
 */
@@ -5,7 +6,7 @@
 $sugar-column-width: 5rem;
 $grid-columns-count: 12;
 
-:where(*:has(> .s-grid > *)) {
+:where(*:has(> .s-grid)) {
 	/* This is a fix for negative margin-block of the grid, 
 	which could be visible when background is applied to grid's wrapper */
 	padding-block-start: 0.02px;
@@ -24,21 +25,21 @@ $grid-columns-count: 12;
 		--offset-#{$i}: initial;
 	}
 
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
 	container-type: inline-size;
 	container-name: s-grid;
 	margin: calc(var(--gap-half) * -1);
 }
 
-:where(.s-grid > *) {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax($sugar-column-width, 1fr));
-}
-
-:where(.s-grid.s-fixed > *) {
+:where(.s-grid.s-fixed) {
 	grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 }
 
-:where(.s-grid > * > *) {
+
+ 
+
+:where(.s-grid > *) {
 	--max-span: 1;
 	--span-1f: var(--span);
 	--offset-1f: var(--offset);
@@ -59,7 +60,7 @@ $grid-columns-count: 12;
 
 @for $i from 2 through $grid-columns-count {
 	@container s-grid (min-width: #{$i * $sugar-column-width}) {
-		:where(.s-grid > * > *) {
+		:where(.s-grid > *) {
 			--max-span: #{$i};
 			--span-#{$i}f: var(--span-#{$i}, var(--span-#{$i - 1}f));
 			--offset-#{$i}f: var(--offset-#{$i}, var(--offset-#{$i - 1}f));
@@ -69,3 +70,132 @@ $grid-columns-count: 12;
 		}
 	}
 }
+
+@property --_x {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+  }
+  @property --_x-divided {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+  }
+  @property --w {
+	syntax: "<integer>";
+	inherits: true;
+	initial-value: 0;
+  }
+  @property --w-divided {
+	syntax: "<integer>";
+	inherits: true;
+	initial-value: 0;
+  }
+  
+  /* 
+  The following font only includes set of numbers.
+  There are no vector designs of the the numbers,
+  each number only has set its width:
+  (0 is one unit wide; 1 is two units wide, 2 is three units wide)
+  Ligatures are added for numbers 10-20.
+  At the end numbers 0-20 are displayd as white space with width from 1 to 21.
+  
+  The font is used to set width of an element based on its text content (number 0-20) 
+  
+  font generated with https://www.glyphrstudio.com/app/ 
+  Then turned to base64 with https://www.fontsquirrel.com/tools/webfont-generator 
+  ('keep all features' needs to be turned on)
+  */
+  
+  @font-face {
+	font-family: "sugar_counter";
+	src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAM8AA8AAAAACJwAAALjAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGiQbIByBJgZgAIJaEQgKOHgLNgABNgIkA2gEIAWEdgeCBhudB8ieA27TPJKUoRNemiNt6yGhHn/kx8P/7/dtn3vfF5M0g2qzUEUzlECdxKIFlayrw0QWpX/7fk33XgqA9A85wpRUpcrUyUqyaQjC2/23imhkGUYSDqg4ooklsng1/e9/f9/4/vkX6H+QpcOtYDs2CQfSu9YyHnDj60Y7WBhoICtnYZPFRTvxB6G8QXdzsO/86ygE/Ls7V4D/1/O3ehcvOjg0sQRJEtpCxwwpkBCoW6rBHStbR0hTwC5UpV7revRAnJJwjzQEQqFAqAqPkbpHMoxVadCmx5AJc1ZsKUOaJkjDGKkbITVDpGqAVPSRsh5S0kUKHUkWCjPFSgql4rn4QKFFPsvPeL42Pv1B6ImB7t005vTVeJlP8FDq2kBA3sEWISNjiQO3RASWklwBdVVJwlXzNb4LzkTufGf3+7AAHADERgAischNQC6lcuWHh18c0ILcbYhZB8wBF0BGDV0ABUgwfBxWlHiaH+2edtLbodSbFShJsRED9Pj6wfP/d9uZ+quZVWvoVJDb+h1UJRCU+vwDuaF4B5CfF/4l0otAQkaBEsqooIoa6kAMQANNtNBGB13QA30wAEMwAoG5NAkkhMA1AIwjRxalhkSEMEdI2pbIzuhA4ZgLlJQdoGzPOyqSF1TlV1TjN1Tnd9TgD9TkT9TiL9Tmb+iq8ImeHIf4rsQXfuiTwE9pccrzS1mMXPTvgnnsoM4hj+Cerc4jg0fnYmwHGIFHrRh/ouFiHW5UjVb69eiDwyyg0xjVwutPMQ94BirUTUdHJabORpNsXZFY5x0wYdC4Cf2G1BnQZ8AwBcOYTLYn3QIGWy63dRu0MnT1IYtHYhvpZ1TEVecQGdlAkWIlSpUpV6FSlaZIilKUoxLVqEU9GtGMVrSjU36iRk2x3z0wkOrp0sDwys1sQ2e3zwmrkyiblchYHaLhBoaWI4e2cFq2OtE7sDr1O7okOVIod5kOJNeTDsnUJX0p2w2MZQAA)
+	  format("woff2");
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  :where(.s-grid.s-auto) {
+	overflow: auto;
+	position: relative;
+	--w: calc(1 / (1 - var(--_x)));
+	--w-divided: calc(1 / (1 - var(--_x-divided)));
+	timeline-scope: --cx, --cw-divided;
+	animation: x-grid linear, x-divided linear;
+	animation-timeline: --cx, --cw-divided;
+	animation-range: entry 100% exit 100%;
+  }
+  
+  :where(.s-grid.s-auto):before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	aspect-ratio: 1;
+	view-timeline: --cx inline;
+  }
+  
+  @keyframes x-grid {
+	to {
+	  --_x: 1;
+	}
+  }
+  
+  @keyframes x-divided {
+	to {
+	  --_x-divided: 1;
+	}
+  }
+  
+  :where(.s-grid.s-auto):after {
+	content: counter(span-count);
+	visibility: hidden;
+	font-family: "sugar_counter";
+	position: absolute;
+	left: 0;
+	width: max-content;
+	height: 0;
+	overflow: hidden;
+	view-timeline: --cw-divided inline;
+	font-size: 2048px;
+	user-select: none;
+  }
+  
+  :where(.s-grid.s-auto > *:last-child) {
+	/* the --total-span-count-in-grid is set to value,
+	same as the counter, but as regular integer variable, not string like counter value */
+	--total-span-count-in-grid: calc(var(--w) / var(--w-divided) - 1);
+  
+	/* --is-first-row return 1 if first row, otherwise 0 */
+	--is-first-row: clamp(
+	  0,
+	  calc(var(--max-span) - var(--total-span-count-in-grid)),
+	  1
+	);
+  
+	/* only return non zero value if we are in first row */
+	--this-row-spans: calc(var(--is-first-row) * var(--total-span-count-in-grid));
+  
+	/* How many spans are missing to the end of the row */
+	--this-row-spans-missing: calc(
+	  var(--is-first-row) * var(--max-span) - var(--this-row-spans)
+	);
+  
+	/* this span count + left offset span count + missing span count to the end */
+	--span-plus-offset-and-span-missing: calc(
+	  var(--span-plus-offset) + var(--this-row-spans-missing)
+	);
+	margin-inline-end: calc(
+	  (
+		  100% / var(--span-plus-offset-and-span-missing) *
+			var(--this-row-spans-missing)
+		) + var(--gap-half)
+	);
+	grid-column: span var(--span-plus-offset-and-span-missing);
+  }
+
+  :where(.s-grid.s-auto > *) {
+	counter-increment: span-count var(--span-plus-offset);
+  }
+  

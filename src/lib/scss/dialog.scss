@@ -2,66 +2,67 @@
 ========================================================================
 */
 
-:where(dialog) {
-	padding: 0;
-	border: none;
-	border-radius: var(--s-block-radius);
-	color: var(--s-color-text);
-}
+@layer sugar {
+	dialog {
+		padding: 0;
+		border: none;
+		border-radius: var(--s-block-radius);
+		color: var(--s-color-text);
+	}
 
-:where(dialog:not(:modal)) {
-	--padding: calc(var(--sugar-spacing-inline) / 2);
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 9;
+	dialog:not(:modal) {
+		--padding: calc(var(--sugar-spacing-inline) / 2);
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 9;
 
-	border: 1px solid var(--s-color-fg);
-}
+		border: 1px solid var(--s-color-fg);
+	}
 
-:where(dialog)::backdrop {
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
-}
+	dialog::backdrop {
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(3px);
+		-webkit-backdrop-filter: blur(3px);
+	}
 
-:where(dialog:not([open])) {
-	display: none;
-}
+	dialog:not([open]) {
+		display: none;
+	}
 
-:where(body:has(dialog:modal[open])) {
-	overflow: hidden;
-}
+	body:has(dialog:modal[open]) {
+		overflow: hidden;
+	}
 
-:where(dialog:modal > article, dialog:modal > form > article) {
-	max-width: 40rem;
-	max-height: calc(100dvh - var(--padding) * 2);
-	overflow: auto;
-}
+	dialog:modal > article,
+	dialog:modal > form > article {
+		max-width: 40rem;
+		max-height: calc(100dvh - var(--padding) * 2);
+		overflow: auto;
+	}
 
-:where(dialog > article, dialog > form > article)
-	:where(header:has(> button[aria-label]:last-child) *) {
-	margin-bottom: 0;
-}
+	:is(dialog > article, dialog > form > article) header:has(> button[aria-label]:last-child) * {
+		margin-bottom: 0;
+	}
 
-:where(dialog > article, dialog > form > article)
-	:where(header:has(> button[aria-label]:last-child)) {
-	display: flex;
-	gap: var(--s-gap-default);
-	justify-content: space-between;
-	align-items: center;
-}
+	:is(dialog > article, dialog > form > article) header:has(> button[aria-label]:last-child) {
+		display: flex;
+		gap: var(--s-gap-default);
+		justify-content: space-between;
+		align-items: center;
+	}
 
-:where(dialog > article, dialog > form > article) :where(header > button[aria-label]:last-child) {
-	--icon-size: 1.4rem;
-	padding: 0;
-	border: 0;
-	background-color: transparent;
-	background-size: cover;
-	width: var(--icon-size);
-	height: var(--icon-size);
-	background-image: var(--sugar-icon-close);
-	background-blend-mode: difference;
-	background-color: var(--s-color-bg-article-footer);
+	:is(dialog > article, dialog > form > article) header > button[aria-label]:last-child {
+		--icon-size: 1.4rem;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+		background-size: cover;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		background-image: var(--sugar-icon-close);
+		background-blend-mode: difference;
+		background-color: var(--s-color-bg-article-footer);
+	}
 }

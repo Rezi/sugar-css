@@ -2,30 +2,31 @@
 ========================================================================
 */
 
-/**
+@layer sugar {
+	/**
  * 1. Add border box sizing in all browsers (opinionated).
  * 2. Backgrounds do not repeat by default (opinionated).
  */
 
-*,
-::before,
-::after {
-	box-sizing: border-box; /* 1 */
-	background-repeat: no-repeat; /* 2 */
-}
+	*,
+	::before,
+	::after {
+		box-sizing: border-box; /* 1 */
+		background-repeat: no-repeat; /* 2 */
+	}
 
-/**
+	/**
   * 1. Add text decoration inheritance in all browsers (opinionated).
   * 2. Add vertical alignment inheritance in all browsers (opinionated).
   */
 
-::before,
-::after {
-	text-decoration: inherit; /* 1 */
-	vertical-align: inherit; /* 2 */
-}
+	::before,
+	::after {
+		text-decoration: inherit; /* 1 */
+		vertical-align: inherit; /* 2 */
+	}
 
-/**
+	/**
    * 1. Use the default cursor in all browsers (opinionated).
    * 2. Change the line height in all browsers (opinionated).
    * 3. Breaks words to prevent overflow in all browsers (opinionated).
@@ -34,77 +35,88 @@
    * 6. Prevent adjustments of font size after orientation changes in iOS.
    */
 
-:where(:root) {
-	cursor: default; /* 1 */
-	line-height: var(--s-line-height); /* 2 */
-	overflow-wrap: break-word; /* 3 */
-	-moz-tab-size: 4; /* 4 */
-	tab-size: 4; /* 4 */
-	-webkit-tap-highlight-color: transparent; /* 5 */
-	-webkit-text-size-adjust: 100%; /* 6 */
-	text-size-adjust: 100%; /* 6 */
-}
+	:root {
+		cursor: default; /* 1 */
+		line-height: var(--s-line-height); /* 2 */
+		overflow-wrap: break-word; /* 3 */
+		-moz-tab-size: 4; /* 4 */
+		tab-size: 4; /* 4 */
+		-webkit-tap-highlight-color: transparent; /* 5 */
+		-webkit-text-size-adjust: 100%; /* 6 */
+		text-size-adjust: 100%; /* 6 */
+	}
 
-/**
+	/**
   * Remove the margin in all browsers (opinionated).
   */
 
-:where(body) {
-	margin: 0;
-	color: var(--s-color-text);
-	background-color: var(--s-color-bg);
-}
+	body {
+		margin: 0;
+		color: var(--s-color-text);
+		background-color: var(--s-color-bg);
+	}
 
-:where(p) {
-	text-wrap: pretty;
-}
+	p {
+		text-wrap: pretty;
+	}
 
-/**
+	/**
  * Restrict sizing to the page width in all browsers (opinionated).
  */
 
-:where(iframe, img, input, video, select, textarea) {
-	height: auto;
-	max-width: 100%;
-}
+	iframe,
+	img,
+	input,
+	video,
+	select,
+	textarea {
+		height: auto;
+		max-width: 100%;
+	}
 
-/*
+	/*
   * Change the display on visually hidden accessible elements
   * in all browsers (opinionated).
   */
 
-:where([aria-hidden='false' i][hidden]) {
-	display: initial;
-}
+	[aria-hidden='false' i][hidden] {
+		display: initial;
+	}
 
-:where([aria-hidden='false' i][hidden]:not(:focus)) {
-	clip: rect(0, 0, 0, 0);
-	position: absolute;
-}
+	[aria-hidden='false' i][hidden]:not(:focus) {
+		clip: rect(0, 0, 0, 0);
+		position: absolute;
+	}
 
-/* Embedded content
+	/* Embedded content
   * ========================================================================== */
 
-/*
+	/*
   * Change the alignment on media elements in all browsers (opinionated).
   */
 
-:where(audio, canvas, iframe, img, svg, video) {
-	vertical-align: middle;
-}
+	audio,
+	canvas,
+	iframe,
+	img,
+	svg,
+	video {
+		vertical-align: middle;
+	}
 
-/**
+	/**
   * Remove the border on iframes in all browsers (opinionated).
   */
 
-:where(iframe) {
-	border-style: none;
-}
+	iframe {
+		border-style: none;
+	}
 
-/**
+	/**
   * Change the fill color to match the text color in all browsers (opinionated).
   */
 
-:where(svg:not([fill])) {
-	fill: currentColor;
+	svg:not([fill]) {
+		fill: currentColor;
+	}
 }
