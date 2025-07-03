@@ -13,7 +13,7 @@
 		padding-block-start: 0.02px;
 	}
 
-	:where(.s-grid) {
+	.s-grid {
 		--span: 1;
 		--offset: 0;
 		--gap: var(--s-gap-default);
@@ -33,11 +33,11 @@
 		margin: calc(var(--gap-half) * -1);
 	}
 
-	:where(.s-grid.s-fixed) {
+	.s-grid.s-fixed {
 		grid-template-columns: repeat(auto-fill, minmax($sugar-column-width, 1fr));
 	}
 
-	:where(.s-grid > *) {
+	.s-grid > * {
 		--max-span: 1;
 		--span-1f: var(--span);
 		--offset-1f: var(--offset);
@@ -52,13 +52,13 @@
 		padding: var(--padding);
 	}
 
-	:where(.s-grid:has(+ .s-grid)) {
+	.s-grid:has(+ .s-grid) {
 		margin-bottom: calc(var(--gap) / 2);
 	}
 
 	@for $i from 2 through $grid-columns-count {
 		@container s-grid (min-width: #{$i * $sugar-column-width}) {
-			:where(.s-grid > *) {
+			.s-grid > * {
 				--max-span: #{$i};
 				--span-#{$i}f: var(--span-#{$i}, var(--span-#{$i - 1}f));
 				--offset-#{$i}f: var(--offset-#{$i}, var(--offset-#{$i - 1}f));
@@ -96,7 +96,7 @@
   each number only has set its width:
   (0 is one unit wide; 1 is two units wide, 2 is three units wide)
   Ligatures are added for numbers 10-20.
-  At the end numbers 0-20 are displayd as white space with width from 1 to 21.
+  At the end numbers 0-20 are displayed as white space with width from 1 to 21.
   
   The font is used to set width of an element based on its text content (number 0-20) 
   
@@ -113,12 +113,13 @@
 		font-style: normal;
 	}
 
-	:where(.s-grid.s-auto) {
+	.s-grid.s-auto {
 		overflow: auto;
 		position: relative;
 		--w: calc(1 / (1 - var(--_x)));
 		--w-divided: calc(1 / (1 - var(--_x-divided)));
 		timeline-scope: --cx, --cw-divided;
+		counter-reset: span-count 0;
 		animation:
 			x-grid linear,
 			x-divided linear;
@@ -126,7 +127,7 @@
 		animation-range: entry 100% exit 100%;
 	}
 
-	:where(.s-grid.s-auto):before {
+	.s-grid.s-auto:before {
 		content: '';
 		position: absolute;
 		left: 0;
@@ -148,21 +149,28 @@
 		}
 	}
 
-	:where(.s-grid.s-auto):after {
+	.s-grid.s-auto:after {
 		content: counter(span-count);
 		visibility: hidden;
 		font-family: 'sugar_counter';
 		position: absolute;
 		left: 0;
 		width: max-content;
-		height: 0;
+		height: 1px;
 		overflow: hidden;
 		view-timeline: --cw-divided inline;
 		font-size: 2048px;
 		user-select: none;
 	}
 
-	:where(.s-grid.s-auto > *:last-child) {
+	.s-grid.s-auto > *:last-child:after {
+		/* This is needed to avoid safari bug with counter. 
+		Counter needs to be used in children's :after to materialize the counter-increase */
+		content: counter(span-count);
+		visibility: hidden;
+	}
+
+	.s-grid.s-auto > *:last-child {
 		/* the --total-span-count-in-grid is set to value,
 	same as the counter, but as regular integer variable, not string like counter value */
 		--total-span-count-in-grid: calc(var(--w) / var(--w-divided) - 1);
@@ -187,7 +195,7 @@
 		grid-column: span var(--span-plus-offset-and-span-missing);
 	}
 
-	:where(.s-grid.s-auto > *) {
+	.s-grid.s-auto > * {
 		counter-increment: span-count var(--span-plus-offset);
 	}
 }
